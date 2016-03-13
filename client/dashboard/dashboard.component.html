@@ -1,0 +1,9 @@
+<h3>Top Heroes<h3>
+<div class="grid grid-pad">
+  <div *ngFor="#hero of heroes">
+    <button style="margin-bottom:20px;" (click)="goToDetail(hero)" raised>
+      {{hero.name}}
+    </button>
+    <a href="tel:330-607-5679">Call me</a>
+  </div>
+</div>

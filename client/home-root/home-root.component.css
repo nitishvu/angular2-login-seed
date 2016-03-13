@@ -1,0 +1,20 @@
+h2 {
+  color:grey
+}
+
+.repeat-fade-in {
+  display: block;
+  margin: 10px 0;
+  animation: fadein 1s cubic-bezier(.27, 1.12, .49, .98);
+}
+
+@keyframes fadein {
+  from {
+    margin-left:40px;
+    opacity:0;
+  }
+  to {
+    margin-left:0;
+    opacity:1;
+  }
+}

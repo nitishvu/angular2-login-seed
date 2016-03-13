@@ -1,0 +1,11 @@
+<h2>{{title}}</h2>
+
+<div style="margin:0 auto; max-width:400px;">
+  <quick-card *ngFor="#user of users"
+            class="repeat-fade-in"
+            (click)="onSelect(user)"
+            [selected]="user === selectedUser"
+            [name]="user.name"
+            [img]="user.profile_picture">
+  </quick-card>
+</div>

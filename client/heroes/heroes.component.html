@@ -1,0 +1,18 @@
+<h2>{{title}}</h2>
+
+<div *ngIf="selectedHero" class="expand">
+  <h2>
+    {{selectedHero.name | uppercase}} is my hero
+  </h2>
+  <button (click)="goToDetail()">View Details</button>
+</div>
+
+<div style="margin:0 auto; max-width:400px;">
+  <quick-card *ngFor="#hero of heroes"
+            class="repeat-fade-in"
+            (click)="onSelect(hero)"
+            [selected]="hero === selectedHero"
+            [name]="hero.name"
+            [img]="'https://randomuser.me/api/portraits/med/women/76.jpg'">
+  </quick-card>
+</div>

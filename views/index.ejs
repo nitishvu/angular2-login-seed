@@ -1,0 +1,64 @@
+<html>
+  <head>
+  <base href="/">
+    <title>Angular2 Login Seed</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- 1. Load libraries -->
+    <!-- IE required polyfills, in this exact order -->
+    
+
+    <script src="../node_modules/es6-shim/es6-shim.min.js"></script>
+    <script src="../node_modules/systemjs/dist/system-polyfills.js"></script>
+
+    <script src="../node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="../node_modules/systemjs/dist/system.src.js"></script>
+    <script src="../node_modules/rxjs/bundles/Rx.js"></script>
+    <script src="../node_modules/angular2/bundles/angular2.dev.js"></script>
+    <script src="../node_modules/angular2/bundles/router.dev.js"></script>
+    <script src="../node_modules/angular2/bundles/http.dev.js"></script>
+    <script src="../node_modules/rxjs/bundles/Rx.js"></script>
+
+    <script src="../client/assets/bower_components/webcomponentsjs/webcomponents.js"></script>
+
+    <!-- Polymer Script -->
+    <!-- Must come before any Polymer imports -->
+    <script>
+        window.Polymer = window.Polymer || {};
+        window.Polymer.dom = 'shadow';
+    </script>
+
+    <!-- Import Polymer components that will be used in Angular 2 Templates -->
+    <link rel="import" href="../client/assets/custom_components/page-shell/page-shell.html">
+    <link rel="import" href="../client/assets/custom_components/sidebar-item/sidebar-item.html">
+    <link rel="import" href="../client/assets/bower_components/paper-card/paper-card.html">
+
+    <!-- 2. Configure SystemJS -->
+    <script>
+      System.config({
+        packages: {        
+          'client/': {
+            format: 'register',
+            defaultExtension: 'js'
+          }
+        }
+      });
+      System.import('../client/main').then(null, console.error.bind(console));
+    </script>
+    
+    <style>
+      html, body {
+        padding:0;
+        margin:0;
+      }
+    </style>
+
+  </head>
+
+  <!-- 3. Display the application -->
+  <body fullbleed unresolved>
+      <my-app>
+      </my-app>
+  </body>
+
+</html>

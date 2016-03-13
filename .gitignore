@@ -1,0 +1,11 @@
+# Mac OS X
+.DS_Store
+
+# Annoying tilde backup files
+*~
+
+.vscode
+*.log
+#config
+node_modules
+client/assets/bower_components

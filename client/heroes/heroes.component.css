@@ -1,0 +1,13 @@
+.expand {
+  height: 100px;
+  animation: expand 1s cubic-bezier(.27, 1.12, .49, .98);
+}
+
+@keyframes expand {
+    from {
+        height:0;
+    }
+    to {
+        
+    }
+}
