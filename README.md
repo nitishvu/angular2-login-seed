@@ -240,7 +240,9 @@ The goal is here is to keep as flat of a directory structure as possible for all
 
 
 ## Contributing
-Angular 2 is very new and in beta as I write, there are few established design practices for using it with other front end libraries such as Polymer 1.0. Please feel free to contribute to this project to help build better define practices we can use to build larger Angular 2 web applications. PRs are welcome!
+Angular 2 is very new and in beta as I write. There are very few established design practices for using it with other front end libraries such as
+Polymer 1.0. Please feel free to contribute to this project to help build more defined practices we can use in larger Angular 2 web
+applications. PRs are welcome!
 
 ## Todo
  1. Unit testing
