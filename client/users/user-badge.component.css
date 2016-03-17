@@ -1,5 +1,6 @@
 .selected {
   background-color: #546E7A;
+  background-color: #3F51E0;
   color: white;
 }
 
@@ -51,5 +52,6 @@ paper-card div.card-content p.name {
 
 paper-card div.card-content paper-button {
   background-color:#546E7A;
+  background-color: #3F51E0;
   color:white;
 }
