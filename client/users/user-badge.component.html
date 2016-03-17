@@ -1,0 +1,26 @@
+<!--<paper-card [class.selected]="selected">
+  <div class="card-content">
+    <img src="{{img}}">
+    <span>{{name}}</span>
+  </div>
+</paper-card>-->
+
+
+<paper-card [class.selected]="selected">
+  <img class="profile-picture" src="{{img}}">
+  <div class="header">
+    <img class="header-image" src="http://www.demilked.com/magazine/wp-content/uploads/2014/06/nordic-landscape-nature-photography-iceland-2.jpg">
+  </div>
+  <div class="card-content">
+    <p class="name">{{name}}</p>
+    <paper-button raised [class.selected-contrast]="selected">Add Friend</paper-button>
+    <paper-button raised [class.selected-contrast]="selected">Profile</paper-button>
+    </div>
+</paper-card>
+
+
+
+<!--paper-card::shadow #shadow .header .title-text {
+    display: flex;
+    justify-content: center;
+}-->

@@ -1,4 +1,4 @@
-import { Injectable } from 'angular2/core'; // because we want to be able to inject our hero service
+import { Injectable } from 'angular2/core';
 import { Http, Response } from 'angular2/http';
 import { Observable }     from 'rxjs/Observable';
 import 'rxjs/Rx';

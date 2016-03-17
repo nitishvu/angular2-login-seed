@@ -1,4 +1,4 @@
-System.register(['angular2/core', '../shared/services/user/user.service', '../shared/components/quick-card/quick-card.component'], function(exports_1, context_1) {
+System.register(['angular2/core', '../shared/services/user/user.service', './user-badge.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', '../shared/services/user/user.service', '../sh
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, user_service_1, quick_card_component_1;
+    var core_1, user_service_1, user_badge_component_1;
     var UsersComponent;
     return {
         setters:[
@@ -20,8 +20,8 @@ System.register(['angular2/core', '../shared/services/user/user.service', '../sh
             function (user_service_1_1) {
                 user_service_1 = user_service_1_1;
             },
-            function (quick_card_component_1_1) {
-                quick_card_component_1 = quick_card_component_1_1;
+            function (user_badge_component_1_1) {
+                user_badge_component_1 = user_badge_component_1_1;
             }],
         execute: function() {
             UsersComponent = (function () {
@@ -48,7 +48,7 @@ System.register(['angular2/core', '../shared/services/user/user.service', '../sh
                         selector: 'users',
                         templateUrl: 'client/users/users.component.html',
                         styleUrls: ['client/home-root/home-root.component.css', 'client/users/users.component.css'],
-                        directives: [quick_card_component_1.QuickCardComponent],
+                        directives: [user_badge_component_1.UserBadgeComponent],
                     }), 
                     __metadata('design:paramtypes', [user_service_1.UserService])
                 ], UsersComponent);

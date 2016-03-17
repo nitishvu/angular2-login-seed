@@ -1,0 +1,55 @@
+.selected {
+  background-color: #546E7A;
+  color: white;
+}
+
+.selected-contrast {
+  background-color: white !important;
+  color: black !important;
+}
+
+paper-card {
+  display:block;
+  width:270px;
+  height:337px;
+}
+
+paper-card img.profile-picture {
+  width:80px;
+  height:80px;
+  border:2px solid white;
+  border-radius:50%;
+  position: absolute;
+  top:50%;
+  left:50%;
+  margin-top:-40px;
+  margin-left:-40px;
+}
+
+paper-card .header {
+  width:100%;
+  height:50%;
+}
+
+paper-card img.header-image {
+  width:100%;
+  height:100%;
+}
+
+paper-card div.card-content {
+  display:block;
+  width:100%;
+  height:50%;
+  text-align: center;
+  padding:1px !important; /* collapsing margins baby */
+}
+
+paper-card div.card-content p.name {
+  font-size:22px;
+  margin:50px 0 10px 0;
+}
+
+paper-card div.card-content paper-button {
+  background-color:#546E7A;
+  color:white;
+}

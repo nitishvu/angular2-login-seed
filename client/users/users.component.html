@@ -1,11 +1,13 @@
 <h2>{{title}}</h2>
 
-<div style="margin:0 auto; max-width:400px;">
-  <quick-card *ngFor="#user of users"
-            class="repeat-fade-in"
+<div class="body">
+  
+  <div class="repeat repeat-fade-in" *ngFor="#user of users">
+    <user-badge
             (click)="onSelect(user)"
             [selected]="user === selectedUser"
             [name]="user.name"
             [img]="user.profile_picture">
-  </quick-card>
+    </user-badge>
+  </div>
 </div>

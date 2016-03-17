@@ -2,13 +2,13 @@ import { Component, OnInit } from 'angular2/core';
 
 import { User } from '../shared/services/user/user';
 import { UserService } from '../shared/services/user/user.service';
-import { QuickCardComponent } from '../shared/components/quick-card/quick-card.component';
+import { UserBadgeComponent } from './user-badge.component';
 
 @Component({
     selector: 'users',
     templateUrl: 'client/users/users.component.html',
     styleUrls: ['client/home-root/home-root.component.css', 'client/users/users.component.css'],
-    directives: [QuickCardComponent],
+    directives: [UserBadgeComponent],
 })
 
 export class UsersComponent implements OnInit {
