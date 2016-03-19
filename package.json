@@ -25,8 +25,8 @@
     "cookie-parser": "^1.4.1",
     "debug": "~2.2.0",
     "ejs": "^2.4.1",
-    "es6-promise": "^3.1.2",
-    "es6-shim": "^0.33.3",
+    "es6-promise": "^3.0.2",
+    "es6-shim": "^0.35.0",
     "express": "~4.13.1",
     "express-session": "^1.13.0",
     "morgan": "^1.7.0",
@@ -41,7 +41,9 @@
     "serve-favicon": "~2.3.0",
     "systemjs": "^0.19.24",
     "typings": "^0.7.9",
-    "zone.js": "^0.5.15"
+    "zone.js": "^0.6.4"
+    
+    
   },
   "devDependencies": {
     "typescript": "^1.8.7",
