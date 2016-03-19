@@ -15,7 +15,7 @@ export class UserService {
   private _baseUrl = '/api/users';
 
   getUsers() {
-    return this.http.get(this._baseUrl)
+    return this.http.get(this._baseUrl + "?offset=5")
                   .toPromise()
                   .then(res => <User[]> res.json(), this.handleError)
                   .then(data => { console.log(data); return data; }); // eyeball results in the console

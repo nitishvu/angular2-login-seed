@@ -31,7 +31,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable', 'rxjs/Rx']
                     this._baseUrl = '/api/users';
                 }
                 UserService.prototype.getUsers = function () {
-                    return this.http.get(this._baseUrl)
+                    return this.http.get(this._baseUrl + "?offset=5")
                         .toPromise()
                         .then(function (res) { return res.json(); }, this.handleError)
                         .then(function (data) { console.log(data); return data; }); // eyeball results in the console
