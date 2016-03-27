@@ -68,23 +68,15 @@ router.get('/', authenticationHelpers.isAuth, function(request, response) {
 });
 
 // /users/:id
+var getUserPublicController = require('../../controllers').getUserPublic;
 router.get('/:id', authenticationHelpers.isAuth, function(request, response) {
-  models.User.findAll({
-    where: {
-      id: request.params.id
-    }
-  }).then(function(user) {
-    user = {
-      "name": user[0].name,
-      "username": user[0].username,
-      "profile_picture": user[0].profile_picture,
-      "last_active": user[0].last_active
-    }
+  
+  getUserPublicController(request.params.id).then(function(user) {
     response.json(user);
   }).catch(function(error) {
-    console.log(error);
     response.json(error);
   });
+
 });
 
 module.exports = router;
