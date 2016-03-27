@@ -23,46 +23,15 @@ router.get('/me', authenticationHelpers.isAuth, function(req, res, next) {
 });
 
 // /users
+var getAllUsersPublicController = require('../../controllers').getAllUsersPublic;
 router.get('/', authenticationHelpers.isAuth, function(request, response) {
-  /**
-   * Get user count and then calculate our
-   * offset as the count - offset
-   */
-  return models.User.count().then(function(count) {
-    var offset = request.query.offset || count;
-    /**
-     * Get the last 'offset' users
-     * in the database.
-     * TODO: Make this a cleaner implementation *temporary* 
-     */
-      models.User.findAll({
-        offset: count-offset
-      }).then(function(users) {
-        var returnUsers = [];
-        /**
-         * Prune users object for public display
-         * TODO: break this out to some sort of data logic utility
-         * function for seamless reusability
-         */
-        users.forEach(function(user, i) {
-          user = {
-            "name": user.name.split(" ")[0],
-            "username": user.username,
-            "profile_picture": user.profile_picture,
-            "last_active": user.last_active
-          }
-          returnUsers.push(user);
-        });
-    
-        response.json(returnUsers); // set response
-      
-      }).catch(function(error) {
-        console.log(error);
-        response.json(error);
-      });
-  
+  var offset = request.query.offset || 0;
+  var limit = request.query.limit || 50;
+  var desc = request.query.desc || false;
+  getAllUsersPublicController(offset, limit, desc).then(function(users) {
+    response.json(users);
   }).catch(function(error) {
-      
+    console.log(error);
   });
 
 });
