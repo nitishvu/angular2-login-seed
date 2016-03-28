@@ -12,7 +12,7 @@ module.exports = Promise.method(function getAllUsersPublic(offset, limit, desc) 
         "username": users[i].username,
         "profile_picture": users[i].profile_picture,
         "last_active": users[i].last_active
-      }; 
+      };
     }
     console.log(users);
     return users;
