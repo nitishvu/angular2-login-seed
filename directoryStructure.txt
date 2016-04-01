@@ -120,17 +120,6 @@
 │   ├─authenticationHelpers.js
 │   ├─index.js
 ├─tsconfig.json
-├─typings
-│   ├─browser
-│   │   ├─ambient
-│   │   │   ├─es6-shim
-│   │   │   │   ├─es6-shim.d.ts
-│   ├─browser.d.ts
-│   ├─main
-│   │   ├─ambient
-│   │   │   ├─es6-shim
-│   │   │   │   ├─es6-shim.d.ts
-│   ├─main.d.ts
 ├─typings.json
 ├─views
 │   ├─error.ejs

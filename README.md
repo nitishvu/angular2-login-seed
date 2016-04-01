@@ -229,22 +229,12 @@ The goal is here is to keep as flat of a directory structure as possible for all
 │   ├─authenticationHelpers.js
 │   ├─index.js
 ├─tsconfig.json
-├─typings
-│   ├─browser
-│   │   ├─ambient
-│   │   │   ├─es6-shim
-│   │   │   │   ├─es6-shim.d.ts
-│   ├─browser.d.ts
-│   ├─main
-│   │   ├─ambient
-│   │   │   ├─es6-shim
-│   │   │   │   ├─es6-shim.d.ts
-│   ├─main.d.ts
 ├─typings.json
 ├─views
 │   ├─error.ejs
 │   ├─index.ejs
 │   ├─login.ejs
+
 
 ```
 
