@@ -108,133 +108,133 @@ The goal is here is to keep as flat of a directory structure as possible for all
 
 ```
 .
-├─routes
-│   ├─api
-│   │   ├─users.js
-│   │   ├─index.js
-│   ├─authenticationHelpers.js
-│   ├─index.js
+├─.bowerrc
+├─.gitignore
+├─app-component-tree.png
+├─app.js
+├─bin
+│   ├─www
+├─bower.json
 ├─client
-│   ├─login
-│   │   ├─login.component.css
-│   │   ├─login.component.js.map
-│   │   ├─login.component.js
-│   │   ├─login.component.html
-│   │   ├─login.component.ts
+│   ├─app
+│   │   ├─app.component.css
+│   │   ├─app.component.html
+│   │   ├─app.component.js
+│   │   ├─app.component.js.map
+│   │   ├─app.component.ts
+│   ├─assets
+│   │   ├─custom_components
+│   │   │   ├─page-shell
+│   │   │   │   ├─page-shell.html
+│   │   │   ├─sidebar-item
+│   │   │   │   ├─sidebar-item.html
+│   │   ├─favicon.ico
+│   │   ├─img
+│   │   │   ├─background.jpg
+│   │   │   ├─bg.png
+│   │   │   ├─menu_bg.jpg
+│   ├─dashboard
+│   │   ├─dashboard.component.html
+│   │   ├─dashboard.component.js
+│   │   ├─dashboard.component.js.map
+│   │   ├─dashboard.component.ts
+│   ├─hero-detail
+│   │   ├─hero-detail.component.css
+│   │   ├─hero-detail.component.html
+│   │   ├─hero-detail.component.js
+│   │   ├─hero-detail.component.js.map
+│   │   ├─hero-detail.component.ts
 │   ├─heroes
-│   │   ├─heroes.component.js.map
-│   │   ├─heroes.component.js
-│   │   ├─heroes.component.ts
 │   │   ├─heroes.component.css
 │   │   ├─heroes.component.html
-│   ├─app
-│   │   ├─app.component.js
-│   │   ├─app.component.css
-│   │   ├─app.component.ts
-│   │   ├─app.component.html
-│   │   ├─app.component.js.map
+│   │   ├─heroes.component.js
+│   │   ├─heroes.component.js.map
+│   │   ├─heroes.component.ts
+│   ├─home-root
+│   │   ├─home-root.component.css
+│   │   ├─home-root.component.html
+│   │   ├─home-root.component.js
+│   │   ├─home-root.component.js.map
+│   │   ├─home-root.component.ts
+│   ├─login
+│   │   ├─login.component.css
+│   │   ├─login.component.html
+│   │   ├─login.component.js
+│   │   ├─login.component.js.map
+│   │   ├─login.component.ts
+│   ├─main.js
 │   ├─main.js.map
+│   ├─main.ts
 │   ├─map
-│   │   ├─map.component.ts
 │   │   ├─map.component.html
 │   │   ├─map.component.js
 │   │   ├─map.component.js.map
-│   ├─home-root
-│   │   ├─home-root.component.css
-│   │   ├─home-root.component.js.map
-│   │   ├─home-root.component.js
-│   │   ├─home-root.component.html
-│   │   ├─home-root.component.ts
-│   ├─hero-detail
-│   │   ├─hero-detail.component.js.map
-│   │   ├─hero-detail.component.html
-│   │   ├─hero-detail.component.css
-│   │   ├─hero-detail.component.js
-│   │   ├─hero-detail.component.ts
-│   ├─users
-│   │   ├─users.component.css
-│   │   ├─users.component.ts
-│   │   ├─users.component.js.map
-│   │   ├─users.component.js
-│   │   ├─users.component.html
-│   ├─dashboard
-│   │   ├─dashboard.component.html
-│   │   ├─dashboard.component.ts
-│   │   ├─dashboard.component.js.map
-│   │   ├─dashboard.component.js
+│   │   ├─map.component.ts
 │   ├─shared
+│   │   ├─components
+│   │   │   ├─quick-card
+│   │   │   │   ├─quick-card.component.css
+│   │   │   │   ├─quick-card.component.html
+│   │   │   │   ├─quick-card.component.js
+│   │   │   │   ├─quick-card.component.js.map
+│   │   │   │   ├─quick-card.component.ts
 │   │   ├─services
 │   │   │   ├─hero
+│   │   │   │   ├─hero.js
+│   │   │   │   ├─hero.js.map
+│   │   │   │   ├─hero.service.js
 │   │   │   │   ├─hero.service.js.map
 │   │   │   │   ├─hero.service.ts
-│   │   │   │   ├─hero.service.js
-│   │   │   │   ├─hero.js.map
-│   │   │   │   ├─hero.js
 │   │   │   │   ├─hero.ts
 │   │   │   ├─user
 │   │   │   │   ├─user.js
-│   │   │   │   ├─user.service.ts
-│   │   │   │   ├─user.service.js.map
-│   │   │   │   ├─user.ts
 │   │   │   │   ├─user.js.map
 │   │   │   │   ├─user.service.js
-│   │   ├─components
-│   │   │   ├─quick-card
-│   │   │   │   ├─quick-card.component.js
-│   │   │   │   ├─quick-card.component.html
-│   │   │   │   ├─quick-card.component.ts
-│   │   │   │   ├─quick-card.component.js.map
-│   │   │   │   ├─quick-card.component.css
-│   ├─main.js
-│   ├─main.ts
-│   ├─assets
-│   │   ├─favicon.ico
-│   │   ├─custom_components
-│   │   │   ├─sidebar-item
-│   │   │   │   ├─sidebar-item.html
-│   │   │   ├─page-shell
-│   │   │   │   ├─page-shell.html
-│   │   ├─img
-│   │   │   ├─menu_bg.jpg
-│   │   │   ├─bg.png
-│   │   │   ├─background.jpg
-├─Procfile
-├─app.js
-├─views
-│   ├─index.ejs
-│   ├─error.ejs
-│   ├─login.ejs
-├─logo.png
-├─app-component-tree.png
-├─models
-│   ├─user.js
-│   ├─index.js
-├─.bowerrc
+│   │   │   │   ├─user.service.js.map
+│   │   │   │   ├─user.service.ts
+│   │   │   │   ├─user.ts
+│   ├─users
+│   │   ├─user-badge.component.css
+│   │   ├─user-badge.component.html
+│   │   ├─user-badge.component.js
+│   │   ├─user-badge.component.js.map
+│   │   ├─user-badge.component.ts
+│   │   ├─users.component.css
+│   │   ├─users.component.html
+│   │   ├─users.component.js
+│   │   ├─users.component.js.map
+│   │   ├─users.component.ts
 ├─config
 │   ├─default.json
-│   ├─production.json
 │   ├─passport.js
-├─bower.json
-├─bin
-│   ├─www
-├─package.json
-├─.gitignore
-├─typings
-│   ├─browser.d.ts
-│   ├─browser
-│   │   ├─ambient
-│   │   │   ├─es6-shim
-│   │   │   │   ├─es6-shim.d.ts
-│   ├─main.d.ts
-│   ├─main
-│   │   ├─ambient
-│   │   │   ├─es6-shim
-│   │   │   │   ├─es6-shim.d.ts
-├─typings.json
-├─tsconfig.json
-├─LICENSE
+│   ├─production.json
+├─controllers
+│   ├─getAllUsersPublic.js
+│   ├─getUserPublic.js
+│   ├─index.js
 ├─dbStructure.sql
+├─directoryStructure.txt
+├─LICENSE
+├─logo.png
+├─models
+│   ├─index.js
+│   ├─user.js
+├─package.json
+├─Procfile
 ├─README.md
+├─routes
+│   ├─api
+│   │   ├─index.js
+│   │   ├─users.js
+│   ├─authenticationHelpers.js
+│   ├─index.js
+├─tsconfig.json
+├─typings.json
+├─views
+│   ├─error.ejs
+│   ├─index.ejs
+│   ├─login.ejs
+
 
 ```
 
