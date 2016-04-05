@@ -3,6 +3,33 @@ h2 {
   color: #3F51E0;
 }
 
+/* Remove this when md-toolbar becomes fixed by default */
+md-toolbar {
+  position:fixed;
+  z-index:1;
+}
+
+article {
+  padding-top:60px;
+}
+
+md-card {
+  width:300px;
+  margin:10px auto;
+  text-align: center;
+}
+
+button {
+  margin-left:10px;
+}
+
+img.profile-picture {
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  border:2px solid lawngreen;
+}
+
 .repeat-fade-in {
   animation: fadein 1s cubic-bezier(.27, 1.12, .49, .98);
 }

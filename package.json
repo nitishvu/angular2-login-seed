@@ -21,6 +21,7 @@
     "@angular2-material/core": "^2.0.0-alpha.1",
     "@angular2-material/button": "^2.0.0-alpha.1",
     "@angular2-material/toolbar": "^2.0.0-alpha.1",
+    "@angular2-material/card": "^2.0.0-alpha.1",
     "bluebird": "^3.3.4",
     "body-parser": "^1.15.0",
     "bower": "^1.7.7",

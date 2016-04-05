@@ -1,10 +1,24 @@
-<page-shell name="{{name}}" username="{{username}}" profilePic="{{profile_picture}}">
-  <sidebar-item [routerLink]="['Users']"       label="Users"></sidebar-item>
-  <sidebar-item [routerLink]="['Heroes']"       label="Heroes"></sidebar-item>
-  <sidebar-item [routerLink]="['MapComponent']" label="Map"></sidebar-item>
-  <sidebar-item onclick="window.location = '/logout'" label="Logout"></sidebar-item>
+<md-toolbar color="primary">
+  angular2-login-seed
+  <span class="app-toolbar-filler">
+  </span>
+</md-toolbar>
+
+<article>
   <h1>{{title}}</h1>
+
+  <button md-raised-button color="" [routerLink]="['Users']">Users</button>
+  <button md-raised-button color="" [routerLink]="['Heroes']">Heroes</button>
+  <button md-raised-button color="" [routerLink]="['MapComponent']">Map</button>
+  <button md-raised-button color="accent" onclick="window.location = '/logout'">Logout</button>
+
+  <md-card>
+    <p>{{name}}</p>
+    <p>{{username}}</p>
+    <img class="profile-picture" src="{{profile_picture}}" alt="">
+  </md-card>
+
   <div class="content">
     <router-outlet></router-outlet>
   </div>
-</page-shell>
+</article>

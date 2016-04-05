@@ -1,4 +1,7 @@
 import { Component, OnInit } from 'angular2/core';
+import { MdToolbar } from '@angular2-material/toolbar';
+import { MdButton } from '@angular2-material/button';
+import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
 import { NgForm }    from 'angular2/common';
 import { HTTP_PROVIDERS } from 'angular2/http';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
@@ -17,7 +20,7 @@ import { MapComponent } from '../map/map.component';
     selector: 'home-root',
     templateUrl: 'client/home-root/home-root.component.html',
     styleUrls: ['client/home-root/home-root.component.css'],
-    directives: [ROUTER_DIRECTIVES],
+    directives: [ROUTER_DIRECTIVES, MdToolbar, MdButton, MD_CARD_DIRECTIVES],
     providers: [UserService, HeroService, HTTP_PROVIDERS]
 })
 

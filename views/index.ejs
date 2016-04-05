@@ -28,18 +28,36 @@
         window.Polymer.dom = 'shadow';
     </script>
 
-    <!-- Import Polymer components that will be used in Angular 2 Templates -->
-    <link rel="import" href="../client/assets/custom_components/page-shell/page-shell.html">
-    <link rel="import" href="../client/assets/custom_components/sidebar-item/sidebar-item.html">
-    <link rel="import" href="../client/assets/bower_components/paper-card/paper-card.html">
-
     <!-- 2. Configure SystemJS -->
     <script>
       System.config({
-        packages: {        
+        map: {
+          "@angular2-material": "../node_modules/@angular2-material"
+        },
+        packages: {
           'client/': {
             format: 'register',
             defaultExtension: 'js'
+          },
+          '@angular2-material/core': {
+            format: 'cjs',
+            defaultExtension: 'js',
+            main: 'core.js'
+          },
+          '@angular2-material/button': {
+            format: 'cjs',
+            defaultExtension: 'js',
+            main: 'button.js'
+          },
+          '@angular2-material/toolbar': {
+            format: 'cjs',
+            defaultExtension: 'js',
+            main: 'toolbar.js'
+          },
+          '@angular2-material/card': {
+            format: 'cjs',
+            defaultExtension: 'js',
+            main: 'card.js'
           }
         }
       });
@@ -50,13 +68,15 @@
       html, body {
         padding:0;
         margin:0;
+        background-color:#ececec;
+        font-family: Roboto;
       }
     </style>
 
   </head>
 
   <!-- 3. Display the application -->
-  <body fullbleed unresolved>
+  <body>
       <my-app>
       </my-app>
   </body>

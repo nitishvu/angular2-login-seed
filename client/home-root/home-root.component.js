@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/http', 'angular2/router', '../shared/services/user/user.service', '../shared/services/hero/hero.service', '../users/users.component', '../heroes/heroes.component', '../hero-detail/hero-detail.component', '../dashboard/dashboard.component', '../map/map.component'], function(exports_1, context_1) {
+System.register(['angular2/core', '@angular2-material/toolbar', '@angular2-material/button', '@angular2-material/card', 'angular2/http', 'angular2/router', '../shared/services/user/user.service', '../shared/services/hero/hero.service', '../users/users.component', '../heroes/heroes.component', '../hero-detail/hero-detail.component', '../dashboard/dashboard.component', '../map/map.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,12 +10,21 @@ System.register(['angular2/core', 'angular2/http', 'angular2/router', '../shared
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1, router_1, user_service_1, hero_service_1, users_component_1, heroes_component_1, hero_detail_component_1, dashboard_component_1, map_component_1;
+    var core_1, toolbar_1, button_1, card_1, http_1, router_1, user_service_1, hero_service_1, users_component_1, heroes_component_1, hero_detail_component_1, dashboard_component_1, map_component_1;
     var HomeRootComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (toolbar_1_1) {
+                toolbar_1 = toolbar_1_1;
+            },
+            function (button_1_1) {
+                button_1 = button_1_1;
+            },
+            function (card_1_1) {
+                card_1 = card_1_1;
             },
             function (http_1_1) {
                 http_1 = http_1_1;
@@ -67,7 +76,7 @@ System.register(['angular2/core', 'angular2/http', 'angular2/router', '../shared
                         selector: 'home-root',
                         templateUrl: 'client/home-root/home-root.component.html',
                         styleUrls: ['client/home-root/home-root.component.css'],
-                        directives: [router_1.ROUTER_DIRECTIVES],
+                        directives: [router_1.ROUTER_DIRECTIVES, toolbar_1.MdToolbar, button_1.MdButton, card_1.MD_CARD_DIRECTIVES],
                         providers: [user_service_1.UserService, hero_service_1.HeroService, http_1.HTTP_PROVIDERS]
                     }),
                     router_1.RouteConfig([

@@ -9,13 +9,14 @@
   color: black !important;
 }
 
-paper-card {
+md-card {
   display:block;
   width:270px;
   height:337px;
+  padding:0;
 }
 
-paper-card img.profile-picture {
+md-card img.profile-picture {
   width:80px;
   height:80px;
   border:2px solid white;
@@ -27,17 +28,17 @@ paper-card img.profile-picture {
   margin-left:-40px;
 }
 
-paper-card .header {
+md-card .header {
   width:100%;
   height:50%;
 }
 
-paper-card img.header-image {
+md-card img.header-image {
   width:100%;
   height:100%;
 }
 
-paper-card div.card-content {
+md-card div.card-content {
   display:block;
   width:100%;
   height:50%;
@@ -45,12 +46,12 @@ paper-card div.card-content {
   padding:1px !important; /* collapsing margins baby */
 }
 
-paper-card div.card-content p.name {
+md-card div.card-content p.name {
   font-size:22px;
   margin:50px 0 10px 0;
 }
 
-paper-card div.card-content paper-button {
+md-card div.card-content button {
   background-color:#546E7A;
   background-color: #3F51E0;
   color:white;
