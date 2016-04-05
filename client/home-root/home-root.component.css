@@ -10,7 +10,7 @@ md-toolbar {
 }
 
 article {
-  padding-top:60px;
+  padding: 60px 10px 10px 10px;
 }
 
 md-card {
@@ -20,7 +20,7 @@ md-card {
 }
 
 button {
-  margin-left:10px;
+  margin:10px;
 }
 
 img.profile-picture {
