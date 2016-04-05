@@ -15,6 +15,7 @@ import { HeroesComponent } from '../heroes/heroes.component';
 import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { MapComponent } from '../map/map.component';
+import { ChatComponent } from '../chat/chat.component';
 
 @Component({
     selector: 'home-root',
@@ -50,6 +51,11 @@ import { MapComponent } from '../map/map.component';
     path: '/map',
     name: 'MapComponent',
     component: MapComponent
+  },
+  {
+    path: '/chat',
+    name: 'Chat',
+    component: ChatComponent
   }
 ])
 

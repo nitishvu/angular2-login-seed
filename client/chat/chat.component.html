@@ -1,0 +1,13 @@
+<md-card>
+  <h2>Chat Room</h2>
+  <ul>
+    <li *ngFor="#message of messages">
+        {{message}}
+    </li>
+  </ul>
+  
+  <form action="">
+    <input [(ngModel)]="messageText" placeholder="Message">
+    <button md-raised-button color="primary" type="submit" (click)="sendMessage()">Send</button>
+  </form>
+</md-card>

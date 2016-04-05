@@ -17,11 +17,11 @@
   },
   "license": "MIT",
   "dependencies": {
-    "angular2": "^2.0.0-beta.13",
-    "@angular2-material/core": "^2.0.0-alpha.1",
     "@angular2-material/button": "^2.0.0-alpha.1",
-    "@angular2-material/toolbar": "^2.0.0-alpha.1",
     "@angular2-material/card": "^2.0.0-alpha.1",
+    "@angular2-material/core": "^2.0.0-alpha.1",
+    "@angular2-material/toolbar": "^2.0.0-alpha.1",
+    "angular2": "^2.0.0-beta.13",
     "bluebird": "^3.3.4",
     "body-parser": "^1.15.0",
     "bower": "^1.7.7",
@@ -43,11 +43,10 @@
     "rxjs": "^5.0.0-beta.2",
     "sequelize": "^3.19.2",
     "serve-favicon": "~2.3.0",
+    "socket.io": "^1.4.5",
     "systemjs": "^0.19.24",
     "typings": "^0.7.9",
     "zone.js": "^0.6.4"
-    
-    
   },
   "devDependencies": {
     "typescript": "^1.8.7",

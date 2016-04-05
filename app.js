@@ -18,6 +18,31 @@ var routes = require('./routes');
 
 var app = express();
 
+
+// Socket.IO middleware
+
+var http = require('http');
+var server = http.createServer(app);
+var io = require('socket.io').listen(server);
+server.listen(5001);
+io.set("origins", "*:*");
+
+var messages = [];
+ 
+io.on('connection', function (socket) {
+  socket.emit('messages', messages.slice(messages.length-5, messages.length));
+  
+  socket.on('send-message', function (newMessage) {
+		messages.push(newMessage);
+		socket.emit('new-message', newMessage);
+		socket.broadcast.emit('new-message', newMessage);
+	});
+	
+});
+
+// End Socket.IO middleware setup
+
+
 /**
  * View engine setup
  */

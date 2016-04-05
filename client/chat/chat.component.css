@@ -1,0 +1,29 @@
+md-card {
+  max-width:400px;
+  max-height:400px;
+  height:400px;
+  margin:0 auto;
+}
+
+ul {
+  list-style: none;
+  height:76%;
+  overflow-y:scroll;
+  border: 2px solid #ececec;
+}
+
+ul > li {
+  padding: 3px;
+  margin: 3px;
+}
+
+input {
+  font-size:18px;
+  padding:10px 10px 10px 5px;
+  display:inline-block;
+  width:70%;
+  border:none;
+  border-bottom:1px solid #757575;
+}
+
+input:focus { outline:none; }

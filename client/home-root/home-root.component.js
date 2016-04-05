@@ -1,4 +1,4 @@
-System.register(['angular2/core', '@angular2-material/toolbar', '@angular2-material/button', '@angular2-material/card', 'angular2/http', 'angular2/router', '../shared/services/user/user.service', '../shared/services/hero/hero.service', '../users/users.component', '../heroes/heroes.component', '../hero-detail/hero-detail.component', '../dashboard/dashboard.component', '../map/map.component'], function(exports_1, context_1) {
+System.register(['angular2/core', '@angular2-material/toolbar', '@angular2-material/button', '@angular2-material/card', 'angular2/http', 'angular2/router', '../shared/services/user/user.service', '../shared/services/hero/hero.service', '../users/users.component', '../heroes/heroes.component', '../hero-detail/hero-detail.component', '../dashboard/dashboard.component', '../map/map.component', '../chat/chat.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', '@angular2-material/toolbar', '@angular2-mater
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, toolbar_1, button_1, card_1, http_1, router_1, user_service_1, hero_service_1, users_component_1, heroes_component_1, hero_detail_component_1, dashboard_component_1, map_component_1;
+    var core_1, toolbar_1, button_1, card_1, http_1, router_1, user_service_1, hero_service_1, users_component_1, heroes_component_1, hero_detail_component_1, dashboard_component_1, map_component_1, chat_component_1;
     var HomeRootComponent;
     return {
         setters:[
@@ -52,6 +52,9 @@ System.register(['angular2/core', '@angular2-material/toolbar', '@angular2-mater
             },
             function (map_component_1_1) {
                 map_component_1 = map_component_1_1;
+            },
+            function (chat_component_1_1) {
+                chat_component_1 = chat_component_1_1;
             }],
         execute: function() {
             HomeRootComponent = (function () {
@@ -105,6 +108,11 @@ System.register(['angular2/core', '@angular2-material/toolbar', '@angular2-mater
                             path: '/map',
                             name: 'MapComponent',
                             component: map_component_1.MapComponent
+                        },
+                        {
+                            path: '/chat',
+                            name: 'Chat',
+                            component: chat_component_1.ChatComponent
                         }
                     ]), 
                     __metadata('design:paramtypes', [user_service_1.UserService])
