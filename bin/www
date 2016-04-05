@@ -25,6 +25,26 @@ models.sequelize.sync().then(function () {
 
 var server = http.createServer(app);
 
+// Socket.IO middleware
+
+var io = require('socket.io').listen(server);
+io.set("origins", "*:*");
+
+var messages = [];
+ 
+io.on('connection', function (socket) {
+  socket.emit('messages', messages.slice(messages.length-5, messages.length));
+  
+  socket.on('send-message', function (newMessage) {
+		messages.push(newMessage);
+		socket.emit('new-message', newMessage);
+		socket.broadcast.emit('new-message', newMessage);
+	});
+	
+});
+
+// End Socket.IO middleware setup
+
 /**
  * Listen on provided port, on all network interfaces.
  */

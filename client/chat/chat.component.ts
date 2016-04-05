@@ -17,7 +17,7 @@ export class ChatComponent {
   messages: Array<string>;
 
   constructor(){
-    this.socket = io('http://localhost:5001');
+    this.socket = io();
     
     this.socket.on('messages', function(messages){
       this.messages = messages;

@@ -26,7 +26,7 @@ System.register(['angular2/core', '@angular2-material/card', '@angular2-material
         execute: function() {
             ChatComponent = (function () {
                 function ChatComponent() {
-                    this.socket = io('http://localhost:5001');
+                    this.socket = io();
                     this.socket.on('messages', function (messages) {
                         this.messages = messages;
                     }.bind(this));
