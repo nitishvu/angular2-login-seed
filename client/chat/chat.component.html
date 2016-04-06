@@ -1,8 +1,8 @@
 <md-card>
   <h2>Chat Room</h2>
   <ul>
-    <li *ngFor="#message of messages">
-        {{message}}
+    <li *ngFor="#messageInfo of messages">
+        <img src="{{messageInfo.userImage}}"><span>{{messageInfo.message}}</span>
     </li>
   </ul>
   

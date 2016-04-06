@@ -1,4 +1,4 @@
-System.register(['angular2/core', '@angular2-material/card', '@angular2-material/button'], function(exports_1, context_1) {
+System.register(['angular2/core', '@angular2-material/card', '@angular2-material/button', '../shared/services/user/user.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', '@angular2-material/card', '@angular2-material
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, card_1, button_1;
+    var core_1, card_1, button_1, user_service_1;
     var ChatComponent;
     return {
         setters:[
@@ -22,22 +22,28 @@ System.register(['angular2/core', '@angular2-material/card', '@angular2-material
             },
             function (button_1_1) {
                 button_1 = button_1_1;
+            },
+            function (user_service_1_1) {
+                user_service_1 = user_service_1_1;
             }],
         execute: function() {
             ChatComponent = (function () {
-                function ChatComponent() {
+                function ChatComponent(_userService) {
+                    this._userService = _userService;
+                    this.messages = [];
                     this.socket = io();
-                    this.socket.on('messages', function (messages) {
-                        this.messages = messages;
-                    }.bind(this));
-                    this.socket.on('new-message', function (newMessage) {
+                    // this.socket.on('messages', function(messages){
+                    //   this.messages = messages;
+                    // }.bind(this));
+                    this.socket.on('new-message', function (messageInfo) {
                         if (this.messages.length > 8)
                             this.messages.shift();
-                        this.messages.push(newMessage);
+                        this.messages.push(messageInfo);
                     }.bind(this));
                 }
                 ChatComponent.prototype.sendMessage = function () {
-                    this.socket.emit('send-message', this.messageText);
+                    this.socket.emit('send-message', { "message": this.messageText, "userImage": this._userService.getMe().then(function (me) {
+                        }) });
                     this.messageText = '';
                 };
                 ChatComponent = __decorate([
@@ -45,9 +51,10 @@ System.register(['angular2/core', '@angular2-material/card', '@angular2-material
                         selector: 'chat',
                         templateUrl: 'client/chat/chat.component.html',
                         styleUrls: ['client/chat/chat.component.css'],
-                        directives: [card_1.MD_CARD_DIRECTIVES, button_1.MdButton]
+                        directives: [card_1.MD_CARD_DIRECTIVES, button_1.MdButton],
+                        providers: [user_service_1.UserService]
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [user_service_1.UserService])
                 ], ChatComponent);
                 return ChatComponent;
             }());
