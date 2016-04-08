@@ -246,5 +246,6 @@ applications. PRs are welcome!
 
 ## Todo
  1. Unit testing
+ 1. Refactor authorization and session management (perhaps JWT?)
  1. Add a way to set custom user background images
- 1. Socket.IO realtime chat component
+ 1. Online status indicator and realtime chat (probably RxJS websocket)
