@@ -22,10 +22,10 @@ a {
   color:inherit;
 }
 
-paper-card {
-  padding:10px;
+md-card {
   text-align:center;
   animation: fadein 1s;
+  -o-animation: fadein 1s; /* Opera */
   -moz-animation: fadein 1s; /* Firefox */
   -webkit-animation: fadein 1s; /* Safari and Chrome */
 }
@@ -38,14 +38,7 @@ paper-card {
         opacity:1;
     }
 }
-@-moz-keyframes fadein { /* Firefox */
-    from {
-        opacity:0;
-    }
-    to {
-        opacity:1;
-    }
-}
+
 @-webkit-keyframes fadein { /* Safari and Chrome */
     from {
         opacity:0;
@@ -54,6 +47,16 @@ paper-card {
         opacity:1;
     }
 }
+
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+
 @-o-keyframes fadein { /* Opera */
     from {
         opacity:0;
