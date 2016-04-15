@@ -247,6 +247,7 @@ applications. PRs are welcome!
 ## Todo
  1. Unit testing
  1. Refactor authorization and session management (perhaps JWT?)
+ 1. Handle authentication in components better (do not display if api call returns 404?)
  1. RxJS websocket integration for realtime user status
  1. More [material2](https://github.com/angular/material2) migration
  1. Add a way to set custom user background images
