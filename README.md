@@ -3,6 +3,7 @@
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 [![Dependency Status](https://david-dm.org/domfarolino/angular2-login-seed.svg)](https://david-dm.org/domfarolino/angular2-login-seed)
 [![devDependency Status](https://david-dm.org/domfarolino/angular2-login-seed/dev-status.svg)](https://david-dm.org/domfarolino/angular2-login-seed#info=devDependencies)
+[![Angular2 Style Guide](https://camo.githubusercontent.com/495f5e3a82030e6bd99569430828c46591cfe8bf/68747470733a2f2f6d6765636865762e6769746875622e696f2f616e67756c6172322d7374796c652d67756964652f696d616765732f62616467652e737667)](https://camo.githubusercontent.com/495f5e3a82030e6bd99569430828c46591cfe8bf/68747470733a2f2f6d6765636865762e6769746875622e696f2f616e67756c6172322d7374796c652d67756964652f696d616765732f62616467652e737667)
 
 A seed application for developers to get started building applications with Node.js, Angular 2, and Polymer web components supporting user login via PassportJS and OAuth.
 
@@ -240,12 +241,12 @@ The goal is here is to keep as flat of a directory structure as possible for all
 
 
 ## Contributing
-Angular 2 is very new and in beta as I write. There are very few established design practices for using it with other front end libraries such as
-Polymer 1.0. Please feel free to contribute to this project to help build more defined practices we can use in larger Angular 2 web
+Please feel free to contribute to this project to help build more defined practices we can use in larger Angular 2 web
 applications. PRs are welcome!
 
 ## Todo
  1. Unit testing
  1. Refactor authorization and session management (perhaps JWT?)
+ 1. RxJS websocket integration for realtime user status
+ 1. More [material2](https://github.com/angular/material2) migration
  1. Add a way to set custom user background images
- 1. Online status indicator and realtime chat (probably RxJS websocket)
