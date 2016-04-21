@@ -101,7 +101,7 @@ I've tried to make it as easy as possible to add more OAuth providers to this ap
 If you think it can be done better please submit a PR to improve the maintainability of the app.
 To add support for another OAuth provider 4 things need to be done:
 
-### 1. Add authorization and callback routes for the provider (edit `/routes/index.js`)
+##### 1. Add authorization and callback routes for the provider (edit `/routes/index.js`)
 ```
 /**
  * Authorization route for <provider> provider
@@ -118,14 +118,14 @@ router.get('/callback/provider',
 		failureRedirect: '/provider'
 }));
 ```
-### 2. Add your OAuth credentials to the `/config/default.json` file. You'll use these in `/config/passport.js` which you'll edit next
+##### 2. Add your OAuth credentials to the `/config/default.json` file. You'll use these in `/config/passport.js` which you'll edit next
 
-### 3. Setup/use PassportJS strategy in `/config/passport.js`
+##### 3. Setup/use PassportJS strategy in `/config/passport.js`
 ```
 passport.use(new ProviderStrategy({....
 ```
 
-### 4. Update the attribute utility functions at the end of `/config/passport.js` to support your provider
+##### 4. Update the attribute utility functions at the end of `/config/passport.js` to support your provider
 
 This entails basically examining the JSON payload you get back from your provider and seeing
 under what keys, the information you need to insert into the database exists under. If any database/model
