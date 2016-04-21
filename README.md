@@ -13,6 +13,7 @@ A seed application for developers to get started building applications with Node
 
   1. [Demo](#demo)
   1. [Technologies](#technologies)
+  1. [Adding OAuth Providers](#adding-oauth-providers)
   1. [TL;DR Get started now](#tldr-get-started-now)
   1. [Build Philosophy](#build-philosophy)
   1. [Angular Component Tree](#angular-component-tree)
@@ -93,6 +94,42 @@ That should be it! Just browse to `http://localhost:5000` to see the app.
 
 ### Further development
 For further development, open a new terminal window and type `npm run front`. This will transpile and "watch" all of your typescript files for any changes.
+
+
+## Adding OAuth Providers
+I've tried to make it as easy as possible to add more OAuth providers to this app to keep it flexible.
+If you think it can be done better please submit a PR to improve the maintainability of the app.
+To add support for another OAuth provider 4 things need to be done:
+
+1. Add authorization and callback routes for the provider (edit `/routes/index.js`)
+```
+/**
+ * Authorization route for <provider> provider
+ */
+router.get('/authorize/provider',
+  passport.authenticate('provider'));
+
+/**
+ * Define our provider callback endpoint and success/failure methods 
+ */
+router.get('/callback/provider', 
+	passport.authenticate('provider', { 
+		successRedirect: '/',
+		failureRedirect: '/provider'
+}));
+```
+2. Add your OAuth credentials to the `/config/default.json` file. You'll use these in `/config/passport.js` which you'll edit next
+
+3. Setup/use PassportJS strategy in `/config/passport.js`
+```
+passport.use(new ProviderStrategy({....
+```
+
+4. Update the attribute utility functions at the end of `/config/passport.js` to support your provider
+
+This entails basically examining the JSON payload you get back from your provider and seeing
+under what keys, the information you need to insert into the database exists under. If any database/model
+changes need made modify the database appropriately and update the User model `/models.js`
 
 
 ## Build Philosophy

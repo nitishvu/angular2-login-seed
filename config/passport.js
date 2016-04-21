@@ -75,7 +75,9 @@ passport.use(
  * Assumes you've inputted your OAuth service credentials in the
  * /config/default.json or production file as necessary.
  */
-passport.use(new TwitterStrategy({
+passport.use(
+  
+  new TwitterStrategy({
     consumerKey: config.get('oauthCredentials.twitter.id'),
     consumerSecret: config.get('oauthCredentials.twitter.secret'),
     callbackURL: config.get('oauthCallbacks.twitterCallbackUrl')
