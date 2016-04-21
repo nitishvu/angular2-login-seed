@@ -69,7 +69,7 @@ router.get('/callback/twitter',
  * Anything else under root route '/'
  * The main purpose of this is to facilitate the Angular 2 HTML 5 routing
  * It is imperative that this goes below absolutely every route definition since
- * this is the index.js, and if it came befoe say, the route.use('/api', api), everything
+ * this is the index.js, and if it came before say, the route.use('/api', api), everything
  * that would call /api would be read as /*
  */
 router.get("/*", authenticationHelpers.isAuthOrRedirect, function(req, res, next) {
