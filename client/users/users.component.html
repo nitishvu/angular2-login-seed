@@ -3,7 +3,7 @@
 
 <div class="body">
   
-  <div class="repeat repeat-fade-in" *ngFor="#user of users">
+  <div class="repeat repeat-fade-in" *ngFor="let user of users">
     <user-badge
             (click)="onSelect(user)"
             [selected]="user === selectedUser"

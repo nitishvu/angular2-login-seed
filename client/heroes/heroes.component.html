@@ -8,7 +8,7 @@
     <button (click)="goToDetail()">View Details</button>
   </div>
 
-<div class="repeat repeat-fade-in" *ngFor="#hero of heroes">
+<div class="repeat repeat-fade-in" *ngFor="let hero of heroes">
   <quick-card
             class="repeat-fade-in"
             (click)="onSelect(hero)"
