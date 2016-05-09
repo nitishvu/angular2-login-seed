@@ -49,9 +49,11 @@ md-card div.card-content {
 md-card div.card-content p.name {
   font-size:22px;
   margin:50px 0 10px 0;
+  overflow:hidden;
+  text-overflow:ellipses;
 }
 
-md-card div.card-content paper-button {
+md-card div.card-content button {
   background-color:#546E7A;
   background-color: #3F51E0;
   color:white;
