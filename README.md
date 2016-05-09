@@ -39,7 +39,6 @@ Some of the open source technologies used in this application are listed below
 ```sh
 # Fork or clone this repo
 git clone git@github.com:domfarolino/angular2-login-seed.git
-bower install
 npm install
 ```
 Next, either input your Google and Twitter application's OAuth credentials in the `config/default.json` file, or follow [this](https://domfarolino.github.io/Registering-An-OAuth-App/) guide to set up an OAuth application with Google and Twitter.
@@ -282,9 +281,11 @@ Please feel free to contribute to this project to help build more defined practi
 applications. PRs are welcome!
 
 ## Todo
- 1. Unit testing
- 1. Refactor authorization and session management (perhaps JWT?)
- 1. Handle authentication in components better (do not display if api call returns 404?)
+ 1. Progressive Web App (Web app manifest, service worker, push notifications, implement [angular/mobile-toolkit](https://github.com/angular/mobile-toolkit) when more progress is made)
+ 1. [Push Notification](https://developers.google.com/web/updates/2016/03/web-push-encryption?hl=en) support with [encrypted payload](https://github.com/GoogleChrome/web-push-encryption)
+ 1. Angular 2 route security
+ 1. Updated `@angular/router-deprecated` => `@angular/router` when rc router is near completion
  1. RxJS websocket integration for realtime user status
+ 1. User 'profile' page
+ 1. Unit testing
  1. More [material2](https://github.com/angular/material2) migration
- 1. Add a way to set custom user background images
