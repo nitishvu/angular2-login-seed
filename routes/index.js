@@ -17,14 +17,16 @@ var api     =  require('./api');
 router.use('/api', api);
 
 /* GET home page. */
+/* Purest route */
 router.get('/', authenticationHelpers.isAuthOrRedirect, function(req, res, next) {
-  console.log("Purest route");
-  res.render('index');
+  res.sendFile(path.join(__dirname, '../', 'index.html'));
+  //res.render('index');
 });
 
 /* GET login page. */
 router.get('/login', authenticationHelpers.isNotAuthOrRedirect, function(req, res, next) {
-  res.render('index');
+  res.sendFile(path.join(__dirname, '../', 'index.html'));
+  //res.render('index');
 });
 
 /* GET logout page. */
@@ -73,7 +75,8 @@ router.get('/callback/twitter',
  * that would call /api would be read as /*
  */
 router.get("/*", authenticationHelpers.isAuthOrRedirect, function(req, res, next) {
-  res.render('index');
+  res.sendFile(path.join(__dirname, '../', 'index.html'));
+  //res.render('index');
 });
 
 module.exports = router;

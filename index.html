@@ -24,9 +24,9 @@
     </script>
 
     <!-- Import Polymer components that will be used in Angular 2 Templates -->
-    <link rel="import" href="../client/assets/custom_components/page-shell/page-shell.html">
-    <link rel="import" href="../client/assets/custom_components/sidebar-item/sidebar-item.html">
-    <link rel="import" href="../client/assets/bower_components/paper-card/paper-card.html">
+    <link rel="import" href="./client/assets/custom_components/page-shell/page-shell.html">
+    <link rel="import" href="./client/assets/custom_components/sidebar-item/sidebar-item.html">
+    <link rel="import" href="./client/assets/bower_components/paper-card/paper-card.html">
 
     <!-- 2. Configure SystemJS -->
     <script>
@@ -102,7 +102,7 @@
           }
         }
       });
-      System.import('../client/main').then(null, console.error.bind(console));
+      System.import('./client/main').then(null, console.error.bind(console));
     </script>
     
     <style>
