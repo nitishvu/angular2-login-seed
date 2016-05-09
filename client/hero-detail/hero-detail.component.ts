@@ -1,5 +1,6 @@
-import { Component, OnInit } from 'angular2/core';
-import { RouteParams } from 'angular2/router';
+import { Component, OnInit } from '@angular/core';
+//import { RouteSegment } from '@angular/router';
+import { RouteParams } from '@angular/router-deprecated';
 
 import { Hero } from '../shared/services/hero/hero';
 import { HeroService } from '../shared/services/hero/hero.service';
@@ -26,6 +27,7 @@ export class HeroDetailComponent implements OnInit {
 
   getHeroes() {
     let id = +this._routeParams.get('id');
+    //let id = +this._routeParams.urlSegments['id'];
     this._heroService.getHero(id).then(hero => this.hero = hero);
   }
 

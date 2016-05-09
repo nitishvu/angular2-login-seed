@@ -8,18 +8,13 @@
     <!-- IE required polyfills, in this exact order -->
     
 
-    <script src="../node_modules/es6-shim/es6-shim.min.js"></script>
-    <script src="../node_modules/systemjs/dist/system-polyfills.js"></script>
+    <script src="./node_modules/es6-shim/es6-shim.min.js"></script>
+    <script src="./node_modules/systemjs/dist/system-polyfills.js"></script>
 
-    <script src="../node_modules/angular2/bundles/angular2-polyfills.js"></script>
-    <script src="../node_modules/systemjs/dist/system.src.js"></script>
-    <script src="../node_modules/rxjs/bundles/Rx.js"></script>
-    <script src="../node_modules/angular2/bundles/angular2.dev.js"></script>
-    <script src="../node_modules/angular2/bundles/router.dev.js"></script>
-    <script src="../node_modules/angular2/bundles/http.dev.js"></script>
-    <script src="../node_modules/rxjs/bundles/Rx.js"></script>
-
-    <script src="../client/assets/bower_components/webcomponentsjs/webcomponents.js"></script>
+    <script src="./node_modules/systemjs/dist/system.src.js"></script>
+    <script src="./node_modules/rxjs/bundles/Rx.js"></script>
+    <script src="./node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="./node_modules/zone.js/dist/zone.min.js"></script>
 
     <!-- Polymer Script -->
     <!-- Must come before any Polymer imports -->
@@ -37,6 +32,7 @@
     <script>
       System.config({
         map: {
+          "@angular": "node_modules/@angular",
           "@angular2-material": "node_modules/@angular2-material"
         },
         packages: {        
@@ -63,6 +59,46 @@
             format: 'cjs',
             defaultExtension: 'js',
             main: 'card.js'
+          },
+          '@angular/http': {
+            format: 'cjs',
+            defaultExtension: 'js',
+            main: 'http.js'
+          },
+          '@angular/core': {
+            format: 'cjs',
+            defaultExtension: 'js',
+            main: 'index.js'
+          },
+          '@angular/router': {
+            format: 'cjs',
+            defaultExtension: 'js',
+            main: 'index.js'
+          },
+          '@angular/router-deprecated': {
+            format: 'cjs',
+            defaultExtension: 'js',
+            main: 'index.js'
+          },
+          '@angular/platform-browser-dynamic': {
+            format: 'cjs',
+            defaultExtension: 'js',
+            main: 'index.js'
+          },
+          '@angular/platform-browser': {
+            format: 'cjs',
+            defaultExtension: 'js',
+            main: 'index.js'
+          },
+          '@angular/compiler': {
+            format: 'cjs',
+            defaultExtension: 'js',
+            main: 'compiler.js'
+          },
+          '@angular/common': {
+            format: 'cjs',
+            defaultExtension: 'js',
+            main: 'index.js'
           }
         }
       });

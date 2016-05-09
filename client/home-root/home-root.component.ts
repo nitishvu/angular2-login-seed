@@ -1,7 +1,7 @@
-import { Component, OnInit } from 'angular2/core';
-import { NgForm }    from 'angular2/common';
-import { HTTP_PROVIDERS } from 'angular2/http';
-import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
+import { Component, OnInit } from '@angular/core';
+import { NgForm }    from '@angular/common';
+import { HTTP_PROVIDERS } from '@angular/http';
+import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 
 import { User } from  '../shared/services/user/user';
 import { UserService } from  '../shared/services/user/user.service';

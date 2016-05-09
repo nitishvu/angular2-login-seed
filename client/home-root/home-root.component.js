@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/http', 'angular2/router', '../shared/services/user/user.service', '../shared/services/hero/hero.service', '../users/users.component', '../heroes/heroes.component', '../hero-detail/hero-detail.component', '../dashboard/dashboard.component', '../map/map.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/http', '@angular/router-deprecated', '../shared/services/user/user.service', '../shared/services/hero/hero.service', '../users/users.component', '../heroes/heroes.component', '../hero-detail/hero-detail.component', '../dashboard/dashboard.component', '../map/map.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/http', 'angular2/router', '../shared
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1, router_1, user_service_1, hero_service_1, users_component_1, heroes_component_1, hero_detail_component_1, dashboard_component_1, map_component_1;
+    var core_1, http_1, router_deprecated_1, user_service_1, hero_service_1, users_component_1, heroes_component_1, hero_detail_component_1, dashboard_component_1, map_component_1;
     var HomeRootComponent;
     return {
         setters:[
@@ -20,8 +20,8 @@ System.register(['angular2/core', 'angular2/http', 'angular2/router', '../shared
             function (http_1_1) {
                 http_1 = http_1_1;
             },
-            function (router_1_1) {
-                router_1 = router_1_1;
+            function (router_deprecated_1_1) {
+                router_deprecated_1 = router_deprecated_1_1;
             },
             function (user_service_1_1) {
                 user_service_1 = user_service_1_1;
@@ -67,10 +67,10 @@ System.register(['angular2/core', 'angular2/http', 'angular2/router', '../shared
                         selector: 'home-root',
                         templateUrl: 'client/home-root/home-root.component.html',
                         styleUrls: ['client/home-root/home-root.component.css'],
-                        directives: [router_1.ROUTER_DIRECTIVES],
+                        directives: [router_deprecated_1.ROUTER_DIRECTIVES],
                         providers: [user_service_1.UserService, hero_service_1.HeroService, http_1.HTTP_PROVIDERS]
                     }),
-                    router_1.RouteConfig([
+                    router_deprecated_1.RouteConfig([
                         {
                             path: '/users',
                             name: 'Users',

@@ -1,4 +1,4 @@
-import { Component, Input } from 'angular2/core';
+import { Component, Input } from '@angular/core';
 import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
 
 @Component({

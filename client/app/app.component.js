@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', '../login/login.component', '../home-root/home-root.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', '../login/login.component', '../home-root/home-root.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,15 +10,15 @@ System.register(['angular2/core', 'angular2/router', '../login/login.component',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, login_component_1, home_root_component_1;
+    var core_1, router_deprecated_1, login_component_1, home_root_component_1;
     var AppComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (router_1_1) {
-                router_1 = router_1_1;
+            function (router_deprecated_1_1) {
+                router_deprecated_1 = router_deprecated_1_1;
             },
             function (login_component_1_1) {
                 login_component_1 = login_component_1_1;
@@ -36,10 +36,10 @@ System.register(['angular2/core', 'angular2/router', '../login/login.component',
                         selector: 'my-app',
                         templateUrl: 'client/app/app.component.html',
                         styleUrls: ['client/app/app.component.css'],
-                        directives: [router_1.ROUTER_DIRECTIVES],
-                        providers: [router_1.ROUTER_PROVIDERS]
+                        directives: [router_deprecated_1.ROUTER_DIRECTIVES],
+                        providers: [router_deprecated_1.ROUTER_PROVIDERS]
                     }),
-                    router_1.RouteConfig([
+                    router_deprecated_1.RouteConfig([
                         {
                             path: '/...',
                             name: 'HomeRoot',
