@@ -51,7 +51,7 @@ md-card div.card-content p.name {
   font-size:22px;
   margin:50px 0 10px 0;
   overflow:hidden;
-  text-overflow:ellipses;
+  text-overflow: ellipsis;
 }
 
 md-card div.card-content button {
