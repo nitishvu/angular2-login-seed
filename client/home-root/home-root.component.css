@@ -8,6 +8,10 @@ md-side-nav {
   background-color:#f0f0f0;
 }
 
+.secondary {
+  color: rgba(0, 0, 0, .54);
+}
+
 #user-profile{
   width:250px;
   max-width:100%;
