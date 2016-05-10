@@ -63,6 +63,10 @@ export class HomeRootComponent implements OnInit {
     this.getMe();
   }
   
+  logout() {
+    window.location = '/logout';
+  }
+  
   getMe() {
     this._userService.getMe().then(me => {
       this.me = me;

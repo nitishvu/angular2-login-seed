@@ -65,6 +65,9 @@ System.register(['@angular/core', '@angular/http', '@angular/router-deprecated',
                 HomeRootComponent.prototype.ngOnInit = function () {
                     this.getMe();
                 };
+                HomeRootComponent.prototype.logout = function () {
+                    window.location = '/logout';
+                };
                 HomeRootComponent.prototype.getMe = function () {
                     var _this = this;
                     this._userService.getMe().then(function (me) {
