@@ -4,6 +4,10 @@ md-sidenav-layout {
   height:100vh;
 }
 
+md-side-nav {
+  background-color:#f0f0f0;
+}
+
 #user-profile{
   width:250px;
   max-width:100%;
