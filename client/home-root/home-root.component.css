@@ -1,6 +1,7 @@
 md-sidenav-layout {
   font-family: Roboto;
   background-color:#ececec;
+  height:100vh;
 }
 
 #user-profile{
@@ -33,6 +34,7 @@ md-sidenav-layout {
 h2 {
   color:grey;
   color: #3F51E0;
+  color: #009688;
 }
 
 .repeat-fade-in {

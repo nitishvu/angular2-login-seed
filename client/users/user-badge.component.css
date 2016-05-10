@@ -1,6 +1,7 @@
 .selected {
   background-color: #546E7A;
   background-color: #3F51E0;
+  background-color: #009688;
   color: white;
 }
 
@@ -54,7 +55,7 @@ md-card div.card-content p.name {
 }
 
 md-card div.card-content button {
-  background-color:#546E7A;
+  /*background-color:#546E7A;
   background-color: #3F51E0;
-  color:white;
+  color:white;*/
 }

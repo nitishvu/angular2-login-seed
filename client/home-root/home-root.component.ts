@@ -64,7 +64,7 @@ export class HomeRootComponent implements OnInit {
   }
   
   logout() {
-    window.location = '/logout';
+    window.location.href = '/logout';
   }
   
   getMe() {

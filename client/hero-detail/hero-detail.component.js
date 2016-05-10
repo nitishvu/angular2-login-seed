@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', '../shared/services/hero/hero.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', '@angular2-material/button', '@angular2-material/input', '@angular2-material/card', '../shared/services/hero/hero.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', '../shared/servi
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, hero_service_1;
+    var core_1, router_deprecated_1, button_1, input_1, card_1, hero_service_1;
     var HeroDetailComponent;
     return {
         setters:[
@@ -19,6 +19,15 @@ System.register(['@angular/core', '@angular/router-deprecated', '../shared/servi
             },
             function (router_deprecated_1_1) {
                 router_deprecated_1 = router_deprecated_1_1;
+            },
+            function (button_1_1) {
+                button_1 = button_1_1;
+            },
+            function (input_1_1) {
+                input_1 = input_1_1;
+            },
+            function (card_1_1) {
+                card_1 = card_1_1;
             },
             function (hero_service_1_1) {
                 hero_service_1 = hero_service_1_1;
@@ -47,7 +56,8 @@ System.register(['@angular/core', '@angular/router-deprecated', '../shared/servi
                         selector: 'my-hero-detail',
                         templateUrl: 'client/hero-detail/hero-detail.component.html',
                         styleUrls: ['client/home-root/home-root.component.css', 'client/hero-detail/hero-detail.component.css'],
-                        inputs: ['hero']
+                        inputs: ['hero'],
+                        directives: [button_1.MdButton, input_1.MdInput, card_1.MD_CARD_DIRECTIVES]
                     }), 
                     __metadata('design:paramtypes', [hero_service_1.HeroService, router_deprecated_1.RouteParams])
                 ], HeroDetailComponent);

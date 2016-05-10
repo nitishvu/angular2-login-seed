@@ -66,7 +66,7 @@ System.register(['@angular/core', '@angular/http', '@angular/router-deprecated',
                     this.getMe();
                 };
                 HomeRootComponent.prototype.logout = function () {
-                    window.location = '/logout';
+                    window.location.href = '/logout';
                 };
                 HomeRootComponent.prototype.getMe = function () {
                     var _this = this;
