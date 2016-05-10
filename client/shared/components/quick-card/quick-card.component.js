@@ -1,4 +1,4 @@
-System.register(['@angular/core'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular2-material/card'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,12 +10,15 @@ System.register(['@angular/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, card_1;
     var QuickCardComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (card_1_1) {
+                card_1 = card_1_1;
             }],
         execute: function() {
             QuickCardComponent = (function () {
@@ -38,7 +41,8 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                     core_1.Component({
                         selector: 'quick-card',
                         templateUrl: 'client/shared/components/quick-card/quick-card.component.html',
-                        styleUrls: ['client/shared/components/quick-card/quick-card.component.css']
+                        styleUrls: ['client/shared/components/quick-card/quick-card.component.css'],
+                        directives: [card_1.MD_CARD_DIRECTIVES]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], QuickCardComponent);

@@ -5,7 +5,7 @@
     <h2>
       {{selectedHero.name | uppercase}} is my hero
     </h2>
-    <button (click)="goToDetail()">View Details</button>
+    <button md-raised-button (click)="goToDetail()">View Details</button>
   </div>
 
 <div class="repeat repeat-fade-in" *ngFor="let hero of heroes">

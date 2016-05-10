@@ -1,3 +1,35 @@
+md-sidenav-layout {
+  font-family: Roboto;
+  background-color:#ececec;
+}
+
+#user-profile{
+  width:250px;
+  max-width:100%;
+  height:200px;
+  padding-left:10px;
+  background-image:url('https://domfarolino.herokuapp.com/client/assets/img/menu_bg.jpg');
+  background-size:cover;
+  color:white;
+  box-sizing:border-box;
+}
+
+#user-profile p {
+  margin:5px 0 0 0;
+}
+
+#user-profile img {
+  margin-top:75px;
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  border:2px solid white;
+}
+
+.content {
+  padding:10px;
+}
+
 h2 {
   color:grey;
   color: #3F51E0;

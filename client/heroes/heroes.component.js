@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', '../shared/services/hero/hero.service', '../hero-detail/hero-detail.component', '../shared/components/quick-card/quick-card.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', '@angular2-material/button', '../shared/services/hero/hero.service', '../hero-detail/hero-detail.component', '../shared/components/quick-card/quick-card.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', '../shared/servi
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, hero_service_1, hero_detail_component_1, quick_card_component_1;
+    var core_1, router_deprecated_1, button_1, hero_service_1, hero_detail_component_1, quick_card_component_1;
     var HeroesComponent;
     return {
         setters:[
@@ -19,6 +19,9 @@ System.register(['@angular/core', '@angular/router-deprecated', '../shared/servi
             },
             function (router_deprecated_1_1) {
                 router_deprecated_1 = router_deprecated_1_1;
+            },
+            function (button_1_1) {
+                button_1 = button_1_1;
             },
             function (hero_service_1_1) {
                 hero_service_1 = hero_service_1_1;
@@ -58,7 +61,7 @@ System.register(['@angular/core', '@angular/router-deprecated', '../shared/servi
                         selector: 'my-heroes',
                         templateUrl: 'client/heroes/heroes.component.html',
                         styleUrls: ['client/home-root/home-root.component.css', 'client/heroes/heroes.component.css'],
-                        directives: [quick_card_component_1.QuickCardComponent, hero_detail_component_1.HeroDetailComponent],
+                        directives: [quick_card_component_1.QuickCardComponent, hero_detail_component_1.HeroDetailComponent, button_1.MdButton],
                     }), 
                     __metadata('design:paramtypes', [hero_service_1.HeroService, router_deprecated_1.Router])
                 ], HeroesComponent);

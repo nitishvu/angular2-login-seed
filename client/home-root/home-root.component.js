@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/http', '@angular/router-deprecated', '../shared/services/user/user.service', '../shared/services/hero/hero.service', '../users/users.component', '../heroes/heroes.component', '../hero-detail/hero-detail.component', '../dashboard/dashboard.component', '../map/map.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/http', '@angular/router-deprecated', '@angular2-material/button', '@angular2-material/toolbar', '@angular2-material/sidenav', '@angular2-material/list', '@angular2-material/icon', '../shared/services/user/user.service', '../shared/services/hero/hero.service', '../users/users.component', '../heroes/heroes.component', '../hero-detail/hero-detail.component', '../dashboard/dashboard.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/http', '@angular/router-deprecated',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1, router_deprecated_1, user_service_1, hero_service_1, users_component_1, heroes_component_1, hero_detail_component_1, dashboard_component_1, map_component_1;
+    var core_1, http_1, router_deprecated_1, button_1, toolbar_1, sidenav_1, list_1, icon_1, user_service_1, hero_service_1, users_component_1, heroes_component_1, hero_detail_component_1, dashboard_component_1;
     var HomeRootComponent;
     return {
         setters:[
@@ -22,6 +22,21 @@ System.register(['@angular/core', '@angular/http', '@angular/router-deprecated',
             },
             function (router_deprecated_1_1) {
                 router_deprecated_1 = router_deprecated_1_1;
+            },
+            function (button_1_1) {
+                button_1 = button_1_1;
+            },
+            function (toolbar_1_1) {
+                toolbar_1 = toolbar_1_1;
+            },
+            function (sidenav_1_1) {
+                sidenav_1 = sidenav_1_1;
+            },
+            function (list_1_1) {
+                list_1 = list_1_1;
+            },
+            function (icon_1_1) {
+                icon_1 = icon_1_1;
             },
             function (user_service_1_1) {
                 user_service_1 = user_service_1_1;
@@ -40,9 +55,6 @@ System.register(['@angular/core', '@angular/http', '@angular/router-deprecated',
             },
             function (dashboard_component_1_1) {
                 dashboard_component_1 = dashboard_component_1_1;
-            },
-            function (map_component_1_1) {
-                map_component_1 = map_component_1_1;
             }],
         execute: function() {
             HomeRootComponent = (function () {
@@ -67,8 +79,8 @@ System.register(['@angular/core', '@angular/http', '@angular/router-deprecated',
                         selector: 'home-root',
                         templateUrl: 'client/home-root/home-root.component.html',
                         styleUrls: ['client/home-root/home-root.component.css'],
-                        directives: [router_deprecated_1.ROUTER_DIRECTIVES],
-                        providers: [user_service_1.UserService, hero_service_1.HeroService, http_1.HTTP_PROVIDERS]
+                        directives: [router_deprecated_1.ROUTER_DIRECTIVES, toolbar_1.MdToolbar, sidenav_1.MD_SIDENAV_DIRECTIVES, icon_1.MdIcon, list_1.MD_LIST_DIRECTIVES, button_1.MdButton],
+                        providers: [user_service_1.UserService, hero_service_1.HeroService, icon_1.MdIconRegistry, http_1.HTTP_PROVIDERS]
                     }),
                     router_deprecated_1.RouteConfig([
                         {
@@ -91,11 +103,6 @@ System.register(['@angular/core', '@angular/http', '@angular/router-deprecated',
                             path: '/detail/:id',
                             name: 'HeroDetail',
                             component: hero_detail_component_1.HeroDetailComponent
-                        },
-                        {
-                            path: '/map',
-                            name: 'MapComponent',
-                            component: map_component_1.MapComponent
                         }
                     ]), 
                     __metadata('design:paramtypes', [user_service_1.UserService])

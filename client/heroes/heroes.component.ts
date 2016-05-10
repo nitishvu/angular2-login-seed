@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router-deprecated';
+import { MdButton } from '@angular2-material/button';
 
 import { Hero } from '../shared/services/hero/hero';
 import { HeroService } from '../shared/services/hero/hero.service';
@@ -10,7 +11,7 @@ import { QuickCardComponent } from '../shared/components/quick-card/quick-card.c
     selector: 'my-heroes',
     templateUrl: 'client/heroes/heroes.component.html',
     styleUrls: ['client/home-root/home-root.component.css', 'client/heroes/heroes.component.css'],
-    directives: [QuickCardComponent, HeroDetailComponent],
+    directives: [QuickCardComponent, HeroDetailComponent, MdButton],
 })
 
 export class HeroesComponent implements OnInit {
