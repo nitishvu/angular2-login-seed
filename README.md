@@ -5,9 +5,9 @@
 [![devDependency Status](https://david-dm.org/domfarolino/angular2-login-seed/dev-status.svg)](https://david-dm.org/domfarolino/angular2-login-seed#info=devDependencies)
 [![Angular2 Style Guide](https://camo.githubusercontent.com/495f5e3a82030e6bd99569430828c46591cfe8bf/68747470733a2f2f6d6765636865762e6769746875622e696f2f616e67756c6172322d7374796c652d67756964652f696d616765732f62616467652e737667)](https://camo.githubusercontent.com/495f5e3a82030e6bd99569430828c46591cfe8bf/68747470733a2f2f6d6765636865762e6769746875622e696f2f616e67756c6172322d7374796c652d67756964652f696d616765732f62616467652e737667)
 
-A seed application for developers to get started building applications with Node.js, Angular 2, and Polymer web components supporting user login via PassportJS and OAuth.
+A seed application for developers to get started building applications with Angular2. The application's backend is in Node.js featuring user login via PassportJS and OAuth.
 
-[![angular2-login-seed](./logo.png)](https://github.com/domfarolino/angular2-login-seed)
+[![angular2-login-seed](./logo_post_polymer.png)](https://github.com/domfarolino/angular2-login-seed)
 
 ## Table of Contents
 
@@ -15,7 +15,6 @@ A seed application for developers to get started building applications with Node
   1. [Technologies](#technologies)
   1. [Adding OAuth Providers](#adding-oauth-providers)
   1. [TL;DR Get started now](#tldr-get-started-now)
-  1. [Build Philosophy](#build-philosophy)
   1. [Angular Component Tree](#angular-component-tree)
   1. [Directory Structure](#directory-structure)
   1. [Contributing](#contributing)
@@ -26,11 +25,10 @@ Check this site out live [here](https://angular2-login-seed.herokuapp.com)
 
 ## Technologies
 Some of the open source technologies used in this application are listed below
+  1. [Angular 2](https://angular.io/)
+  1. [Angular Material2](https://github.com/angular/material2)
   1. [Node.js](https://nodejs.org/)
   1. [Express](http://expressjs.com/)
-  1. [Angular 2](https://angular.io/)
-  1. [Polymer Web Components](https://www.polymer-project.org/1.0/)
-  1. [Bower](http://bower.io/)
   1. [Passport](http://passportjs.org/)
   1. [Sequelize](http://docs.sequelizejs.com/en/latest/)
 
@@ -131,27 +129,19 @@ under what keys, the information you need to insert into the database exists und
 changes need made modify the database appropriately and update the User model `/models.js`
 
 
-## Build Philosophy
-Polymer web components can handle quite a bit of logic and have features such as `dom-repeat` to iterate and display a number of elements in a `for-each` fashion. In this project however, I am using Angular 2 for most of the logic and template iteration with [structural directives](https://angular.io/docs/ts/latest/guide/structural-directives.html), while Polymer is utilized to replace some standard DOM elements so I (and you) don't have to write custom styles accross the board to meet material design standards. So in short, Angular 2 is being leveraged to display components, data, and templates, and each component template is comprised of a number of standard DOM elements and Polymer web components for display.
-
-Essentially the only time polymer is used as a main display for elements and data to be inserted into is the main custom polymer component `<page-shell>` which is used to house the main view of the app. This element can be found in `/client/assets/custom_components/page-shell/page-shell.html`. It is used in the `home-root` template, found in `client/home-root/home-root.component.html`. Everything in the `home-root` component gets injected into `<page-shell>`'s content insertion points. The `<page-shell>` polymer component consists of a `<paper-drawer-panel>` which houses a `<paper-header-panel>` (as the side-menu) and a `<paper-scroll-header-panel>` whose inner `<div class="content"></div>` is where our main content insertion point lies. Angular 2 `<router-outlet>` views are injected here.
-
-
 ## Angular Component Tree
 ![app-component-tree](./app-component-tree.png)
 
 ## Directory Structure
-The goal is here is to keep as flat of a directory structure as possible for all of the Angular components. Reasons for this, as well as grouping files by bounded context can be found [here](https://github.com/mgechev/angular2-style-guide#directory-structure).
+The goal is to keep as flat of a directory structure as possible for all of the Angular components. Reasons for this, as well as grouping files by bounded context can be found [here](https://github.com/mgechev/angular2-style-guide#directory-structure).
 
 ```
 .
-├─.bowerrc
 ├─.gitignore
 ├─app-component-tree.png
 ├─app.js
 ├─bin
 │   ├─www
-├─bower.json
 ├─client
 │   ├─app
 │   │   ├─app.component.css
@@ -288,4 +278,3 @@ applications. PRs are welcome!
  1. RxJS websocket integration for realtime user status
  1. User 'profile' page
  1. Unit testing
- 1. More [material2](https://github.com/angular/material2) migration
