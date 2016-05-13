@@ -1,0 +1,23 @@
+{
+  "name": "Angular2 Login Seed",
+  "short_name": "Angular2 Login Seed",
+  "icons": [
+    {
+      "src": "192.png",
+      "sizes": "202x220"
+    },
+    {
+      "src": "144.png",
+      "sizes": "147x160"
+    },
+    {
+      "src": "96.png",
+      "sizes": "99x108"
+    }
+  ],
+  "theme_color": "#009688",
+  "background_color": "#ECECEC", 
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": "/"
+}
