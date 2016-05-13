@@ -29,7 +29,17 @@ System.register(['@angular/core', '@angular2-material/button', '@angular2-materi
                     this.title = 'Login';
                     this.googleLink = '/authorize/google';
                     this.twitterLink = '/authorize/twitter';
+                    this.githubLink = 'https://github.com/domfarolino/angular2-login-seed';
                 }
+                LoginComponent.prototype.googleLogin = function () {
+                    window.location.href = this.googleLink;
+                };
+                LoginComponent.prototype.twitterLogin = function () {
+                    window.location.href = this.twitterLink;
+                };
+                LoginComponent.prototype.repository = function () {
+                    window.location.href = this.githubLink;
+                };
                 LoginComponent = __decorate([
                     core_1.Component({
                         selector: 'login',

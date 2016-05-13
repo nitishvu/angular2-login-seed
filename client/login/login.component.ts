@@ -13,6 +13,20 @@ export class LoginComponent {
   title = 'Login';
   googleLink = '/authorize/google';
   twitterLink = '/authorize/twitter';
+  githubLink = 'https://github.com/domfarolino/angular2-login-seed';
+  
+  
+  googleLogin() {
+    window.location.href = this.googleLink;
+  }
+  
+  twitterLogin() {
+    window.location.href = this.twitterLink;
+  }
+  
+  repository() {
+    window.location.href = this.githubLink;
+  }
   
   constructor() { }
 }

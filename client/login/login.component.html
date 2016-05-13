@@ -1,18 +1,23 @@
 <div class="content">
   
-  <div class="paper-card-holder">
     <md-card heading="{{title}}" elevation="5">
-      <div class="card-content">Login with one of the providers below</div>
-      <div class="card-actions">
+      
+      <md-card-title>
+        <h2>Angular2 Login Seed</h2>
+      </md-card-title>
+      
+      <md-card-content>
+        Login with one of the providers below
+        
+        <br>
         <hr>
-        <a href="{{googleLink}}">
-          <button md-raised-button>Google</button>
-        </a>
-        <a href="{{twitterLink}}">
-          <button md-raised-button>Twitter</button>
-        </a>
-      </div>
+        <button (click)="googleLogin()" md-raised-button color="primary">Google</button>
+        <button (click)="twitterLogin()" md-raised-button color="primary">Twitter</button>
+        <p><i>Created by <a href="https://github.com/domfarolino">Dom Farolino</a></i></p>
+        <p><i>Click below to go to repository</i></p>
+        <button (click)="repository()" md-raised-button color="accent">GitHub Repository</button>
+      </md-card-content>
+      
     </md-card>
-  </div>
   
 </div>
