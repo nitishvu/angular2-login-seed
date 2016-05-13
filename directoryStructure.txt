@@ -1,11 +1,9 @@
 .
-├─.bowerrc
 ├─.gitignore
 ├─app-component-tree.png
 ├─app.js
 ├─bin
 │   ├─www
-├─bower.json
 ├─client
 │   ├─app
 │   │   ├─app.component.css
@@ -14,16 +12,13 @@
 │   │   ├─app.component.js.map
 │   │   ├─app.component.ts
 │   ├─assets
-│   │   ├─custom_components
-│   │   │   ├─page-shell
-│   │   │   │   ├─page-shell.html
-│   │   │   ├─sidebar-item
-│   │   │   │   ├─sidebar-item.html
 │   │   ├─favicon.ico
 │   │   ├─img
 │   │   │   ├─background.jpg
 │   │   │   ├─bg.png
 │   │   │   ├─menu_bg.jpg
+│   │   │   ├─menu_bg_small.jpg
+│   │   │   ├─space_bg.jpg
 │   ├─dashboard
 │   │   ├─dashboard.component.html
 │   │   ├─dashboard.component.js
@@ -56,11 +51,6 @@
 │   ├─main.js
 │   ├─main.js.map
 │   ├─main.ts
-│   ├─map
-│   │   ├─map.component.html
-│   │   ├─map.component.js
-│   │   ├─map.component.js.map
-│   │   ├─map.component.ts
 │   ├─shared
 │   │   ├─components
 │   │   │   ├─quick-card
@@ -105,8 +95,10 @@
 │   ├─index.js
 ├─dbStructure.sql
 ├─directoryStructure.txt
+├─index.html
 ├─LICENSE
 ├─logo.png
+├─logo_post_polymer.png
 ├─models
 │   ├─index.js
 │   ├─user.js
@@ -120,13 +112,5 @@
 │   ├─authenticationHelpers.js
 │   ├─index.js
 ├─tsconfig.json
-├─typings.json
 ├─views
 │   ├─error.ejs
-│   ├─index.ejs
-│   ├─login.ejs
-
-Dom Farolino
-domfarolino.com
-<domfarolino@gmail.com>
-<cpuxtech@gmail.com>

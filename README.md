@@ -150,16 +150,13 @@ The goal is to keep as flat of a directory structure as possible for all of the 
 │   │   ├─app.component.js.map
 │   │   ├─app.component.ts
 │   ├─assets
-│   │   ├─custom_components
-│   │   │   ├─page-shell
-│   │   │   │   ├─page-shell.html
-│   │   │   ├─sidebar-item
-│   │   │   │   ├─sidebar-item.html
 │   │   ├─favicon.ico
 │   │   ├─img
 │   │   │   ├─background.jpg
 │   │   │   ├─bg.png
 │   │   │   ├─menu_bg.jpg
+│   │   │   ├─menu_bg_small.jpg
+│   │   │   ├─space_bg.jpg
 │   ├─dashboard
 │   │   ├─dashboard.component.html
 │   │   ├─dashboard.component.js
@@ -192,11 +189,6 @@ The goal is to keep as flat of a directory structure as possible for all of the 
 │   ├─main.js
 │   ├─main.js.map
 │   ├─main.ts
-│   ├─map
-│   │   ├─map.component.html
-│   │   ├─map.component.js
-│   │   ├─map.component.js.map
-│   │   ├─map.component.ts
 │   ├─shared
 │   │   ├─components
 │   │   │   ├─quick-card
@@ -241,8 +233,10 @@ The goal is to keep as flat of a directory structure as possible for all of the 
 │   ├─index.js
 ├─dbStructure.sql
 ├─directoryStructure.txt
+├─index.html
 ├─LICENSE
 ├─logo.png
+├─logo_post_polymer.png
 ├─models
 │   ├─index.js
 │   ├─user.js
@@ -256,11 +250,8 @@ The goal is to keep as flat of a directory structure as possible for all of the 
 │   ├─authenticationHelpers.js
 │   ├─index.js
 ├─tsconfig.json
-├─typings.json
 ├─views
 │   ├─error.ejs
-│   ├─index.ejs
-│   ├─login.ejs
 
 
 ```
