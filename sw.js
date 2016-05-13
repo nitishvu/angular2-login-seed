@@ -1,10 +1,12 @@
-var staticCacheName = 'angular2-login-seed-static-v2';
+var staticCacheName = 'angular2-login-seed-static-v3';
 self.addEventListener('install', function(event) {
   console.log("Installing service worker");
   event.waitUntil(
     caches.open(staticCacheName).then(function(cache) {
       return cache.addAll([
-        '/'
+        '/',
+        '/users',
+        '/login'
       ]);
     })
   );
