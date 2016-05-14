@@ -1,12 +1,12 @@
-var staticCacheName = 'angular2-login-seed-static-v3';
+var staticCacheName = 'angular2-login-seed-static-v4';
 self.addEventListener('install', function(event) {
   console.log("Installing service worker");
   event.waitUntil(
     caches.open(staticCacheName).then(function(cache) {
       return cache.addAll([
-        '/',
-        '/users',
-        '/login'
+        // '/',
+        // '/users',
+        // '/login'
       ]);
     })
   );
@@ -28,29 +28,29 @@ self.addEventListener('activate', function(event) {
   );
 });
 
-self.addEventListener('fetch', function(event) {
-  if (event.request.method != 'GET') {
-     event.respondWith(fetch(event.request));
-     return;
-  }
-  event.respondWith(
-    caches.open(staticCacheName).then(function(cache) {
-      return cache.match(event.request).then(function(response) {
-        if (response) {
-          console.log("CACHE: " + response.url);
-          return response;
-        }
+// self.addEventListener('fetch', function(event) {
+//   if (event.request.method != 'GET') {
+//      event.respondWith(fetch(event.request));
+//      return;
+//   }
+//   event.respondWith(
+//     caches.open(staticCacheName).then(function(cache) {
+//       return cache.match(event.request).then(function(response) {
+//         if (response) {
+//           console.log("CACHE: " + response.url);
+//           return response;
+//         }
         
-        return fetch(event.request).then(function(response) {
-          console.log("SERVER: " + event.request.url);
+//         return fetch(event.request).then(function(response) {
+//           console.log("SERVER: " + event.request.url);
           
-          if (event.request.url.indexOf('node_modules/') > -1 || event.request.url.indexOf('client/') > -1) {
-            console.log("Caching: " + event.request.url);
-            cache.put(event.request, response.clone());
-          }
-          return response;
-        });
-      })
-    })
-  );
-});
+//           if (event.request.url.indexOf('node_modules/') > -1 || event.request.url.indexOf('client/') > -1) {
+//             console.log("Caching: " + event.request.url);
+//             cache.put(event.request, response.clone());
+//           }
+//           return response;
+//         });
+//       })
+//     })
+//   );
+// });
