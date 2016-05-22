@@ -22,7 +22,7 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
     templateUrl: 'client/home-root/home-root.component.html',
     styleUrls: ['client/home-root/home-root.component.css'],
     directives: [ROUTER_DIRECTIVES, MdToolbar, MD_SIDENAV_DIRECTIVES, MdIcon, MD_LIST_DIRECTIVES, MdButton],
-    providers: [UserService, HeroService, MdIconRegistry ,HTTP_PROVIDERS]
+    providers: [HeroService, MdIconRegistry ,HTTP_PROVIDERS]
 })
 
 @RouteConfig([

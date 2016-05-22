@@ -24,8 +24,8 @@ function isNotAuth(req, res, next) {
 }
 
 module.exports = {
-  isAuthOrRedirect   : isAuthOrRedirect,
-  isNotAuthOrRedirect: isNotAuthOrRedirect,
-  isAuth           : isAuth,
-  isNotAuth        : isNotAuth
+  isAuthOrRedirect    : isAuthOrRedirect,
+  isNotAuthOrRedirect : isNotAuthOrRedirect,
+  isAuth              : isAuth,
+  isNotAuth           : isNotAuth
 }

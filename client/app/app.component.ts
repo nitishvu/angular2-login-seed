@@ -5,12 +5,14 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/route
 import { LoginComponent } from '../login/login.component';
 import { HomeRootComponent } from '../home-root/home-root.component';
 
+import { UserService } from '../shared/services/user/user.service';
+
 @Component({
   selector: 'my-app',
   templateUrl: 'client/app/app.component.html',
   styleUrls: ['client/app/app.component.css'],
   directives: [ROUTER_DIRECTIVES],
-  providers: [ROUTER_PROVIDERS, HTTP_PROVIDERS]
+  providers: [ROUTER_PROVIDERS, HTTP_PROVIDERS, UserService]
 })
 
 @RouteConfig([

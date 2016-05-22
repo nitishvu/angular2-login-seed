@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { FORM_DIRECTIVES } from '@angular/common';
+import { Http, Response, Headers, URLSearchParams } from '@angular/http';
 import { Observable }     from 'rxjs/Observable';
 import 'rxjs/Rx';
 
@@ -12,17 +13,28 @@ import { User } from './user';
 export class UserService {
   constructor (private http: Http) { }
 
-  private _baseUrl = '/api/users';
-
+  private _apiBaseUrl = '/api/users';
+  private _loginUrl = '/authorize/local';
+  
+  login(user) {
+    let body = JSON.stringify(user);
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    
+    return this.http.post(this._loginUrl, body, {headers: headers})
+                    .map((res: Response) => res)
+                    .catch(this.handleError);
+  }
+  
   getUsers() {
-    return this.http.get(this._baseUrl + "?limit=5&desc=true")
+    return this.http.get(this._apiBaseUrl + "?limit=5&desc=true")
                   .toPromise()
                   .then(res => <User[]> res.json(), this.handleError)
                   .then(data => { console.log(data); return data; }); // eyeball results in the console
     }
   
   getMe() {
-    return this.http.get(this._baseUrl + '/me/')
+    return this.http.get(this._apiBaseUrl + '/me/')
                   .toPromise()
                   .then(res => <User> res.json().me, this.handleError)
                   .then(data => { console.log(data); return data; }); // eyeball results in the console

@@ -7,15 +7,28 @@
       </md-card-title>
       
       <md-card-content>
-        Login with one of the providers below
+        <h2>Login</h2>
+        
+        <button (click)="googleLogin()" md-raised-button color="primary">Google</button>
+        <button (click)="twitterLogin()" md-raised-button color="primary">Twitter</button>
+        
+        <form *ngIf="!submitted" (ngSubmit)="onSubmit()" #loginForm="ngForm" [ngFormModel]="form">
+          <md-input [(ngModel)]="userModel.username" ngControl="username" required placeholder="Username"></md-input>
+          <md-input [(ngModel)]="userModel.password" ngControl="password" required placeholder="Password" type="password"></md-input>
+          <button type="submit" [disabled]="!loginForm.form.valid" md-raised-button color="primary">Login</button>
+        </form>
+        
+        <md-spinner *ngIf="submitted" mode="indeterminate"></md-spinner>
+        
+        <p>{{diagnostic | json }}</p>
         
         <br>
         <hr>
-        <button (click)="googleLogin()" md-raised-button color="primary">Google</button>
-        <button (click)="twitterLogin()" md-raised-button color="primary">Twitter</button>
+        
         <p><i>Created by <a href="https://github.com/domfarolino">Dom Farolino</a></i></p>
         <p><i>Click below to go to repository</i></p>
         <button (click)="repository()" md-raised-button color="accent">GitHub Repository</button>
+        
       </md-card-content>
       
     </md-card>

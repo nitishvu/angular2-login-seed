@@ -21,6 +21,17 @@ md-card {
   max-width:85%;
 }
 
+md-input {
+    display:block;
+    margin-top:25px;
+}
+
+md-spinner {
+    width:25px;
+    height:25px;
+    margin:20px auto 0 auto;
+}
+
 button {
   display:block;
   width:100%;

@@ -83,7 +83,7 @@ System.register(['@angular/core', '@angular/http', '@angular/router-deprecated',
                         templateUrl: 'client/home-root/home-root.component.html',
                         styleUrls: ['client/home-root/home-root.component.css'],
                         directives: [router_deprecated_1.ROUTER_DIRECTIVES, toolbar_1.MdToolbar, sidenav_1.MD_SIDENAV_DIRECTIVES, icon_1.MdIcon, list_1.MD_LIST_DIRECTIVES, button_1.MdButton],
-                        providers: [user_service_1.UserService, hero_service_1.HeroService, icon_1.MdIconRegistry, http_1.HTTP_PROVIDERS]
+                        providers: [hero_service_1.HeroService, icon_1.MdIconRegistry, http_1.HTTP_PROVIDERS]
                     }),
                     router_deprecated_1.RouteConfig([
                         {

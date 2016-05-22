@@ -10,6 +10,7 @@ var User            = require('../models').User;
 var passport        = require('passport');
 var GoogleStrategy  = require('passport-google-oauth2').Strategy;
 var TwitterStrategy = require('passport-twitter').Strategy;
+var LocalStrategy   = require('passport-local').Strategy;
 var requestPromise  = require('request-promise');
  
 /**
@@ -110,6 +111,33 @@ passport.use(
     }); // end process.nextTick()
   
   }) // end function(request...) & new twitter strategy
+
+); // end passport.use()
+
+/**
+ * PassportJS Local strategy specifics will just below here
+ * Configuration details are not necessary in the
+ * /config/default.json or production file for local strategy.
+ */
+passport.use(
+  new LocalStrategy({
+    usernameField: 'username',
+    passwordField: 'password',
+  },
+  function(username, password, done) {
+    process.nextTick(function(){      
+      
+      return User.findOne({where: {username: username}}).then(function(user) {
+        // if (!user) { return done(null, false); }
+        // if (!user.verifyPassword(password)) { return done(null, false); }
+        return done(null, user);
+      }).catch(function(error) {
+        if (err) { return done(err); }
+      }); // end User.findOne()
+
+    }); // end process.newTick()
+
+  }) // end function(request...) & new google strategy
 
 ); // end passport.use()
 

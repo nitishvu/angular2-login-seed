@@ -28,16 +28,25 @@ System.register(['@angular/core', '@angular/http', 'rxjs/Observable', 'rxjs/Rx']
             UserService = (function () {
                 function UserService(http) {
                     this.http = http;
-                    this._baseUrl = '/api/users';
+                    this._apiBaseUrl = '/api/users';
+                    this._loginUrl = '/authorize/local';
                 }
+                UserService.prototype.login = function (user) {
+                    var body = JSON.stringify(user);
+                    var headers = new http_1.Headers();
+                    headers.append('Content-Type', 'application/json');
+                    return this.http.post(this._loginUrl, body, { headers: headers })
+                        .map(function (res) { return res; })
+                        .catch(this.handleError);
+                };
                 UserService.prototype.getUsers = function () {
-                    return this.http.get(this._baseUrl + "?limit=5&desc=true")
+                    return this.http.get(this._apiBaseUrl + "?limit=5&desc=true")
                         .toPromise()
                         .then(function (res) { return res.json(); }, this.handleError)
                         .then(function (data) { console.log(data); return data; }); // eyeball results in the console
                 };
                 UserService.prototype.getMe = function () {
-                    return this.http.get(this._baseUrl + '/me/')
+                    return this.http.get(this._apiBaseUrl + '/me/')
                         .toPromise()
                         .then(function (res) { return res.json().me; }, this.handleError)
                         .then(function (data) { console.log(data); return data; }); // eyeball results in the console

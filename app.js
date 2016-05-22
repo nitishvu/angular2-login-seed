@@ -27,7 +27,7 @@ app.set('view engine', 'ejs');
 app.use(favicon(path.join(__dirname, 'client', 'assets/favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({ secret: 'my_precious' }));
 app.use(passport.initialize());
 app.use(passport.session());

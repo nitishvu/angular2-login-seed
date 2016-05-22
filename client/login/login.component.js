@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular2-material/button', '@angular2-material/card'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/common', '@angular/router-deprecated', '@angular2-material/button', '@angular2-material/input', '@angular2-material/card', '@angular2-material/progress-circle', '../shared/services/user/user.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,27 +10,57 @@ System.register(['@angular/core', '@angular2-material/button', '@angular2-materi
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, button_1, card_1;
+    var core_1, common_1, router_deprecated_1, button_1, input_1, card_1, progress_circle_1, user_service_1;
     var LoginComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
+            function (common_1_1) {
+                common_1 = common_1_1;
+            },
+            function (router_deprecated_1_1) {
+                router_deprecated_1 = router_deprecated_1_1;
+            },
             function (button_1_1) {
                 button_1 = button_1_1;
             },
+            function (input_1_1) {
+                input_1 = input_1_1;
+            },
             function (card_1_1) {
                 card_1 = card_1_1;
+            },
+            function (progress_circle_1_1) {
+                progress_circle_1 = progress_circle_1_1;
+            },
+            function (user_service_1_1) {
+                user_service_1 = user_service_1_1;
             }],
         execute: function() {
             LoginComponent = (function () {
-                function LoginComponent() {
+                function LoginComponent(_userService, _router) {
+                    this._userService = _userService;
+                    this._router = _router;
                     this.title = 'Login';
                     this.googleLink = '/authorize/google';
                     this.twitterLink = '/authorize/twitter';
                     this.githubLink = 'https://github.com/domfarolino/angular2-login-seed';
+                    this.submitted = false;
+                    this.userModel = {
+                        "username": "",
+                        "password": ""
+                    };
                 }
+                LoginComponent.prototype.ngOnInit = function () {
+                    this.username = new common_1.Control('Username', common_1.Validators.compose([common_1.Validators.required, common_1.Validators.minLength(3), common_1.Validators.maxLength(20)]));
+                    this.password = new common_1.Control('Password', common_1.Validators.required);
+                    this.form = new common_1.ControlGroup({
+                        username: this.username,
+                        password: this.password,
+                    });
+                };
                 LoginComponent.prototype.googleLogin = function () {
                     window.location.href = this.googleLink;
                 };
@@ -40,14 +70,25 @@ System.register(['@angular/core', '@angular2-material/button', '@angular2-materi
                 LoginComponent.prototype.repository = function () {
                     window.location.href = this.githubLink;
                 };
+                LoginComponent.prototype.onSubmit = function () {
+                    var _this = this;
+                    this.submitted = true;
+                    this._userService.login(this.userModel).subscribe(function (data) {
+                        if (data.status == 200)
+                            _this._router.navigateByUrl('/users');
+                        if (data.status != 200)
+                            _this.submitted = false;
+                        _this.diagnostic = data.json(); // TODO remove
+                    });
+                };
                 LoginComponent = __decorate([
                     core_1.Component({
                         selector: 'login',
                         templateUrl: 'client/login/login.component.html',
                         styleUrls: ['client/login/login.component.css'],
-                        directives: [card_1.MD_CARD_DIRECTIVES, button_1.MdButton]
+                        directives: [card_1.MD_CARD_DIRECTIVES, button_1.MdButton, input_1.MdInput, progress_circle_1.MdSpinner]
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [user_service_1.UserService, router_deprecated_1.Router])
                 ], LoginComponent);
                 return LoginComponent;
             }());
