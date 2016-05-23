@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/http', 'rxjs/Observable', 'rxjs/Rx'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/http', 'rxjs/Observable', 'rxjs/add/observable/of'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -54,8 +54,8 @@ System.register(['@angular/core', '@angular/http', 'rxjs/Observable', 'rxjs/Rx']
                 UserService.prototype.handleError = function (error) {
                     // in a real world app, we may send the server to some remote logging infrastructure
                     // instead of just logging it to the console
-                    console.error(error);
-                    return Observable_1.Observable.throw(error.json().error || 'Server error');
+                    //if(error.status == 401) return Observable.of(error);
+                    return Observable_1.Observable.throw(error || "Server Error");
                 };
                 UserService = __decorate([
                     core_1.Injectable(), 

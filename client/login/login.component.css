@@ -38,6 +38,11 @@ button {
   margin:5px;
 }
 
+.error {
+  color:red;
+  font-weight: bold;
+}
+
 @keyframes fadein {
     from {
         opacity:0;

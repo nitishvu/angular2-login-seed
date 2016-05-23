@@ -123,16 +123,18 @@ passport.use(
   new LocalStrategy({
     usernameField: 'username',
     passwordField: 'password',
+    passReqToCallback: true
   },
-  function(username, password, done) {
+  function(request, username, password, done) {
     process.nextTick(function(){      
       
       return User.findOne({where: {username: username}}).then(function(user) {
         // if (!user) { return done(null, false); }
         // if (!user.verifyPassword(password)) { return done(null, false); }
+        request.user = user;
         return done(null, user);
       }).catch(function(error) {
-        if (err) { return done(err); }
+        return done(error);
       }); // end User.findOne()
 
     }); // end process.newTick()

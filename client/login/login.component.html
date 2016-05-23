@@ -20,7 +20,7 @@
         
         <md-spinner *ngIf="submitted" mode="indeterminate"></md-spinner>
         
-        <p>{{diagnostic | json }}</p>
+        <p class="error" *ngIf="error">{{diagnostic}}</p>
         
         <br>
         <hr>

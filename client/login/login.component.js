@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/common', '@angular/router-deprecated', '@angular2-material/button', '@angular2-material/input', '@angular2-material/card', '@angular2-material/progress-circle', '../shared/services/user/user.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/common', '@angular/router-deprecated', '@angular2-material/button', '@angular2-material/input', '@angular2-material/card', '@angular2-material/progress-circle', '../shared/services/user/user-status-codes', '../shared/services/user/user.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, common_1, router_deprecated_1, button_1, input_1, card_1, progress_circle_1, user_service_1;
+    var core_1, common_1, router_deprecated_1, button_1, input_1, card_1, progress_circle_1, user_status_codes_1, user_service_1;
     var LoginComponent;
     return {
         setters:[
@@ -35,6 +35,9 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
             function (progress_circle_1_1) {
                 progress_circle_1 = progress_circle_1_1;
             },
+            function (user_status_codes_1_1) {
+                user_status_codes_1 = user_status_codes_1_1;
+            },
             function (user_service_1_1) {
                 user_service_1 = user_service_1_1;
             }],
@@ -48,6 +51,7 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
                     this.twitterLink = '/authorize/twitter';
                     this.githubLink = 'https://github.com/domfarolino/angular2-login-seed';
                     this.submitted = false;
+                    this.error = false;
                     this.userModel = {
                         "username": "",
                         "password": ""
@@ -72,13 +76,17 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
                 };
                 LoginComponent.prototype.onSubmit = function () {
                     var _this = this;
+                    /**
+                     * Innocent until proven guilty
+                     */
                     this.submitted = true;
+                    this.error = false;
                     this._userService.login(this.userModel).subscribe(function (data) {
-                        if (data.status == 200)
-                            _this._router.navigateByUrl('/users');
-                        if (data.status != 200)
-                            _this.submitted = false;
-                        _this.diagnostic = data.json(); // TODO remove
+                        _this._router.navigateByUrl('/users');
+                    }, function (error) {
+                        _this.submitted = false;
+                        _this.error = true;
+                        _this.diagnostic = user_status_codes_1.USER_STATUS_CODES[error.status] || user_status_codes_1.USER_STATUS_CODES[500];
                     });
                 };
                 LoginComponent = __decorate([

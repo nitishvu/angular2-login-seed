@@ -6,6 +6,7 @@ import { MdInput } from '@angular2-material/input';
 import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
 import { MdSpinner } from '@angular2-material/progress-circle';
 
+import { USER_STATUS_CODES } from '../shared/services/user/user-status-codes';
 import { UserService } from '../shared/services/user/user.service';
 
 @Component({
@@ -25,7 +26,8 @@ export class LoginComponent implements OnInit {
   password: Control;
   form: ControlGroup;
   submitted: boolean = false;
-  diagnostic: Object;
+  error: boolean = false;
+  diagnostic: string;
   
   constructor(private _userService: UserService, private _router: Router) {
 
@@ -59,11 +61,19 @@ export class LoginComponent implements OnInit {
   }
   
   onSubmit() {
+    /**
+     * Innocent until proven guilty
+     */
     this.submitted = true;
+    this.error = false;
+    
     this._userService.login(this.userModel).subscribe(data => {
-      if (data.status == 200) this._router.navigateByUrl('/users');
-      if (data.status != 200) this.submitted = false;
-      this.diagnostic = data.json(); // TODO remove
+      this._router.navigateByUrl('/users');
+    },
+    error => {
+      this.submitted = false;
+      this.error = true;
+      this.diagnostic = USER_STATUS_CODES[error.status] || USER_STATUS_CODES[500];
     });
   }
   

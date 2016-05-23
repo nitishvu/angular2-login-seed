@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { FORM_DIRECTIVES } from '@angular/common';
-import { Http, Response, Headers, URLSearchParams } from '@angular/http';
-import { Observable }     from 'rxjs/Observable';
-import 'rxjs/Rx';
+import { Http, Response, Headers } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 
 /**
  * Import interfaces that service depends on
@@ -43,7 +43,7 @@ export class UserService {
   private handleError (error: Response) {
     // in a real world app, we may send the server to some remote logging infrastructure
     // instead of just logging it to the console
-    console.error(error);
-    return Observable.throw(error.json().error || 'Server error');
+    //if(error.status == 401) return Observable.of(error);
+    return Observable.throw(error || "Server Error");
   }
 }

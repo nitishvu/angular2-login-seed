@@ -53,13 +53,25 @@ router.get('/authorize/twitter',
  * Authorization route for local
  */
 var getUserPublicController = require('../controllers').getUserPublic;
-router.post('/authorize/local', passport.authenticate('local'),
-  function(request, response) {
+
+router.post('/authorize/local', function(request, response, next) {
+  passport.authenticate('local', function(error, user, info) {
     if (!request.user) {
       response.status(401);
-      response.json({"authentication": "failed"});
+      response.json({"reason": "Invalid credentials"});
     } else {
       
+    
+    /**
+     * "Login" user officially, and return proper response
+     * if there is an error logging the user in (500)
+     */
+    request.logIn(user, function(error) {
+      if (error) {
+        response.status(500);
+        response.json({"error": "Server error"});
+      }
+    });
     
     /**
      * Here, request.user is our full user object, production
@@ -68,14 +80,40 @@ router.post('/authorize/local', passport.authenticate('local'),
      * that make a user object public worthy. This is defined in our
      * getUserPublic controller
      */
-    getUserPublicController(request.user.id).then(function(user) {
-      response.json(user);
+    return getUserPublicController(request.user.id).then(function(user) {
+      return response.json(user);
     }).catch(function(error) {
-      response.json(error);
+      return response.json(error);
     });
     
     }
+  })(request, response, next);
 });
+
+// router.post('/authorize/local', passport.authenticate('local'),
+//   function(request, response) {
+    
+//     if (!request.user) {
+//       response.status(401);
+//       response.json({"authentication": "failed"});
+//     } else {
+      
+    
+//     /**
+//      * Here, request.user is our full user object, production
+//      * information/details and all. What we want to do is 'truncate'
+//      * the user object into a public user object as per the standards
+//      * that make a user object public worthy. This is defined in our
+//      * getUserPublic controller
+//      */
+//     return getUserPublicController(request.user.id).then(function(user) {
+//       return response.json(user);
+//     }).catch(function(error) {
+//       return response.json(error);
+//     });
+    
+//     }
+// });
  
 /**
  * Define our google callback endpoint and success/failure methods 
