@@ -127,12 +127,16 @@ passport.use(
   },
   function(request, username, password, done) {
     process.nextTick(function() {      
-      
+      /**
+       * Find one user with the given username
+       * Verify that one exists, that the user has
+       * the local provider, and that the password hashs
+       * match correctly.
+       */
       return User.findOne({where: {username: username}}).then(function(user) {
         if (!user) { return done(null, false); }
         if (!user.verifyLocal()) { return done(null, false); }
         if (!user.verifyPassword(password)) { return done(null, false); }
-        request.user = user;
         return done(null, user);
       }).catch(function(error) {
         return done(error);

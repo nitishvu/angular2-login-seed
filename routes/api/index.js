@@ -18,7 +18,6 @@ router.use('/users', users);
 var registerUserController = require('../../controllers').registerUser;
 router.post('/register', authenticationHelpers.isNotAuthOrRedirect, function(request, response, next) {
   registerUserController(request.body).then(function(user) {
-    console.log(user);
     response.json(user);
   }).catch(function(error) {
     response.json(error);

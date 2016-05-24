@@ -31,7 +31,7 @@ router.get('/', authenticationHelpers.isAuth, function(request, response) {
   getAllUsersPublicController(offset, limit, desc).then(function(users) {
     response.json(users);
   }).catch(function(error) {
-    console.log(error);
+    response.json(error);
   });
 
 });

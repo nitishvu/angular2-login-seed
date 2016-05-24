@@ -29,7 +29,7 @@ router.get('/twitter',
 var getUserPublicController = require('../../controllers').getUserPublic;
 router.post('/local', function(request, response, next) {
   passport.authenticate('local', function(error, user, info) {
-    if (!request.user) {
+    if (!user) {
       response.status(401);
       response.json({"reason": "Invalid credentials"});
     } else {
@@ -53,7 +53,7 @@ router.post('/local', function(request, response, next) {
      * that make a user object public worthy. This is defined in our
      * getUserPublic controller
      */
-    return getUserPublicController(request.user.id).then(function(user) {
+    return getUserPublicController(user.id).then(function(user) {
       return response.json(user);
     }).catch(function(error) {
       return response.json(error);
