@@ -27,7 +27,7 @@ passport.deserializeUser(function(obj, done) {
 });
 
 /**
- * PassportJS Google strategy specifics will just below here
+ * PassportJS Google strategy specifics
  * Assumes you've inputted your OAuth service credentials in the
  * /config/default.json or production file as necessary.
  */
@@ -72,7 +72,7 @@ passport.use(
 ); // end passport.use()
 
 /**
- * PassportJS Twitter strategy specifics will just below here
+ * PassportJS Twitter strategy specifics
  * Assumes you've inputted your OAuth service credentials in the
  * /config/default.json or production file as necessary.
  */
@@ -115,7 +115,7 @@ passport.use(
 ); // end passport.use()
 
 /**
- * PassportJS Local strategy specifics will just below here
+ * PassportJS Local strategy specifics
  * Configuration details are not necessary in the
  * /config/default.json or production file for local strategy.
  */
