@@ -52,10 +52,5 @@ md-card div.card-content p.name {
   margin:50px 0 10px 0;
   overflow:hidden;
   text-overflow: ellipsis;
-}
-
-md-card div.card-content button {
-  /*background-color:#546E7A;
-  background-color: #3F51E0;
-  color:white;*/
+  max-height:60px;
 }
