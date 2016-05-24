@@ -8,13 +8,15 @@ var passport              = require('passport');
 var authenticationHelpers = require('./authenticationHelpers');
 
 // Import all other route modules
-var api     =  require('./api');
+var api       =  require('./api');
+var authorize =  require('./authorize');
 
 /**
  * Make sure the "use" of any other route modules comes before
  * any index route definitions, aka route definitions from root '/'
  */
 router.use('/api', api);
+router.use('/authorize', authorize);
 
 /* GET home page. */
 /* Purest route */
@@ -29,91 +31,18 @@ router.get('/login', authenticationHelpers.isNotAuthOrRedirect, function(req, re
   //res.render('index');
 });
 
+/* GET register page. */
+router.get('/register', authenticationHelpers.isNotAuthOrRedirect, function(req, res, next) {
+  res.sendFile(path.join(__dirname, '../', 'index.html'));
+  //res.render('index');
+});
+
 /* GET logout page. */
 router.get('/logout', authenticationHelpers.isAuthOrRedirect, function(req, res, next) {
   //res.sendFile(path.resolve('./index.html'));
   req.logout();
   res.redirect('/login');
 });
-
-/**
- * Authorization route for google provider
- */
-router.get('/authorize/google',
-  passport.authenticate('google', { scope: ['email'], accessType: 'offline'}
-));
-
-/**
- * Authorization route for twitter provider
- */
-router.get('/authorize/twitter',
-  passport.authenticate('twitter'));
-  
-/**
- * Authorization route for local
- */
-var getUserPublicController = require('../controllers').getUserPublic;
-
-router.post('/authorize/local', function(request, response, next) {
-  passport.authenticate('local', function(error, user, info) {
-    if (!request.user) {
-      response.status(401);
-      response.json({"reason": "Invalid credentials"});
-    } else {
-      
-    
-    /**
-     * "Login" user officially, and return proper response
-     * if there is an error logging the user in (500)
-     */
-    request.logIn(user, function(error) {
-      if (error) {
-        response.status(500);
-        response.json({"error": "Server error"});
-      }
-    });
-    
-    /**
-     * Here, request.user is our full user object, production
-     * information/details and all. What we want to do is 'truncate'
-     * the user object into a public user object as per the standards
-     * that make a user object public worthy. This is defined in our
-     * getUserPublic controller
-     */
-    return getUserPublicController(request.user.id).then(function(user) {
-      return response.json(user);
-    }).catch(function(error) {
-      return response.json(error);
-    });
-    
-    }
-  })(request, response, next);
-});
-
-// router.post('/authorize/local', passport.authenticate('local'),
-//   function(request, response) {
-    
-//     if (!request.user) {
-//       response.status(401);
-//       response.json({"authentication": "failed"});
-//     } else {
-      
-    
-//     /**
-//      * Here, request.user is our full user object, production
-//      * information/details and all. What we want to do is 'truncate'
-//      * the user object into a public user object as per the standards
-//      * that make a user object public worthy. This is defined in our
-//      * getUserPublic controller
-//      */
-//     return getUserPublicController(request.user.id).then(function(user) {
-//       return response.json(user);
-//     }).catch(function(error) {
-//       return response.json(error);
-//     });
-    
-//     }
-// });
  
 /**
  * Define our google callback endpoint and success/failure methods 

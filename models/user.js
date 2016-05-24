@@ -1,6 +1,7 @@
 "use strict";
 
 var Sequelize = require("sequelize");
+var bcrypt = require("bcrypt-nodejs");
 
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define('User', {
@@ -14,7 +15,7 @@ module.exports = function(sequelize, DataTypes) {
     social_id:{
         type:      Sequelize.STRING(64),
         field:     'social_id',
-        allowNull: false
+        allowNull: true
     },
     name:{
         type:      Sequelize.STRING(64),
@@ -29,6 +30,12 @@ module.exports = function(sequelize, DataTypes) {
     email:{
         type:         Sequelize.STRING(64),
         field:        'email',
+        allowNull:    true,
+        defaultValue: null
+    },
+    password:{
+        type:         Sequelize.STRING(64),
+        field:        'password',
         allowNull:    true,
         defaultValue: null
     },
@@ -86,7 +93,21 @@ module.exports = function(sequelize, DataTypes) {
     freezeTableName: true,
 
     // define the table's name
-    tableName: 'users'
+    tableName: 'users',
+    
+    classMethods: {
+      generateHash: function(password) {
+        return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+      }
+    },
+    instanceMethods: {
+      verifyPassword: function(password) {
+          return bcrypt.compareSync(password, this.password);
+      },
+      verifyLocal: function() {
+          return this.provider == 'local';
+      }
+    }
   });
   return User;
 };

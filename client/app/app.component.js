@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/http', '@angular/router-deprecated', '../login/login.component', '../home-root/home-root.component', '../shared/services/user/user.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/http', '@angular/router-deprecated', '../login/login.component', '../register/register.component', '../home-root/home-root.component', '../shared/services/user/user.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/http', '@angular/router-deprecated',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1, router_deprecated_1, login_component_1, home_root_component_1, user_service_1;
+    var core_1, http_1, router_deprecated_1, login_component_1, register_component_1, home_root_component_1, user_service_1;
     var AppComponent;
     return {
         setters:[
@@ -25,6 +25,9 @@ System.register(['@angular/core', '@angular/http', '@angular/router-deprecated',
             },
             function (login_component_1_1) {
                 login_component_1 = login_component_1_1;
+            },
+            function (register_component_1_1) {
+                register_component_1 = register_component_1_1;
             },
             function (home_root_component_1_1) {
                 home_root_component_1 = home_root_component_1_1;
@@ -56,6 +59,11 @@ System.register(['@angular/core', '@angular/http', '@angular/router-deprecated',
                             path: '/login',
                             name: 'Login',
                             component: login_component_1.LoginComponent
+                        },
+                        {
+                            path: '/register',
+                            name: 'Register',
+                            component: register_component_1.RegisterComponent
                         }
                     ]), 
                     __metadata('design:paramtypes', [])

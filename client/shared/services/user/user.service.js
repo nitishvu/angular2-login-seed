@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/http', 'rxjs/Observable', 'rxjs/add/observable/of'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/http', 'rxjs/Observable'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -22,20 +22,28 @@ System.register(['@angular/core', '@angular/http', 'rxjs/Observable', 'rxjs/add/
             },
             function (Observable_1_1) {
                 Observable_1 = Observable_1_1;
-            },
-            function (_1) {}],
+            }],
         execute: function() {
             UserService = (function () {
                 function UserService(http) {
                     this.http = http;
                     this._apiBaseUrl = '/api/users';
                     this._loginUrl = '/authorize/local';
+                    this._registerUrl = '/api/register';
                 }
                 UserService.prototype.login = function (user) {
                     var body = JSON.stringify(user);
                     var headers = new http_1.Headers();
                     headers.append('Content-Type', 'application/json');
                     return this.http.post(this._loginUrl, body, { headers: headers })
+                        .map(function (res) { return res; })
+                        .catch(this.handleError);
+                };
+                UserService.prototype.register = function (user) {
+                    var body = JSON.stringify(user);
+                    var headers = new http_1.Headers();
+                    headers.append('Content-Type', 'application/json');
+                    return this.http.post(this._registerUrl, body, { headers: headers })
                         .map(function (res) { return res; })
                         .catch(this.handleError);
                 };
@@ -54,7 +62,6 @@ System.register(['@angular/core', '@angular/http', 'rxjs/Observable', 'rxjs/add/
                 UserService.prototype.handleError = function (error) {
                     // in a real world app, we may send the server to some remote logging infrastructure
                     // instead of just logging it to the console
-                    //if(error.status == 401) return Observable.of(error);
                     return Observable_1.Observable.throw(error || "Server Error");
                 };
                 UserService = __decorate([

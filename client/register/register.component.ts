@@ -10,22 +10,22 @@ import { USER_STATUS_CODES } from '../shared/services/user/user-status-codes';
 import { UserService } from '../shared/services/user/user.service';
 
 @Component({
-  selector: 'login',
-  templateUrl: 'client/login/login.component.html',
-  styleUrls: ['client/login/login.component.css'],
+  selector: 'register',
+  templateUrl: 'client/register/register.component.html',
+  styleUrls: ['client/register/register.component.css'],
   directives: [MD_CARD_DIRECTIVES, MdButton, MdInput, MdSpinner]
 })
 
-export class LoginComponent implements OnInit {
-  title = 'Login';
-  googleLink = '/authorize/google';
-  twitterLink = '/authorize/twitter';
+export class RegisterComponent implements OnInit {
+  title = 'Register';
   githubLink = 'https://github.com/domfarolino/angular2-login-seed';
-  registerLink = '/register';
   
+  name: Control;
   username: Control;
+  email: Control;
   password: Control;
   form: ControlGroup;
+  
   submitted: boolean = false;
   error: boolean = false;
   diagnostic: string;
@@ -35,34 +35,25 @@ export class LoginComponent implements OnInit {
   }
   
   ngOnInit() {
-    this.username = new Control('Username', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(20)]));
-    this.password = new Control('Password', Validators.required);
+    this.name = new Control('', Validators.compose([Validators.required, Validators.minLength(2)]));
+    this.username = new Control('', Validators.compose([Validators.required, Validators.minLength(2)]));
+    this.email = new Control('', Validators.compose([Validators.required, Validators.pattern("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")]));
+    this.password = new Control('', Validators.compose([Validators.required, Validators.minLength(2)]));
 
     this.form = new ControlGroup({
+      name: this.name,
       username: this.username,
-      password: this.password,
+      email: this.email,
+      password: this.password
     });
   }
   
-  userModel = {
-    "username": "",
-    "password": ""
-  }
-  
-  googleLogin() {
-    window.location.href = this.googleLink;
-  }
-  
-  twitterLogin() {
-    window.location.href = this.twitterLink;
+  login() {
+    this._router.navigateByUrl('/login');
   }
   
   repository() {
     window.location.href = this.githubLink;
-  }
-  
-  register() {
-    this._router.navigateByUrl('/register');
   }
   
   onSubmit() {
@@ -72,8 +63,8 @@ export class LoginComponent implements OnInit {
     this.submitted = true;
     this.error = false;
     
-    this._userService.login(this.userModel).subscribe(data => {
-      this._router.navigateByUrl('/users');
+    this._userService.register(this.form.value).subscribe(data => {
+      this._router.navigateByUrl('/login');
     },
     error => {
       this.submitted = false;

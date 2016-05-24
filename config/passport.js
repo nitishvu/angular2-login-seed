@@ -126,11 +126,12 @@ passport.use(
     passReqToCallback: true
   },
   function(request, username, password, done) {
-    process.nextTick(function(){      
+    process.nextTick(function() {      
       
       return User.findOne({where: {username: username}}).then(function(user) {
-        // if (!user) { return done(null, false); }
-        // if (!user.verifyPassword(password)) { return done(null, false); }
+        if (!user) { return done(null, false); }
+        if (!user.verifyLocal()) { return done(null, false); }
+        if (!user.verifyPassword(password)) { return done(null, false); }
         request.user = user;
         return done(null, user);
       }).catch(function(error) {

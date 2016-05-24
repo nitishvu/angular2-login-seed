@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { FORM_DIRECTIVES } from '@angular/common';
 import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
 
 /**
  * Import interfaces that service depends on
@@ -15,6 +14,7 @@ export class UserService {
 
   private _apiBaseUrl = '/api/users';
   private _loginUrl = '/authorize/local';
+  private _registerUrl = '/api/register';
   
   login(user) {
     let body = JSON.stringify(user);
@@ -22,6 +22,16 @@ export class UserService {
     headers.append('Content-Type', 'application/json');
     
     return this.http.post(this._loginUrl, body, {headers: headers})
+                    .map((res: Response) => res)
+                    .catch(this.handleError);
+  }
+  
+  register(user) {
+    let body = JSON.stringify(user);
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    
+    return this.http.post(this._registerUrl, body, {headers: headers})
                     .map((res: Response) => res)
                     .catch(this.handleError);
   }
@@ -43,7 +53,6 @@ export class UserService {
   private handleError (error: Response) {
     // in a real world app, we may send the server to some remote logging infrastructure
     // instead of just logging it to the console
-    //if(error.status == 401) return Observable.of(error);
     return Observable.throw(error || "Server Error");
   }
 }

@@ -7,15 +7,14 @@
       </md-card-title>
       
       <md-card-content>
-        <h2>Login</h2>
-        
-        <button (click)="googleLogin()" md-raised-button color="primary">Google</button>
-        <button (click)="twitterLogin()" md-raised-button color="primary">Twitter</button>
+        <h2>Create an account</h2>
         
         <form *ngIf="!submitted" (ngSubmit)="onSubmit()" #loginForm="ngForm" [ngFormModel]="form">
-          <md-input [(ngModel)]="userModel.username" ngControl="username" required placeholder="Username"></md-input>
-          <md-input [(ngModel)]="userModel.password" ngControl="password" required placeholder="Password" type="password"></md-input>
-          <button type="submit" [disabled]="!loginForm.form.valid" md-raised-button color="primary">Login</button>
+          <md-input [ngFormModel]="name" ngControl="name" required placeholder="Name"></md-input>
+          <md-input [ngFormModel]="username" ngControl="username" required placeholder="Username"></md-input>
+          <md-input [ngFormModel]="email" ngControl="email" required placeholder="email@example.com"></md-input>
+          <md-input [ngFormModel]="password" ngControl="password" required placeholder="Password" type="password"></md-input>
+          <button type="submit" [disabled]="!loginForm.form.valid" md-raised-button color="primary">Register</button>
         </form>
         
         <md-spinner *ngIf="submitted" mode="indeterminate"></md-spinner>
@@ -25,7 +24,7 @@
         <br>
         <hr>
         
-        <button (click)="register()" md-raised-button color="accent">Register</button>
+        <button (click)="login()" type="submit" md-raised-button color="accent">Login</button>
         
         <p><i>Created by <a href="https://github.com/domfarolino">Dom Farolino</a></i></p>
         <p><i>Click below to go to repository</i></p>

@@ -3,6 +3,7 @@ import { HTTP_PROVIDERS } from '@angular/http';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 
 import { LoginComponent } from '../login/login.component';
+import { RegisterComponent } from '../register/register.component';
 import { HomeRootComponent } from '../home-root/home-root.component';
 
 import { UserService } from '../shared/services/user/user.service';
@@ -26,6 +27,11 @@ import { UserService } from '../shared/services/user/user.service';
     path: '/login',
     name: 'Login',
     component: LoginComponent
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: RegisterComponent
   }
 ])
 
