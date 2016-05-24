@@ -35,10 +35,10 @@ export class RegisterComponent implements OnInit {
   }
   
   ngOnInit() {
-    this.name = new Control('', Validators.compose([Validators.required, Validators.minLength(2)]));
-    this.username = new Control('', Validators.compose([Validators.required, Validators.minLength(2)]));
+    this.name = new Control('', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(64)]));
+    this.username = new Control('', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(64)]));
     this.email = new Control('', Validators.compose([Validators.required, Validators.pattern("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")]));
-    this.password = new Control('', Validators.compose([Validators.required, Validators.minLength(2)]));
+    this.password = new Control('', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(32)]));
 
     this.form = new ControlGroup({
       name: this.name,

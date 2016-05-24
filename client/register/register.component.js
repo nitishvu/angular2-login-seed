@@ -52,10 +52,10 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
                     this.error = false;
                 }
                 RegisterComponent.prototype.ngOnInit = function () {
-                    this.name = new common_1.Control('', common_1.Validators.compose([common_1.Validators.required, common_1.Validators.minLength(2)]));
-                    this.username = new common_1.Control('', common_1.Validators.compose([common_1.Validators.required, common_1.Validators.minLength(2)]));
+                    this.name = new common_1.Control('', common_1.Validators.compose([common_1.Validators.required, common_1.Validators.minLength(2), common_1.Validators.maxLength(64)]));
+                    this.username = new common_1.Control('', common_1.Validators.compose([common_1.Validators.required, common_1.Validators.minLength(2), common_1.Validators.maxLength(64)]));
                     this.email = new common_1.Control('', common_1.Validators.compose([common_1.Validators.required, common_1.Validators.pattern("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")]));
-                    this.password = new common_1.Control('', common_1.Validators.compose([common_1.Validators.required, common_1.Validators.minLength(2)]));
+                    this.password = new common_1.Control('', common_1.Validators.compose([common_1.Validators.required, common_1.Validators.minLength(2), common_1.Validators.maxLength(32)]));
                     this.form = new common_1.ControlGroup({
                         name: this.name,
                         username: this.username,
