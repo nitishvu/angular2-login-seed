@@ -59,8 +59,8 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
                     };
                 }
                 LoginComponent.prototype.ngOnInit = function () {
-                    this.username = new common_1.Control('Username', common_1.Validators.compose([common_1.Validators.required, common_1.Validators.minLength(3), common_1.Validators.maxLength(20)]));
-                    this.password = new common_1.Control('Password', common_1.Validators.required);
+                    this.username = new common_1.Control('Username', common_1.Validators.compose([common_1.Validators.required, common_1.Validators.minLength(3), common_1.Validators.maxLength(64)]));
+                    this.password = new common_1.Control('Password', common_1.Validators.compose([common_1.Validators.required, common_1.Validators.minLength(3), common_1.Validators.maxLength(64)]));
                     this.form = new common_1.ControlGroup({
                         username: this.username,
                         password: this.password,

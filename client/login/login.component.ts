@@ -35,8 +35,8 @@ export class LoginComponent implements OnInit {
   }
   
   ngOnInit() {
-    this.username = new Control('Username', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(20)]));
-    this.password = new Control('Password', Validators.required);
+    this.username = new Control('Username', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(64)]));
+    this.password = new Control('Password', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(64)]));
 
     this.form = new ControlGroup({
       username: this.username,
