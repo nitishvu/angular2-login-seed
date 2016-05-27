@@ -12,18 +12,6 @@ var users   =  require('./users');
 
 router.use('/users', users);
 
-/**
- * POST registration
- */
-var registerUserController = require('../../controllers').registerUser;
-router.post('/register', authenticationHelpers.isNotAuthOrRedirect, function(request, response, next) {
-  registerUserController(request.body).then(function(user) {
-    response.json(user);
-  }).catch(function(error) {
-    response.json(error);
-  });
-});
-
 router.get('/authenticated', authenticationHelpers.isAuth, function(req, res, next) {
   res.json({"authenticated": true});
 });

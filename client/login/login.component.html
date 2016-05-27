@@ -12,15 +12,15 @@
         <button (click)="googleLogin()" md-raised-button color="primary">Google</button>
         <button (click)="twitterLogin()" md-raised-button color="primary">Twitter</button>
         
-        <form *ngIf="!submitted" (ngSubmit)="onSubmit()" #loginForm="ngForm" [ngFormModel]="form">
-          <md-input [(ngModel)]="userModel.username" ngControl="username" required placeholder="Username"></md-input>
-          <md-input [(ngModel)]="userModel.password" ngControl="password" required placeholder="Password" type="password"></md-input>
+        <form *ngIf="!submitted" [ngFormModel]="form" (ngSubmit)="onSubmit()" #loginForm="ngForm">
+          <md-input [ngFormModel]="username" ngControl="username" required placeholder="Username"></md-input>
+          <md-input [ngFormModel]="password" ngControl="password" required placeholder="Password" type="password"></md-input>
           <button type="submit" [disabled]="!loginForm.form.valid" md-raised-button color="primary">Login</button>
         </form>
         
         <md-spinner *ngIf="submitted" mode="indeterminate"></md-spinner>
         
-        <p class="error" *ngIf="error">{{diagnostic}}</p>
+        <p class="error" *ngIf="errorDiagnostic">{{errorDiagnostic}}</p>
         
         <br>
         <hr>

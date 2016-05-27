@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FORM_DIRECTIVES } from '@angular/common';
+import { Control } from '@angular/common';
 import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
@@ -10,18 +10,21 @@ import { User } from './user';
 
 @Injectable()
 export class UserService {
-  constructor (private http: Http) { }
+  constructor (private http: Http) {
+    
+  }
 
-  private _apiBaseUrl = '/api/users';
-  private _loginUrl = '/authorize/local';
-  private _registerUrl = '/api/register';
+  private _apiBase = '/api/users';
+  private _loginApi = '/authorize/local';
+  private _registerApi = this._apiBase + '/register';
+  private _userExistsApi = this._apiBase + '/exists';
   
   login(user) {
     let body = JSON.stringify(user);
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     
-    return this.http.post(this._loginUrl, body, {headers: headers})
+    return this.http.post(this._loginApi, body, {headers: headers})
                     .map((res: Response) => res)
                     .catch(this.handleError);
   }
@@ -31,24 +34,24 @@ export class UserService {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     
-    return this.http.post(this._registerUrl, body, {headers: headers})
+    return this.http.post(this._registerApi, body, {headers: headers})
                     .map((res: Response) => res)
                     .catch(this.handleError);
   }
   
   getUsers() {
-    return this.http.get(this._apiBaseUrl + "?limit=5&desc=true")
+    return this.http.get(this._apiBase + "?limit=5&desc=true")
                   .toPromise()
                   .then(res => <User[]> res.json(), this.handleError)
                   .then(data => { console.log(data); return data; }); // eyeball results in the console
-    }
+  }
   
   getMe() {
-    return this.http.get(this._apiBaseUrl + '/me/')
+    return this.http.get(this._apiBase + '/me/')
                   .toPromise()
                   .then(res => <User> res.json().me, this.handleError)
                   .then(data => { console.log(data); return data; }); // eyeball results in the console
-    }
+  }
   
   private handleError (error: Response) {
     // in a real world app, we may send the server to some remote logging infrastructure

@@ -27,15 +27,16 @@ System.register(['@angular/core', '@angular/http', 'rxjs/Observable'], function(
             UserService = (function () {
                 function UserService(http) {
                     this.http = http;
-                    this._apiBaseUrl = '/api/users';
-                    this._loginUrl = '/authorize/local';
-                    this._registerUrl = '/api/register';
+                    this._apiBase = '/api/users';
+                    this._loginApi = '/authorize/local';
+                    this._registerApi = this._apiBase + '/register';
+                    this._userExistsApi = this._apiBase + '/exists';
                 }
                 UserService.prototype.login = function (user) {
                     var body = JSON.stringify(user);
                     var headers = new http_1.Headers();
                     headers.append('Content-Type', 'application/json');
-                    return this.http.post(this._loginUrl, body, { headers: headers })
+                    return this.http.post(this._loginApi, body, { headers: headers })
                         .map(function (res) { return res; })
                         .catch(this.handleError);
                 };
@@ -43,18 +44,18 @@ System.register(['@angular/core', '@angular/http', 'rxjs/Observable'], function(
                     var body = JSON.stringify(user);
                     var headers = new http_1.Headers();
                     headers.append('Content-Type', 'application/json');
-                    return this.http.post(this._registerUrl, body, { headers: headers })
+                    return this.http.post(this._registerApi, body, { headers: headers })
                         .map(function (res) { return res; })
                         .catch(this.handleError);
                 };
                 UserService.prototype.getUsers = function () {
-                    return this.http.get(this._apiBaseUrl + "?limit=5&desc=true")
+                    return this.http.get(this._apiBase + "?limit=5&desc=true")
                         .toPromise()
                         .then(function (res) { return res.json(); }, this.handleError)
                         .then(function (data) { console.log(data); return data; }); // eyeball results in the console
                 };
                 UserService.prototype.getMe = function () {
-                    return this.http.get(this._apiBaseUrl + '/me/')
+                    return this.http.get(this._apiBase + '/me/')
                         .toPromise()
                         .then(function (res) { return res.json().me; }, this.handleError)
                         .then(function (data) { console.log(data); return data; }); // eyeball results in the console

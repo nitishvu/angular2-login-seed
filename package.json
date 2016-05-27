@@ -2,11 +2,11 @@
   "name": "angular2-login-seed",
   "version": "1.0.0",
   "scripts": {
-    "postinstall": "tsc",
+    "postinstall": "./node_modules/typescript/bin/tsc",
     "tsc:w": "tsc -w",
     "front": "npm run tsc:w",
     "dev": "node ./bin/www",
-    "start": "export NODE_ENV=production; node ./bin/www ",
+    "start": "npm rexport NODE_ENV=production; node ./bin/www ",
     "typings": "typings"
   },
   "author": {

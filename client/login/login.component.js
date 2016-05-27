@@ -51,16 +51,16 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
                     this.twitterLink = '/authorize/twitter';
                     this.githubLink = 'https://github.com/domfarolino/angular2-login-seed';
                     this.registerLink = '/register';
+                    /**
+                     * Boolean used in telling the UI
+                     * that the form has been submitted
+                     * and is awaiting a response
+                     */
                     this.submitted = false;
-                    this.error = false;
-                    this.userModel = {
-                        "username": "",
-                        "password": ""
-                    };
                 }
                 LoginComponent.prototype.ngOnInit = function () {
-                    this.username = new common_1.Control('Username', common_1.Validators.compose([common_1.Validators.required, common_1.Validators.minLength(3), common_1.Validators.maxLength(64)]));
-                    this.password = new common_1.Control('Password', common_1.Validators.compose([common_1.Validators.required, common_1.Validators.minLength(3), common_1.Validators.maxLength(64)]));
+                    this.username = new common_1.Control('', common_1.Validators.compose([common_1.Validators.required, common_1.Validators.minLength(3), common_1.Validators.maxLength(64)]));
+                    this.password = new common_1.Control('', common_1.Validators.compose([common_1.Validators.required, common_1.Validators.minLength(3), common_1.Validators.maxLength(32)]));
                     this.form = new common_1.ControlGroup({
                         username: this.username,
                         password: this.password,
@@ -84,13 +84,12 @@ System.register(['@angular/core', '@angular/common', '@angular/router-deprecated
                      * Innocent until proven guilty
                      */
                     this.submitted = true;
-                    this.error = false;
-                    this._userService.login(this.userModel).subscribe(function (data) {
+                    this.errorDiagnostic = null;
+                    this._userService.login(this.form.value).subscribe(function (data) {
                         _this._router.navigateByUrl('/users');
                     }, function (error) {
                         _this.submitted = false;
-                        _this.error = true;
-                        _this.diagnostic = user_status_codes_1.USER_STATUS_CODES[error.status] || user_status_codes_1.USER_STATUS_CODES[500];
+                        _this.errorDiagnostic = user_status_codes_1.USER_STATUS_CODES[error.status] || user_status_codes_1.USER_STATUS_CODES[500];
                     });
                 };
                 LoginComponent = __decorate([

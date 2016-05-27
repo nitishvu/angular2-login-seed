@@ -26,27 +26,32 @@ export class LoginComponent implements OnInit {
   username: Control;
   password: Control;
   form: ControlGroup;
+  
+  /**
+   * Boolean used in telling the UI
+   * that the form has been submitted
+   * and is awaiting a response
+   */
   submitted: boolean = false;
-  error: boolean = false;
-  diagnostic: string;
+  
+  /**
+   * Diagnostic message from received
+   * form request error
+   */
+  errorDiagnostic: string;
   
   constructor(private _userService: UserService, private _router: Router) {
 
   }
   
   ngOnInit() {
-    this.username = new Control('Username', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(64)]));
-    this.password = new Control('Password', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(64)]));
+    this.username = new Control('', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(64)]));
+    this.password = new Control('', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(32)]));
 
     this.form = new ControlGroup({
       username: this.username,
       password: this.password,
     });
-  }
-  
-  userModel = {
-    "username": "",
-    "password": ""
   }
   
   googleLogin() {
@@ -70,15 +75,14 @@ export class LoginComponent implements OnInit {
      * Innocent until proven guilty
      */
     this.submitted = true;
-    this.error = false;
+    this.errorDiagnostic = null;
     
-    this._userService.login(this.userModel).subscribe(data => {
+    this._userService.login(this.form.value).subscribe(data => {
       this._router.navigateByUrl('/users');
     },
     error => {
       this.submitted = false;
-      this.error = true;
-      this.diagnostic = USER_STATUS_CODES[error.status] || USER_STATUS_CODES[500];
+      this.errorDiagnostic = USER_STATUS_CODES[error.status] || USER_STATUS_CODES[500];
     });
   }
   

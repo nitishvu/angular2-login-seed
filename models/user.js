@@ -103,9 +103,6 @@ module.exports = function(sequelize, DataTypes) {
     instanceMethods: {
       verifyPassword: function(password) {
           return bcrypt.compareSync(password, this.password);
-      },
-      verifyLocal: function() {
-          return this.provider == 'local';
       }
     }
   });
