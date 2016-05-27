@@ -2,7 +2,7 @@
   "name": "angular2-login-seed",
   "version": "1.0.0",
   "scripts": {
-    "postinstall": "./node_modules/typescript/bin/tsc",
+    "postinstall": "node ./node_modules/typescript/bin/tsc",
     "tsc:w": "tsc -w",
     "front": "npm run tsc:w",
     "dev": "node ./bin/www",

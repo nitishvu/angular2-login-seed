@@ -28,7 +28,6 @@ System.register(['@angular/http', '@angular/core', 'rxjs/Rx'], function(exports_
                 .debounceTime(300)
                 .flatMap(function (value) { return http.get("/api/users/exists?field=" + field + "&value=" + control.value).map(function (res) { return res.json(); }); })
                 .subscribe(function (data) {
-                console.log(data.exists);
                 obs.next(null);
                 obs.complete();
             }, function (error) {

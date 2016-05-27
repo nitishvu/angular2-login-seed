@@ -32,7 +32,6 @@ function checkUser(field: string, control: Control): Observable<any> {
       .flatMap(value => http.get("/api/users/exists?field=" + field + "&value=" + control.value).map((res: Response) => res.json()))
       .subscribe(
         data => {
-          console.log(data.exists);
           obs.next(null);
           obs.complete();
         },
