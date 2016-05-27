@@ -285,12 +285,11 @@ Please feel free to contribute to this project to help build more defined practi
 applications. PRs are welcome!
 
 ## Todo
+ 1. User 'profile' page
  1. Angular 2 route security
- 1. PassportJS Local Login
  1. Progressive Web App - Service Worker Caching
  1. Progressive Web App - [Push Notification](https://developers.google.com/web/updates/2016/03/web-push-encryption?hl=en) support with [encrypted payload](https://github.com/GoogleChrome/web-push-encryption)
  1. Eventually implement [angular/mobile-toolkit](https://github.com/angular/mobile-toolkit) when more progress is made
- 1. User 'profile' page
  1. Update `@angular/router-deprecated` => `@angular/router` when rc router is near completion
  1. RxJS websocket integration for realtime user status
  1. Unit testing
