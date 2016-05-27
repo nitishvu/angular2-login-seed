@@ -19,10 +19,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `social_id` varchar(64) NOT NULL,
+  `social_id` varchar(64) DEFAULT NULL,
   `name` varchar(64) NOT NULL,
   `username` varchar(64) NOT NULL,
   `email` varchar(64) DEFAULT NULL,
+  `password` varchar(64) DEFAULT NULL,
   `profile_picture` varchar(256) NOT NULL,
   `provider` varchar(64) NOT NULL,
   `last_active` int(11) DEFAULT NULL,
