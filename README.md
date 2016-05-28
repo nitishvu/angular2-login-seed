@@ -41,7 +41,7 @@ npm install
 ```
 Next, either input your Google and Twitter application's OAuth credentials in the `config/default.json` file, or follow [this](https://domfarolino.github.io/Registering-An-OAuth-App/) guide to set up an OAuth application with Google and Twitter.
 
-You'll need either a local or production database which the application will use to store `users`. The structure of this database is defined in the `dbStructure.sql` file found in the root folder. Execute its sql contents on a database to create a users table to house your users.
+You'll need either a local or production database which the application will use to store `users`. The structure of this database is defined in the `angular2-login-seed.sql` file found in the root folder. Execute its sql contents on a database to create a users table to house your users.
 
 > To learn about how the npm package `config` works click [here](https://www.npmjs.com/package/config)
 
@@ -138,6 +138,10 @@ The goal is to keep as flat of a directory structure as possible for all of the 
 ```
 .
 ├─.gitignore
+├─144.png
+├─192.png
+├─96.png
+├─angular2-login-seed.sql
 ├─app-component-tree.png
 ├─app.js
 ├─bin
@@ -189,6 +193,12 @@ The goal is to keep as flat of a directory structure as possible for all of the 
 │   ├─main.js
 │   ├─main.js.map
 │   ├─main.ts
+│   ├─register
+│   │   ├─register.component.css
+│   │   ├─register.component.html
+│   │   ├─register.component.js
+│   │   ├─register.component.js.map
+│   │   ├─register.component.ts
 │   ├─shared
 │   │   ├─components
 │   │   │   ├─quick-card
@@ -206,12 +216,18 @@ The goal is to keep as flat of a directory structure as possible for all of the 
 │   │   │   │   ├─hero.service.ts
 │   │   │   │   ├─hero.ts
 │   │   │   ├─user
+│   │   │   │   ├─user-status-codes.js
+│   │   │   │   ├─user-status-codes.js.map
+│   │   │   │   ├─user-status-codes.ts
 │   │   │   │   ├─user.js
 │   │   │   │   ├─user.js.map
 │   │   │   │   ├─user.service.js
 │   │   │   │   ├─user.service.js.map
 │   │   │   │   ├─user.service.ts
 │   │   │   │   ├─user.ts
+│   │   │   │   ├─username-email-validator.js
+│   │   │   │   ├─username-email-validator.js.map
+│   │   │   │   ├─username-email-validator.ts
 │   ├─users
 │   │   ├─user-badge.component.css
 │   │   ├─user-badge.component.html
@@ -231,12 +247,15 @@ The goal is to keep as flat of a directory structure as possible for all of the 
 │   ├─getAllUsersPublic.js
 │   ├─getUserPublic.js
 │   ├─index.js
-├─dbStructure.sql
+│   ├─registerUser.js
+│   ├─truncateUserObject.js
+│   ├─userExists.js
 ├─directoryStructure.txt
 ├─index.html
 ├─LICENSE
 ├─logo.png
 ├─logo_post_polymer.png
+├─manifest.json
 ├─models
 │   ├─index.js
 │   ├─user.js
@@ -248,8 +267,12 @@ The goal is to keep as flat of a directory structure as possible for all of the 
 │   │   ├─index.js
 │   │   ├─users.js
 │   ├─authenticationHelpers.js
+│   ├─authorize
+│   │   ├─index.js
 │   ├─index.js
+├─sw.js
 ├─tsconfig.json
+├─typings.json
 ├─views
 │   ├─error.ejs
 
@@ -262,12 +285,11 @@ Please feel free to contribute to this project to help build more defined practi
 applications. PRs are welcome!
 
 ## Todo
+ 1. User 'profile' page
  1. Angular 2 route security
- 1. PassportJS Local Login
  1. Progressive Web App - Service Worker Caching
  1. Progressive Web App - [Push Notification](https://developers.google.com/web/updates/2016/03/web-push-encryption?hl=en) support with [encrypted payload](https://github.com/GoogleChrome/web-push-encryption)
  1. Eventually implement [angular/mobile-toolkit](https://github.com/angular/mobile-toolkit) when more progress is made
- 1. User 'profile' page
  1. Update `@angular/router-deprecated` => `@angular/router` when rc router is near completion
  1. RxJS websocket integration for realtime user status
  1. Unit testing

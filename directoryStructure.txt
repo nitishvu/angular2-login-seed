@@ -1,5 +1,9 @@
 .
 ├─.gitignore
+├─144.png
+├─192.png
+├─96.png
+├─angular2-login-seed.sql
 ├─app-component-tree.png
 ├─app.js
 ├─bin
@@ -51,6 +55,12 @@
 │   ├─main.js
 │   ├─main.js.map
 │   ├─main.ts
+│   ├─register
+│   │   ├─register.component.css
+│   │   ├─register.component.html
+│   │   ├─register.component.js
+│   │   ├─register.component.js.map
+│   │   ├─register.component.ts
 │   ├─shared
 │   │   ├─components
 │   │   │   ├─quick-card
@@ -68,12 +78,18 @@
 │   │   │   │   ├─hero.service.ts
 │   │   │   │   ├─hero.ts
 │   │   │   ├─user
+│   │   │   │   ├─user-status-codes.js
+│   │   │   │   ├─user-status-codes.js.map
+│   │   │   │   ├─user-status-codes.ts
 │   │   │   │   ├─user.js
 │   │   │   │   ├─user.js.map
 │   │   │   │   ├─user.service.js
 │   │   │   │   ├─user.service.js.map
 │   │   │   │   ├─user.service.ts
 │   │   │   │   ├─user.ts
+│   │   │   │   ├─username-email-validator.js
+│   │   │   │   ├─username-email-validator.js.map
+│   │   │   │   ├─username-email-validator.ts
 │   ├─users
 │   │   ├─user-badge.component.css
 │   │   ├─user-badge.component.html
@@ -93,12 +109,15 @@
 │   ├─getAllUsersPublic.js
 │   ├─getUserPublic.js
 │   ├─index.js
-├─dbStructure.sql
+│   ├─registerUser.js
+│   ├─truncateUserObject.js
+│   ├─userExists.js
 ├─directoryStructure.txt
 ├─index.html
 ├─LICENSE
 ├─logo.png
 ├─logo_post_polymer.png
+├─manifest.json
 ├─models
 │   ├─index.js
 │   ├─user.js
@@ -110,7 +129,16 @@
 │   │   ├─index.js
 │   │   ├─users.js
 │   ├─authenticationHelpers.js
+│   ├─authorize
+│   │   ├─index.js
 │   ├─index.js
+├─sw.js
 ├─tsconfig.json
+├─typings.json
 ├─views
 │   ├─error.ejs
+
+Dom Farolino
+domfarolino.com
+<domfarolino@gmail.com>
+<cpuxtech@gmail.com>
