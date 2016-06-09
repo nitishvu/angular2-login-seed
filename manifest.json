@@ -4,15 +4,15 @@
   "icons": [
     {
       "src": "192.png",
-      "sizes": "202x220"
+      "sizes": "192x192"
     },
     {
       "src": "144.png",
-      "sizes": "147x160"
+      "sizes": "144x144"
     },
     {
       "src": "96.png",
-      "sizes": "99x108"
+      "sizes": "96x96"
     }
   ],
   "theme_color": "#009688",
