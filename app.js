@@ -24,7 +24,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use(favicon(path.join(__dirname, 'client', 'assets/favicon.ico')));
+app.use(favicon(path.join(__dirname, 'src', 'assets/favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -33,7 +33,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(cookieParser());
 
-app.use('/client', express.static(__dirname + '/client'));
+app.use('/src', express.static(__dirname + '/src'));
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 
 /**

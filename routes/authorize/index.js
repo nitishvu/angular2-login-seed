@@ -10,6 +10,14 @@ var router                = express.Router();
 var passport              = require('passport');
 var authenticationHelpers = require('../authenticationHelpers');
 
+router.use(function(req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type,X-Requested-With');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,HEAD,DELETE,OPTIONS');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  next();
+});
+
 /**
  * Authorization route for google provider
  */
