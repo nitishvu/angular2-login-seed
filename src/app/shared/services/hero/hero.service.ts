@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'; // because we want to be able to inject our hero service
-import { Http, Response } from '@angular/http';
+import { Http, Response, RequestOptionsArgs } from '@angular/http';
 import { Observable }     from 'rxjs/Observable';
 import 'rxjs/Rx';
 
@@ -12,10 +12,11 @@ import { Hero } from './hero';
 export class HeroService {
   constructor (private http: Http) {}
 
-  private _heroesUrl = '/api/heroes';
+  private _apiBase = 'http://localhost:5000/api';
+  private _heroesUrl = this._apiBase + '/heroes';
 
   getHeroes () {
-    return this.http.get(this._heroesUrl)
+    return this.http.get(this._heroesUrl, <RequestOptionsArgs> {withCredentials: true})
                   .toPromise()
                   .then(res => <Hero[]> res.json(), this.handleError)
                   .then(data => { console.log(data); return data; }); // eyeball results in the console

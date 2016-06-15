@@ -68,17 +68,12 @@ export class HomeRootComponent implements OnInit {
   }
   
   getMe() {
-    //TODO: uncomment
     this._userService.getMe().then(me => {
       this.me = me;
       this.name = this.me.name;
       this.username = this.me.username;
       this.profile_picture = this.me.profile_picture;
     });
-      // this.me = <User>{name: "Dom Farolino", username: "domfarolino", profile_picture: "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"};
-      // this.name = this.me.name;
-      // this.username = this.me.username;
-      // this.profile_picture = this.me.profile_picture;
   }
   
   title = 'Home Root Component';

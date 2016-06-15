@@ -24,7 +24,7 @@ export class UserService {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     
-    return this.http.post(this._loginApi, body, {headers: headers})
+    return this.http.post(this._loginApi, body, {headers: headers, withCredentials: true})
                     .map((res: Response) => res)
                     .catch(this.handleError);
   }
@@ -34,12 +34,12 @@ export class UserService {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     
-    return this.http.post(this._registerApi, body, {headers: headers})
+    return this.http.post(this._registerApi, body, {headers: headers, withCredentials: true})
                     .map((res: Response) => res)
                     .catch(this.handleError);
   }
   
-  cookieTest() { 
+  cookieTest() {
     return this.http.get(this._apiBase + '/cookieTest', <RequestOptionsArgs> {withCredentials: true})
                     .map((res: Response) => res)
                     .catch(this.handleError);

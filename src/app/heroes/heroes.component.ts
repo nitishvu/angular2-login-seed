@@ -10,7 +10,7 @@ import { QuickCardComponent } from '../shared/components/quick-card/quick-card.c
 @Component({
     selector: 'my-heroes',
     templateUrl: 'app/heroes/heroes.component.html',
-    styleUrls: ['app/home-root/home-root.component.css', 'src/heroes/heroes.component.css'],
+    styleUrls: ['app/home-root/home-root.component.css', 'app/heroes/heroes.component.css'],
     directives: [QuickCardComponent, HeroDetailComponent, MdButton],
 })
 

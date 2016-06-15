@@ -22,8 +22,7 @@ export class UsersComponent implements OnInit {
   }
   
   getUsers() {
-    //this._userService.getUsers().then(users => this.users = users);
-    this.users = [];
+    this._userService.getUsers().then(users => this.users = users);
   }
   
   cookieTest() {

@@ -3,8 +3,8 @@ import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
 
 @Component({
     selector: 'quick-card',
-    templateUrl: 'src/shared/components/quick-card/quick-card.component.html',
-    styleUrls: ['src/shared/components/quick-card/quick-card.component.css'],
+    templateUrl: 'app/shared/components/quick-card/quick-card.component.html',
+    styleUrls: ['app/shared/components/quick-card/quick-card.component.css'],
     directives: [MD_CARD_DIRECTIVES]
 })
 
