@@ -25,10 +25,6 @@ export class UsersComponent implements OnInit {
     this._userService.getUsers().then(users => this.users = users);
   }
   
-  cookieTest() {
-    this._userService.cookieTest().subscribe(data => {console.log(data);});
-  }
-  
   onSelect(user: User) {
     if(user == this.selectedUser) {
       //this.selectedHero = undefined;
