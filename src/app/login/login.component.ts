@@ -55,11 +55,42 @@ export class LoginComponent implements OnInit {
   }
   
   googleLogin() {
-    window.location.href = this.googleLink;
+    /**
+     * Total hack until new router is used (for authentication and activation logic)
+     */
+    var newWindow = window.open("http://localhost:5000/authorize/google", 'name', 'height=585, width=770');
+	   if (window.focus) {
+       newWindow.focus();
+     }
+     
+     setInterval(() => {
+       this._userService.authenticated().subscribe(data => {
+         if (data.authenticated) {
+           window.location.href = '/users';
+           newWindow.close();
+         }
+       })
+     }, 500);
+
   }
   
   twitterLogin() {
-    window.location.href = this.twitterLink;
+    /**
+     * Total hack until new router is used (for authentication and activation logic)
+     */
+    var newWindow = window.open("http://localhost:5000/authorize/twitter", 'name', 'height=585, width=770');
+	   if (window.focus) {
+       newWindow.focus();
+     }
+     
+     setInterval(() => {
+       this._userService.authenticated().subscribe(data => {
+         if (data.authenticated) {
+           window.location.href = '/users';
+           newWindow.close();
+         }
+       })
+     }, 1000);
   }
   
   repository() {

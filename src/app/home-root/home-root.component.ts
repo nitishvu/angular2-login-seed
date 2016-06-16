@@ -3,6 +3,7 @@ import { NgForm }    from '@angular/common';
 import { HTTP_PROVIDERS } from '@angular/http';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 import { MdButton } from '@angular2-material/button';
+import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
 import { MdToolbar } from '@angular2-material/toolbar';
 import { MD_SIDENAV_DIRECTIVES } from '@angular2-material/sidenav';
 import { MD_LIST_DIRECTIVES } from '@angular2-material/list';
@@ -21,7 +22,7 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
     selector: 'home-root',
     templateUrl: 'app/home-root/home-root.component.html',
     styleUrls: ['app/home-root/home-root.component.css'],
-    directives: [ROUTER_DIRECTIVES, MdToolbar, MD_SIDENAV_DIRECTIVES, MdIcon, MD_LIST_DIRECTIVES, MdButton],
+    directives: [ROUTER_DIRECTIVES, MdToolbar, MD_SIDENAV_DIRECTIVES, MdIcon, MD_LIST_DIRECTIVES, MdButton, MD_CARD_DIRECTIVES],
     providers: [HeroService, MdIconRegistry ,HTTP_PROVIDERS]
 })
 
@@ -64,7 +65,13 @@ export class HomeRootComponent implements OnInit {
   }
   
   logout() {
-    window.location.href = '/logout';
+    /**
+     * Total hack until new router is used (for authentication and activation logic)
+     */
+    this._userService.logout().subscribe(
+      data => {
+        if(!data.loggedOut) window.location.href = './login';
+      });
   }
   
   getMe() {

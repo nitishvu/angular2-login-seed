@@ -15,7 +15,9 @@ export class UserService {
   }
 
   private _apiBase = 'http://localhost:5000/api';
-  private _loginApi =  'http://localhost:5000/authorize/local';
+  private _loginApi = 'http://localhost:5000/authorize/local';
+  private _logoutApi = 'http://localhost:5000/logout';
+  private _authenticatedApi = '/authenticated';
   private _registerApi = this._apiBase + '/users/register';
   private _userExistsApi = this._apiBase + '/users/exists';
   
@@ -24,8 +26,20 @@ export class UserService {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     
-    return this.http.post(this._loginApi, body, {headers: headers, withCredentials: true})
+    return this.http.post(this._loginApi, body, <RequestOptionsArgs> {headers: headers, withCredentials: true})
                     .map((res: Response) => res)
+                    .catch(this.handleError);
+  }
+  
+  authenticated() {
+    return this.http.get(this._apiBase + this._authenticatedApi, <RequestOptionsArgs> {withCredentials: true})
+                    .map((res: Response) => res.json())
+                    .catch(this.handleError);
+  }
+  
+  logout() {
+    return this.http.get(this._logoutApi, <RequestOptionsArgs> {withCredentials: true})
+                    .map((res: Response) => res.json())
                     .catch(this.handleError);
   }
   
@@ -34,7 +48,7 @@ export class UserService {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     
-    return this.http.post(this._registerApi, body, {headers: headers, withCredentials: true})
+    return this.http.post(this._registerApi, body, <RequestOptionsArgs> {headers: headers, withCredentials: true})
                     .map((res: Response) => res)
                     .catch(this.handleError);
   }
