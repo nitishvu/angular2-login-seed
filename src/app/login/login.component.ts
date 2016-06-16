@@ -70,7 +70,7 @@ export class LoginComponent implements OnInit {
            newWindow.close();
          }
        })
-     }, 500);
+     }, 2000);
 
   }
   
@@ -90,7 +90,7 @@ export class LoginComponent implements OnInit {
            newWindow.close();
          }
        })
-     }, 1000);
+     }, 2000);
   }
   
   repository() {

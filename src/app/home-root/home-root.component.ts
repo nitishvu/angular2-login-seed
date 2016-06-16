@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm }    from '@angular/common';
-import { ROUTER_DIRECTIVES } from '@angular/router';
+import { Router, ROUTER_DIRECTIVES } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { MdButton } from '@angular2-material/button';
-import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
 import { MdToolbar } from '@angular2-material/toolbar';
 import { MD_SIDENAV_DIRECTIVES } from '@angular2-material/sidenav';
 import { MD_LIST_DIRECTIVES } from '@angular2-material/list';
@@ -22,7 +21,7 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
     selector: 'home-root',
     templateUrl: 'app/home-root/home-root.component.html',
     styleUrls: ['app/home-root/home-root.component.css'],
-    directives: [ROUTER_DIRECTIVES, MdToolbar, MD_SIDENAV_DIRECTIVES, MdIcon, MD_LIST_DIRECTIVES, MdButton, MD_CARD_DIRECTIVES],
+    directives: [ROUTER_DIRECTIVES, MdToolbar, MD_SIDENAV_DIRECTIVES, MdIcon, MD_LIST_DIRECTIVES, MdButton],
     providers: [HeroService, MdIconRegistry]
 })
 
@@ -32,7 +31,7 @@ export class HomeRootComponent implements OnInit {
   username: string;
   profile_picture: string;
   
-  constructor(private _userService: UserService) {
+  constructor(private _userService: UserService, private _router: Router) {
 
   }
   
@@ -46,7 +45,7 @@ export class HomeRootComponent implements OnInit {
      */
     this._userService.logout().subscribe(
       data => {
-        if(!data.loggedOut) window.location.href = './login';
+        if(!data.loggedOut) this._router.navigate(['/login']);;
       });
   }
   
