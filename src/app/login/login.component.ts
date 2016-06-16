@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, FormBuilder, Validators, ControlGroup, Control } from '@angular/common';
-import { Router } from '@angular/router-deprecated';
+import { Router } from '@angular/router';
 import { MdButton } from '@angular2-material/button';
 import { MdInput } from '@angular2-material/input';
 import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
@@ -66,7 +66,7 @@ export class LoginComponent implements OnInit {
      setInterval(() => {
        this._userService.authenticated().subscribe(data => {
          if (data.authenticated) {
-           window.location.href = '/users';
+           this._router.navigate(['/']);
            newWindow.close();
          }
        })
@@ -86,7 +86,7 @@ export class LoginComponent implements OnInit {
      setInterval(() => {
        this._userService.authenticated().subscribe(data => {
          if (data.authenticated) {
-           window.location.href = '/users';
+           this._router.navigate(['/']);
            newWindow.close();
          }
        })
@@ -98,7 +98,7 @@ export class LoginComponent implements OnInit {
   }
   
   register() {
-    this._router.navigateByUrl('/register');
+    this._router.navigate(['/register']);
   }
   
   onSubmit() {
@@ -109,7 +109,7 @@ export class LoginComponent implements OnInit {
     this.errorDiagnostic = null;
     
     this._userService.login(this.form.value).subscribe(data => {
-      this._router.navigateByUrl('/users');
+      this._router.navigate(['/']);
     },
     error => {
       this.submitted = false;

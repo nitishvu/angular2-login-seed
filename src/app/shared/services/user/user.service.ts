@@ -67,9 +67,10 @@ export class UserService {
                   .then(data => { console.log(data); return data; }); // eyeball results in the console
   }
   
-  private handleError (error: Response) {
+  private handleError (error: Response) : Observable<any> {
     // in a real world app, we may send the server to some remote logging infrastructure
     // instead of just logging it to the console
+    if (error.status == 401) return Observable.of(error);
     return Observable.throw(error || "Server Error");
   }
 }

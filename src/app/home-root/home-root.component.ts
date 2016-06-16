@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm }    from '@angular/common';
-import { HTTP_PROVIDERS } from '@angular/http';
-import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
+import { ROUTER_DIRECTIVES } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
 import { MdButton } from '@angular2-material/button';
 import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
 import { MdToolbar } from '@angular2-material/toolbar';
@@ -23,32 +23,8 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
     templateUrl: 'app/home-root/home-root.component.html',
     styleUrls: ['app/home-root/home-root.component.css'],
     directives: [ROUTER_DIRECTIVES, MdToolbar, MD_SIDENAV_DIRECTIVES, MdIcon, MD_LIST_DIRECTIVES, MdButton, MD_CARD_DIRECTIVES],
-    providers: [HeroService, MdIconRegistry ,HTTP_PROVIDERS]
+    providers: [HeroService, MdIconRegistry]
 })
-
-@RouteConfig([
-  {
-    path: '/users',
-    name: 'Users',
-    component: UsersComponent,
-    useAsDefault: true
-  },
-  {
-    path: '/heroes',
-    name: 'Heroes',
-    component: HeroesComponent
-  },
-  {
-    path: '/dashboard',
-    name: 'Dashboard',
-    component: DashboardComponent
-  },
-  {
-    path: '/detail/:id',
-    name: 'HeroDetail',
-    component: HeroDetailComponent
-  }
-])
 
 export class HomeRootComponent implements OnInit {
   me: User;

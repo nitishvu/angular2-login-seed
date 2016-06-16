@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, Validators, ControlGroup, Control } from '@angular/common';
-import { Router } from '@angular/router-deprecated';
+import { Router } from '@angular/router';
 import { MdButton } from '@angular2-material/button';
 import { MdInput } from '@angular2-material/input';
 import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
