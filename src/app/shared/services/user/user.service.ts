@@ -14,12 +14,12 @@ export class UserService {
     
   }
 
-  private _apiBase = 'http://localhost:5000/api';
-  private _loginApi = 'http://localhost:5000/authorize/local';
-  private _logoutApi = 'http://localhost:5000/logout';
-  private _authenticatedApi = '/authenticated';
-  private _registerApi = this._apiBase + '/users/register';
-  private _userExistsApi = this._apiBase + '/users/exists';
+  private _apiBase = 'https://angular2-login-seed-api.herokuapp.com';
+  private _loginApi = this._apiBase + '/authorize/local';
+  private _logoutApi = this._apiBase + '/logout';
+  private _authenticatedApi = this._apiBase + '/api/authenticated';
+  private _registerApi = this._apiBase + '/api/users/register';
+  private _userExistsApi = this._apiBase + '/api/users/exists';
   
   login(user) {
     let body = JSON.stringify(user);
@@ -32,7 +32,7 @@ export class UserService {
   }
   
   authenticated() {
-    return this.http.get(this._apiBase + this._authenticatedApi, <RequestOptionsArgs> {withCredentials: true})
+    return this.http.get(this._authenticatedApi, <RequestOptionsArgs> {withCredentials: true})
                     .map((res: Response) => res.json())
                     .catch(this.handleError);
   }
@@ -53,21 +53,15 @@ export class UserService {
                     .catch(this.handleError);
   }
   
-  cookieTest() {
-    return this.http.get(this._apiBase + '/cookieTest', <RequestOptionsArgs> {withCredentials: true})
-                    .map((res: Response) => res)
-                    .catch(this.handleError);
-  }
-  
   getUsers() {
-    return this.http.get(this._apiBase + "/users?limit=5&desc=true", <RequestOptionsArgs> {withCredentials: true})
+    return this.http.get(this._apiBase + "/api/users?limit=5&desc=true", <RequestOptionsArgs> {withCredentials: true})
                   .toPromise()
                   .then(res => <User[]> res.json(), this.handleError)
                   .then(data => { console.log(data); return data; }); // eyeball results in the console
   }
   
   getMe() {
-    return this.http.get(this._apiBase + '/users/me/', <RequestOptionsArgs> {withCredentials: true})
+    return this.http.get(this._apiBase + '/api/users/me/', <RequestOptionsArgs> {withCredentials: true})
                   .toPromise()
                   .then(res => <User> res.json().me, this.handleError)
                   .then(data => { console.log(data); return data; }); // eyeball results in the console

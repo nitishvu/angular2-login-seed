@@ -12,8 +12,8 @@ import { Hero } from './hero';
 export class HeroService {
   constructor (private http: Http) {}
 
-  private _apiBase = 'http://localhost:5000/api';
-  private _heroesUrl = this._apiBase + '/heroes';
+  private _apiBase = 'https://angular2-login-seed-api.herokuapp.com';
+  private _heroesUrl = this._apiBase + '/api/heroes';
 
   getHeroes () {
     return this.http.get(this._heroesUrl, <RequestOptionsArgs> {withCredentials: true})

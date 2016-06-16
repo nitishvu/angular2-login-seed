@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
     /**
      * Total hack until new router is used (for authentication and activation logic)
      */
-    var newWindow = window.open("http://localhost:5000/authorize/google", 'name', 'height=585, width=770');
+    var newWindow = window.open("https://angular2-login-seed-api.herokuapp.com/authorize/google", 'name', 'height=585, width=770');
 	   if (window.focus) {
        newWindow.focus();
      }
@@ -78,7 +78,7 @@ export class LoginComponent implements OnInit {
     /**
      * Total hack until new router is used (for authentication and activation logic)
      */
-    var newWindow = window.open("http://localhost:5000/authorize/twitter", 'name', 'height=585, width=770');
+    var newWindow = window.open("https://angular2-login-seed-api.herokuapp.com/authorize/twitter", 'name', 'height=585, width=770');
 	   if (window.focus) {
        newWindow.focus();
      }
