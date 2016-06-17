@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { MdButton } from '@angular2-material/button';
 import { MdInput } from '@angular2-material/input';
@@ -6,6 +7,8 @@ import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
 
 import { Hero } from '../shared/services/hero/hero';
 import { HeroService } from '../shared/services/hero/hero.service';
+
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'my-hero-detail',
@@ -15,27 +18,33 @@ import { HeroService } from '../shared/services/hero/hero.service';
   directives: [MdButton, MdInput, MD_CARD_DIRECTIVES]
 })
 
-export class HeroDetailComponent implements OnInit {
+export class HeroDetailComponent implements OnInit, OnDestroy {
+  selectedId: number;
   hero: Hero;
+  sub: Subscription;
 
   constructor(
-    private _heroService: HeroService) {
+    private _heroService: HeroService, private _router: Router) {
 
   }
   
   ngOnInit() {
-    this.getHeroes();
-  }
-
-  getHeroes() {
-    let id = 4;
-    //let id = +this._routeParams.get('id');
-    //let id = +this._routeParams.urlSegments['id'];
-    this._heroService.getHero(id).then(hero => this.hero = hero);
+    this.sub = this._router
+      .routerState
+      .queryParams
+      .subscribe(params => {
+        this.selectedId = +params['id'];
+        this._heroService.getHero(this.selectedId)
+          .then(hero => this.hero = hero);
+      });
   }
 
   goBack() {
     window.history.back();
+  }
+  
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
   
   title = 'Hero Detail Component'

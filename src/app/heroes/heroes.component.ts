@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router-deprecated';
+import { Router } from '@angular/router';
 import { MdButton } from '@angular2-material/button';
 
 import { Hero } from '../shared/services/hero/hero';
@@ -43,6 +43,6 @@ export class HeroesComponent implements OnInit {
   }
 
   goToDetail() {
-    this._router.navigate(['HeroDetail', { id: this.selectedHero.id }]);
+    this._router.navigate(['/detail'], { queryParams: { id: `${this.selectedHero.id}`} });
   }
 }
