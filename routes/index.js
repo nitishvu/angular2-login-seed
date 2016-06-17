@@ -11,6 +11,19 @@ var authenticationHelpers = require('./authenticationHelpers');
 var api       =  require('./api');
 var authorize =  require('./authorize');
 
+const allowedOrigins = ['http://localhost:4200', 'https://angular2-login-seed.herokuapp.com'];
+
+router.use(function(request, response, next) {
+  var origin = request.headers.origin;
+  if(allowedOrigins.indexOf(origin) > -1){
+       response.setHeader('Access-Control-Allow-Origin', origin);
+  }
+  response.setHeader('Access-Control-Allow-Headers', 'Content-Type,X-Requested-With');
+  response.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,HEAD,DELETE,OPTIONS');
+  response.setHeader('Access-Control-Allow-Credentials', true);
+  next();
+});
+
 /**
  * Make sure the "use" of any other route modules comes before
  * any index route definitions, aka route definitions from root '/'
@@ -41,7 +54,7 @@ router.get('/register', authenticationHelpers.isNotAuthOrRedirect, function(req,
 router.get('/logout', authenticationHelpers.isAuthOrRedirect, function(req, res, next) {
   //res.sendFile(path.resolve('./index.html'));
   req.logout();
-  res.redirect('/login');
+  res.json({"loggedOut": req.isAuthenticated()});
 });
  
 /**
