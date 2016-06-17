@@ -1,0 +1,13 @@
+<h2>{{title}}</h2>
+<h2>Here's a list of our 5 most recent users</h2>
+
+<div class="body">  
+  <div class="repeat repeat-fade-in" *ngFor="let user of users">
+    <user-badge
+            (click)="onSelect(user)"
+            [selected]="user === selectedUser"
+            [name]="user.name"
+            [img]="user.profile_picture">
+    </user-badge>
+  </div>
+</div>

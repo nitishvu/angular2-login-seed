@@ -1,0 +1,38 @@
+<div class="content">
+  
+    <md-card heading="{{title}}" elevation="5">
+      
+      <md-card-title>
+        <h2>Angular2 Login Seed</h2>
+      </md-card-title>
+      
+      <md-card-content>
+        <h2>Login</h2>
+        
+        <button (click)="openAuthWindow('google')" md-raised-button color="primary">Google</button>
+        <button (click)="openAuthWindow('twitter')" md-raised-button color="primary">Twitter</button>
+        
+        <form *ngIf="!submitted" [ngFormModel]="form" (ngSubmit)="onSubmit()" #loginForm="ngForm">
+          <md-input [ngFormModel]="username" ngControl="username" required placeholder="Username"></md-input>
+          <md-input [ngFormModel]="password" ngControl="password" required placeholder="Password" type="password"></md-input>
+          <button type="submit" [disabled]="!loginForm.form.valid" md-raised-button color="primary">Login</button>
+        </form>
+        
+        <md-spinner *ngIf="submitted" mode="indeterminate"></md-spinner>
+        
+        <p class="error" *ngIf="errorDiagnostic">{{errorDiagnostic}}</p>
+        
+        <br>
+        <hr>
+        
+        <button (click)="register()" md-raised-button color="accent">Register</button>
+        
+        <p><i>Created by <a href="https://github.com/domfarolino">Dom Farolino</a></i></p>
+        <p><i>Click below to go to repository</i></p>
+        <button (click)="repository()" md-raised-button color="accent">GitHub Repository</button>
+        
+      </md-card-content>
+      
+    </md-card>
+  
+</div>

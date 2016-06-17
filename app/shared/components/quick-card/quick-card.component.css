@@ -1,0 +1,19 @@
+.selected {
+  background-color: #546E7A;
+  background-color: #3F51E0;
+  background-color: #009688;
+  color: white;
+}
+
+md-card {
+  display:block;
+  /*padding:10px;*/
+}
+
+md-card img {
+  width:50px;
+  height:50px;
+  border:2px solid white;
+  border-radius:50%;
+  vertical-align: middle;
+}

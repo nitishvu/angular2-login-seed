@@ -1,0 +1,12 @@
+<h2>{{title}}</h2>
+
+<md-card *ngIf="hero" class="global" id="selectedHeroDetails">
+  <h2>{{hero.name}} details!</h2>
+  <div>
+    <label>id: </label>{{hero.id}}</div>
+  <div>
+    <label>name: </label>
+    <md-input [(ngModel)]="hero.name" placeholder="name"></md-input>
+  </div>
+  <button md-raised-button color="primary" (click)="goBack()">Back</button>
+</md-card>

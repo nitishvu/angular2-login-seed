@@ -1,0 +1,11 @@
+<md-card [class.selected]="selected">
+  <img class="profile-picture" src="{{img}}">
+  <div class="header">
+    <img class="header-image" src="assets/img/space_bg.jpg">
+  </div>
+  <div class="card-content">
+    <p class="name">{{name}}</p>
+    <button md-raised-button color="primary" [class.selected-contrast]="selected">Add Friend</button>
+    <button md-raised-button color="primary" [class.selected-contrast]="selected">Profile</button>
+  </div>
+</md-card>

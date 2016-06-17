@@ -1,0 +1,21 @@
+<h2>{{title}}</h2>
+<h2>From the Angular getting started tutorial</h2>
+
+<div class="body">
+  <div *ngIf="selectedHero" class="expand">
+    <h2>
+      {{selectedHero.name | uppercase}} is my hero
+    </h2>
+    <button md-raised-button (click)="goToDetail()">View Details</button>
+  </div>
+
+<div class="repeat repeat-fade-in" *ngFor="let hero of heroes">
+  <quick-card
+            class="repeat-fade-in"
+            (click)="onSelect(hero)"
+            [selected]="hero === selectedHero"
+            [name]="hero.name"
+            [img]="'https://randomuser.me/api/portraits/med/men/96.jpg'">
+    </quick-card>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+.expand {
+  height: 100px;
+  animation: expand 1s cubic-bezier(.27, 1.12, .49, .98);
+}
+
+div.body {
+  max-width:400px; /* give repeated things the 'growing from left' effect */
+  margin:0 auto;
+}
+
+div.repeat {
+  display:block;
+  margin-bottom:20px;
+  max-width:400px;
+}
+
+button {
+  width:100%;
+}
+
+@keyframes expand {
+    from {
+        height:0;
+    }
+    to {
+        
+    }
+}
