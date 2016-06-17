@@ -14,7 +14,7 @@ export class UserService {
     
   }
 
-  private _apiBase = 'https://angular2-login-seed-api.herokuapp.com';
+  private _apiBase = 'https://angular2-login-seed.herokuapp.com';
   private _loginApi = this._apiBase + '/authorize/local';
   private _logoutApi = this._apiBase + '/logout';
   private _authenticatedApi = this._apiBase + '/api/authenticated';

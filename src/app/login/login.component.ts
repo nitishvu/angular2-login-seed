@@ -73,7 +73,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     /**
      * Total hack until new router is used (for authentication and activation logic)
      */    
-    var newWindow = window.open("https://angular2-login-seed-api.herokuapp.com/authorize/" + provider, 'name', 'height=585, width=770');
+    var newWindow = window.open("https://angular2-login-seed.herokuapp.com/authorize/" + provider, 'name', 'height=585, width=770');
 	   if (window.focus) {
        newWindow.focus();
      }
