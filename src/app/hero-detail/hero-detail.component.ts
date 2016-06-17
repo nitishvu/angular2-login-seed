@@ -8,7 +8,7 @@ import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
 import { Hero } from '../shared/services/hero/hero';
 import { HeroService } from '../shared/services/hero/hero.service';
 
-import { Subscription } from 'rxjs';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'my-hero-detail',

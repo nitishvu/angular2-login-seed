@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core'; // because we want to be able to inject our hero service
 import { Http, Response, RequestOptionsArgs } from '@angular/http';
-import { Observable }     from 'rxjs/Observable';
-import 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
 
 /**
  * Import interfaces that service depends on
