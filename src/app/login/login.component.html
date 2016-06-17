@@ -9,8 +9,8 @@
       <md-card-content>
         <h2>Login</h2>
         
-        <button (click)="googleLogin()" md-raised-button color="primary">Google</button>
-        <button (click)="twitterLogin()" md-raised-button color="primary">Twitter</button>
+        <button (click)="openAuthWindow('google')" md-raised-button color="primary">Google</button>
+        <button (click)="openAuthWindow('twitter')" md-raised-button color="primary">Twitter</button>
         
         <form *ngIf="!submitted" [ngFormModel]="form" (ngSubmit)="onSubmit()" #loginForm="ngForm">
           <md-input [ngFormModel]="username" ngControl="username" required placeholder="Username"></md-input>

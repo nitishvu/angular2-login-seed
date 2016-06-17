@@ -15,7 +15,7 @@ const allowedOrigins = ['http://localhost:4200', 'https://angular2-login-seed.he
 
 router.use(function(request, response, next) {
   var origin = request.headers.origin;
-  if(allowedOrigins.indexOf(origin) > -1){
+  if (allowedOrigins.indexOf(origin) > -1) {
        response.setHeader('Access-Control-Allow-Origin', origin);
   }
   response.setHeader('Access-Control-Allow-Headers', 'Content-Type,X-Requested-With');

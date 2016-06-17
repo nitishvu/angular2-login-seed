@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NgForm, FormBuilder, Validators, ControlGroup, Control } from '@angular/common';
 import { Router } from '@angular/router';
 import { MdButton } from '@angular2-material/button';
@@ -9,6 +9,10 @@ import { MdSpinner } from '@angular2-material/progress-circle';
 import { USER_STATUS_CODES } from '../shared/services/user/user-status-codes';
 import { UserService } from '../shared/services/user/user.service';
 
+import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
+import 'rxjs/add/observable/interval';
+
 @Component({
   selector: 'login',
   templateUrl: 'app/login/login.component.html',
@@ -16,12 +20,16 @@ import { UserService } from '../shared/services/user/user.service';
   directives: [MD_CARD_DIRECTIVES, MdButton, MdInput, MdSpinner]
 })
 
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
   title = 'Login';
   googleLink = '/authorize/google';
   twitterLink = '/authorize/twitter';
   githubLink = 'https://github.com/domfarolino/angular2-login-seed';
   registerLink = '/register';
+  
+  authenticatedObs: Observable<boolean>;
+  userServiceSub: Subscription;
+  authSub: Subscription;
   
   username: Control;
   password: Control;
@@ -54,43 +62,35 @@ export class LoginComponent implements OnInit {
     });
   }
   
-  googleLogin() {
-    /**
-     * Total hack until new router is used (for authentication and activation logic)
-     */
-    var newWindow = window.open("https://angular2-login-seed-api.herokuapp.com/authorize/google", 'name', 'height=585, width=770');
-	   if (window.focus) {
-       newWindow.focus();
-     }
-     
-     setInterval(() => {
-       this._userService.authenticated().subscribe(data => {
-         if (data.authenticated) {
-           this._router.navigate(['/']);
-           newWindow.close();
-         }
-       })
-     }, 2000);
-
+  authenticated(): Observable<boolean> {
+    if (this.authenticatedObs) return this.authenticatedObs;
+    this.authenticatedObs = this._userService.authenticated()
+      .map(data => {return data.authenticated});
+    return this.authenticatedObs;
   }
   
-  twitterLogin() {
+  openAuthWindow(provider: string) {
     /**
      * Total hack until new router is used (for authentication and activation logic)
-     */
-    var newWindow = window.open("https://angular2-login-seed-api.herokuapp.com/authorize/twitter", 'name', 'height=585, width=770');
+     */    
+    var newWindow = window.open("https://angular2-login-seed-api.herokuapp.com/authorize/" + provider, 'name', 'height=585, width=770');
 	   if (window.focus) {
        newWindow.focus();
      }
      
-     setInterval(() => {
-       this._userService.authenticated().subscribe(data => {
-         if (data.authenticated) {
-           this._router.navigate(['/']);
-           newWindow.close();
-         }
+     let source = Observable.interval(2000)
+      .map(() => {
+        this.userServiceSub = this.authenticated().subscribe(data => {
+          if (data) {
+          this._router.navigate(['/']);
+          newWindow.close();
+        }
        })
-     }, 2000);
+    })
+    
+    if (this.authSub) this.authSub.unsubscribe();
+    this.authSub = source.subscribe();
+
   }
   
   repository() {
@@ -115,6 +115,11 @@ export class LoginComponent implements OnInit {
       this.submitted = false;
       this.errorDiagnostic = USER_STATUS_CODES[error.status] || USER_STATUS_CODES[500];
     });
+  }
+  
+  ngOnDestroy() {
+    if (this.userServiceSub) this.userServiceSub.unsubscribe();
+    if (this.authSub) this.authSub.unsubscribe();
   }
   
 }
