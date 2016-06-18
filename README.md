@@ -59,6 +59,10 @@ Navigate to `localhost:4200` and you should see the following application served
 
 ![login-screenshot](./login-screenshot.png)
 
+Once you login you will see the following screen:
+
+![users-screenshot](./users-screenshot.png)
+
 ## Customizing Express server
 
 I've tried to make it easy to customize your the Express server to make it your own. Only the following steps need completed:
