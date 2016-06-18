@@ -15,7 +15,7 @@ A seed application for developers to get started building applications with Angu
   1. [Technologies](#technologies)
   1. [Overview](#overview)
   1. [TL;DR Get started now](#tldr-get-started-now)
-  1. [Customizing Express server](#adding-oauth-providers)
+  1. [Customizing Express server](#customizing-express-server)
   1. [Angular Component Tree](#angular-component-tree)
   1. [Directory Structure](#directory-structure)
   1. [Contributing](#contributing)
