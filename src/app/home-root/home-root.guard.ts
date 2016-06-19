@@ -12,14 +12,19 @@ export class HomeRootComponentGuard implements CanActivate {
   
   canActivate(): Observable<boolean> | boolean {
     return this._userService.authenticated()
-      .map((result) => {
-        console.log(result);
-				if (result.authenticated) {
-					return true;
-				} else {
-					this._router.navigate(['/login']);
-					return false;
-				}
-			});
+      .map(
+        result => {
+          console.log(result);
+          if (result.authenticated) {
+            return true;
+          } else {
+            this._router.navigate(['/login']);
+            return false;
+          }
+        }
+      ).catch(error => {
+        this._router.navigate(['/login']);
+        return Observable.of(false);
+      });
   }
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Control } from '@angular/common';
 import { Http, Response, Headers, RequestOptions, RequestOptionsArgs } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/throw';
 
 /**
  * Import interfaces that service depends on
@@ -67,10 +68,9 @@ export class UserService {
                   .then(data => { console.log(data); return data; }); // eyeball results in the console
   }
   
-  private handleError (error: Response) : Observable<any> {
+  private handleError (error: Response) {
     // in a real world app, we may send the server to some remote logging infrastructure
     // instead of just logging it to the console
-    if (error.status == 401) return Observable.of(error);
     return Observable.throw(error || "Server Error");
   }
 }
