@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { NgForm, FormBuilder, Validators, ControlGroup, Control } from '@angular/common';
+import { REACTIVE_FORM_DIRECTIVES, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MdButton } from '@angular2-material/button';
 import { MdInput } from '@angular2-material/input';
@@ -17,7 +17,7 @@ import 'rxjs/add/observable/interval';
   selector: 'login',
   templateUrl: 'app/login/login.component.html',
   styleUrls: ['app/login/login.component.css'],
-  directives: [MD_CARD_DIRECTIVES, MdButton, MdInput, MdSpinner]
+  directives: [MD_CARD_DIRECTIVES, MdButton, MdInput, MdSpinner, REACTIVE_FORM_DIRECTIVES]
 })
 
 export class LoginComponent implements OnInit, OnDestroy {
@@ -31,9 +31,9 @@ export class LoginComponent implements OnInit, OnDestroy {
   userServiceSub: Subscription;
   authSub: Subscription;
   
-  username: Control;
-  password: Control;
-  form: ControlGroup;
+  username: FormControl;
+  password: FormControl;
+  form: FormGroup;
   
   /**
    * Boolean used in telling the UI
@@ -53,12 +53,12 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
   
   ngOnInit() {
-    this.username = new Control('', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(64)]));
-    this.password = new Control('', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(32)]));
+    this.username = new FormControl('', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(64)]));
+    this.password = new FormControl('', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(32)]));
 
-    this.form = new ControlGroup({
-      username: this.username,
-      password: this.password,
+    this.form = new FormGroup({
+      'username': this.username,
+      'password': this.password,
     });
   }
   

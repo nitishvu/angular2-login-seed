@@ -8,8 +8,8 @@ import { HomeRootComponentGuard } from './home-root/home-root.guard';
 import { UnauthenticatedGuard } from './unauthenticated.guard';
 
 const routes: RouterConfig = [
-  { path: '/login', component: LoginComponent, canActivate: [UnauthenticatedGuard] },
-  { path: '/register', component: RegisterComponent, canActivate: [UnauthenticatedGuard]},
+  { path: 'login', component: LoginComponent, canActivate: [UnauthenticatedGuard] },
+  { path: 'register', component: RegisterComponent, canActivate: [UnauthenticatedGuard]},
   ...HomeRootRoutes,
 ];
 

@@ -6,13 +6,13 @@ import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
 
 export const HomeRootRoutes = [
   {
-    path: '/',
+    path: '',
     component: HomeRootComponent,
     canActivate: [HomeRootComponentGuard],
     children: [
-      { path: '/', component: UsersComponent },
-      { path: '/heroes', component: HeroesComponent },
-      { path: '/detail', component: HeroDetailComponent }
+      { path: '', component: UsersComponent },
+      { path: 'heroes', component: HeroesComponent },
+      { path: 'detail', component: HeroDetailComponent }
     ]
   }
 ];
