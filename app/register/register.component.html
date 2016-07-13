@@ -9,11 +9,11 @@
       <md-card-content>
         <h2>Create an account</h2>
         
-        <form *ngIf="!submitted" [ngFormModel]="form" (ngSubmit)="onSubmit()" #registerForm="ngForm">
-          <md-input [ngFormModel]="name" ngControl="name" required placeholder="Name"></md-input>
-          <md-input [ngFormModel]="username" ngControl="username" required placeholder="Username"></md-input>
-          <md-input [ngFormModel]="email" ngControl="email" required placeholder="email@example.com"></md-input>
-          <md-input [ngFormModel]="password" ngControl="password" required placeholder="Password" type="password"></md-input>
+        <form *ngIf="!submitted" [formGroup]="form" (ngSubmit)="onSubmit()" #registerForm="ngForm">
+          <md-input formControlName="name" required placeholder="Name"></md-input>
+          <md-input formControlName="username" required placeholder="Username"></md-input>
+          <md-input formControlName="email" required placeholder="email@example.com"></md-input>
+          <md-input formControlName="password" required placeholder="Password" type="password"></md-input>
           <button type="submit" [disabled]="!registerForm.form.valid" md-raised-button color="primary">Register</button>
         </form>
         
