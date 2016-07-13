@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm, Validators, ControlGroup, Control } from '@angular/common';
+import { REACTIVE_FORM_DIRECTIVES, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MdButton } from '@angular2-material/button';
 import { MdInput } from '@angular2-material/input';
@@ -21,7 +21,7 @@ import { UserService } from '../shared/services/user/user.service';
   selector: 'register',
   templateUrl: 'app/register/register.component.html',
   styleUrls: ['app/register/register.component.css'],
-  directives: [MD_CARD_DIRECTIVES, MdButton, MdInput, MdSpinner]
+  directives: [MD_CARD_DIRECTIVES, MdButton, MdInput, MdSpinner, REACTIVE_FORM_DIRECTIVES]
 })
 
 export class RegisterComponent implements OnInit {
@@ -29,11 +29,11 @@ export class RegisterComponent implements OnInit {
   loginLink = '/login';
   githubLink = 'https://github.com/domfarolino/angular2-login-seed';
  
-  name: Control;
-  username: Control;
-  email: Control;
-  password: Control;
-  form: ControlGroup;
+  name: FormControl;
+  username: FormControl;
+  email: FormControl;
+  password: FormControl;
+  form: FormGroup;
   
   /**
    * Boolean used in telling the UI
@@ -56,19 +56,19 @@ export class RegisterComponent implements OnInit {
     /**
      * Initialize form Controls
      */
-    this.name = new Control('', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(64)]));
-    this.username = new Control('', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(64)]));
-    this.email = new Control('', Validators.compose([Validators.required, Validators.pattern("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")]));
-    this.password = new Control('', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(32)]));
+    this.name = new FormControl('', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(64)]));
+    this.username = new FormControl('', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(64)]));
+    this.email = new FormControl('', Validators.compose([Validators.required, Validators.pattern("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")]));
+    this.password = new FormControl('', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(32)]));
 
     /**
      * Initialize form
      */
-    this.form = new ControlGroup({
-      name: this.name,
-      username: this.username,
-      email: this.email,
-      password: this.password
+    this.form = new FormGroup({
+      'name': this.name,
+      'username': this.username,
+      'email': this.email,
+      'password': this.password
     });
   }
   
