@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core'; // because we want to be able to inject our hero service
+import { Injectable, Inject } from '@angular/core'; // because we want to be able to inject our hero service
 import { Http, Response, RequestOptionsArgs } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
@@ -9,9 +9,8 @@ import { Hero } from './hero';
 
 @Injectable()
 export class HeroService {
-  constructor (private http: Http) {}
+  constructor (private http: Http, @Inject('apiBase') private _apiBase: string) {}
 
-  private _apiBase = 'https://angular2-login-seed.herokuapp.com';
   private _heroesUrl = this._apiBase + '/api/heroes';
 
   getHeroes () {
@@ -26,7 +25,7 @@ export class HeroService {
       heroes => heroes.filter(hero => hero.id === id)[0]
     );
   }
-  
+
   private handleError (error: Response) {
     // in a real world app, we may send the server to some remote logging infrastructure
     // instead of just logging it to the console
