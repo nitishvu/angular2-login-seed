@@ -1,9 +1,11 @@
-export class Angular2LoginSeedPage {
+import { browser, element, by } from 'protractor';
+
+export class MigrationProjectPage {
   navigateTo() {
     return browser.get('/');
   }
 
   getParagraphText() {
-    return element(by.css('angular2-login-seed-app h1')).getText();
+    return element(by.css('app-root h1')).getText();
   }
 }
