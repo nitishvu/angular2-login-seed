@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { USER_STATUS_CODES } from '../shared/services/user/user-status-codes';
@@ -24,10 +24,6 @@ export class RegisterComponent implements OnInit {
   loginLink = '/login';
   githubLink = 'https://github.com/domfarolino/angular2-login-seed';
 
-  name: FormControl;
-  username: FormControl;
-  email: FormControl;
-  password: FormControl;
   form: FormGroup;
 
   /**
@@ -43,7 +39,7 @@ export class RegisterComponent implements OnInit {
    */
   errorDiagnostic: string;
 
-  constructor(private _userService: UserService, private _router: Router) {
+  constructor(private _userService: UserService, private _router: Router, private formBuilder: FormBuilder) {
 
   }
 
@@ -51,20 +47,17 @@ export class RegisterComponent implements OnInit {
     /**
      * Initialize form Controls
      */
-    this.name = new FormControl('', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(64)]));
-    this.username = new FormControl('', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(64)]));
-    this.email = new FormControl('', Validators.compose([Validators.required, Validators.pattern("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")]));
-    this.password = new FormControl('', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(32)]));
 
     /**
      * Initialize form
      */
-    this.form = new FormGroup({
-      'name': this.name,
-      'username': this.username,
-      'email': this.email,
-      'password': this.password
+    this.form = this.formBuilder.group({
+      name: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(64)])],
+      username: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(64)])],
+      email: ['', Validators.compose([Validators.required, Validators.pattern("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")])],
+      password: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(32)])]
     });
+
   }
 
   login() {

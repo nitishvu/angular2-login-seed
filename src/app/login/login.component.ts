@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { USER_STATUS_CODES } from '../shared/services/user/user-status-codes';
@@ -26,8 +26,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   userServiceSub: Subscription;
   authSub: Subscription;
 
-  username: FormControl;
-  password: FormControl;
   form: FormGroup;
 
   /**
@@ -43,18 +41,17 @@ export class LoginComponent implements OnInit, OnDestroy {
    */
   errorDiagnostic: string;
 
-  constructor(private _userService: UserService, private _router: Router) {
+  constructor(private _userService: UserService, private _router: Router, private formBuilder: FormBuilder) {
 
   }
 
   ngOnInit() {
-    this.username = new FormControl('', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(64)]));
-    this.password = new FormControl('', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(32)]));
 
-    this.form = new FormGroup({
-      'username': this.username,
-      'password': this.password,
+    this.form = this.formBuilder.group({
+      username: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(64)])],
+      password: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(32)])]
     });
+
   }
 
   authenticated(): Observable<boolean> {

@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   background-size: cover;
   background-position: 50% 90% !important;
   background-repeat: no-repeat;
@@ -17,8 +17,9 @@ md-card {
   -o-animation: fadein 1s; /* Opera */
   -moz-animation: fadein 1s; /* Firefox */
   -webkit-animation: fadein 1s; /* Safari and Chrome */
-  
-  max-width:85%;
+
+  width:85%;
+  max-width:320px;
 }
 
 md-input {
