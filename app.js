@@ -4,7 +4,6 @@
 var express        = require('express');
 var session        = require('express-session');
 var path           = require('path');
-var favicon        = require('serve-favicon');
 var logger         = require('morgan');
 var cookieParser   = require('cookie-parser');
 var bodyParser     = require('body-parser');
@@ -24,7 +23,6 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use(favicon(path.join(__dirname, 'src', 'assets/favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -33,13 +31,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(cookieParser());
 
-app.use('/src', express.static(__dirname + '/src'));
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 
 /**
  * PWA Static Exceptions
  */
-app.use('/sw.js', express.static(__dirname + '/sw.js'));
 app.use('/manifest.json', express.static(__dirname + '/manifest.json'));
 app.use('/192.png', express.static(__dirname + '/192.png'));
 app.use('/144.png', express.static(__dirname + '/144.png'));

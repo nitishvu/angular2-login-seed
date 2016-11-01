@@ -2,29 +2,27 @@ import { Component, OnInit } from '@angular/core';
 
 import { User } from '../shared/services/user/user';
 import { UserService } from '../shared/services/user/user.service';
-import { UserBadgeComponent } from './user-badge.component';
 
 @Component({
     selector: 'users',
-    templateUrl: 'app/users/users.component.html',
-    styleUrls: ['app/home-root/home-root.component.css', 'app/users/users.component.css'],
-    directives: [UserBadgeComponent],
+    templateUrl: './users.component.html',
+    styleUrls: ['../home-root/home-root.component.css', './users.component.css']
 })
 
 export class UsersComponent implements OnInit {
   users: User[];
   selectedUser: User;
-  
+
   constructor(private _userService: UserService) { }
-  
+
   ngOnInit() {
     this.getUsers();
   }
-  
+
   getUsers() {
-    this._userService.getUsers().then(users => this.users = users);
+    this._userService.getUsers().subscribe(users => this.users = users);
   }
-  
+
   onSelect(user: User) {
     if(user == this.selectedUser) {
       //this.selectedHero = undefined;
@@ -32,6 +30,6 @@ export class UsersComponent implements OnInit {
       this.selectedUser = user;
     }
   }
-  
+
   title = 'Users Component';
 }

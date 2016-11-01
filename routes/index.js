@@ -11,7 +11,7 @@ var authenticationHelpers = require('./authenticationHelpers');
 var api       =  require('./api');
 var authorize =  require('./authorize');
 
-const allowedOrigins = ['http://localhost:4200', 'https://angular2-login-seed.herokuapp.com'];
+const allowedOrigins = ['http://localhost:4200', 'https://angular2-login-seed.herokuapp.com', 'https://domfarolino.com', 'https://domfarolino.github.io'];
 
 router.use(function(request, response, next) {
   var origin = request.headers.origin;
@@ -33,21 +33,8 @@ router.use('/authorize', authorize);
 
 /* GET home page. */
 /* Purest route */
-router.get('/', authenticationHelpers.isAuthOrRedirect, function(req, res, next) {
-  res.sendFile(path.join(__dirname, '../', 'index.html'));
-  //res.render('index');
-});
-
-/* GET login page. */
-router.get('/login', authenticationHelpers.isNotAuthOrRedirect, function(req, res, next) {
-  res.sendFile(path.join(__dirname, '../', 'index.html'));
-  //res.render('index');
-});
-
-/* GET register page. */
-router.get('/register', authenticationHelpers.isNotAuthOrRedirect, function(req, res, next) {
-  res.sendFile(path.join(__dirname, '../', 'index.html'));
-  //res.render('index');
+router.get('/', function(req, res, next) {
+  res.json({"apiRoot": true});
 });
 
 /* GET logout page. */
@@ -56,21 +43,21 @@ router.get('/logout', authenticationHelpers.isAuthOrRedirect, function(req, res,
   req.logout();
   res.json({"loggedOut": req.isAuthenticated()});
 });
- 
+
 /**
- * Define our google callback endpoint and success/failure methods 
+ * Define our google callback endpoint and success/failure methods
  */
-router.get('/callback/google', 
-	passport.authenticate('google', { 
+router.get('/callback/google',
+	passport.authenticate('google', {
 		successRedirect: '/',
 		failureRedirect: '/login'
 }));
 
 /**
- * Define our twitter callback endpoint and success/failure methods 
+ * Define our twitter callback endpoint and success/failure methods
  */
-router.get('/callback/twitter', 
-	passport.authenticate('twitter', { 
+router.get('/callback/twitter',
+	passport.authenticate('twitter', {
 		successRedirect: '/',
 		failureRedirect: '/login'
 }));

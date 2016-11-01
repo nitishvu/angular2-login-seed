@@ -15,15 +15,12 @@ export class HeroService {
 
   getHeroes () {
     return this.http.get(this._heroesUrl, <RequestOptionsArgs> {withCredentials: true})
-                  .toPromise()
-                  .then(res => <Hero[]> res.json(), this.handleError)
-                  .then(data => { console.log(data); return data; }); // eyeball results in the console
+                  .map(res => <Hero[]> res.json(), this.handleError)
+                  .map(data => { console.log(data); return data; }); // eyeball results in the console
     }
 
   getHero(id: number) {
-    return Promise.resolve(this.getHeroes()).then(
-      heroes => heroes.filter(hero => hero.id === id)[0]
-    );
+    return this.getHeroes().map(heroes => heroes.filter(hero => hero.id === id)[0]);
   }
 
   private handleError (error: Response) {

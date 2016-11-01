@@ -1,37 +1,41 @@
 <div class="content">
-  
-    <md-card heading="{{title}}" elevation="5">
-      
-      <md-card-title>
+
+    <md-card elevation="5">
+
+      <md-card-subtitle>
         <h2>Angular2 Login Seed</h2>
+      </md-card-subtitle>
+
+      <md-card-title>
+        <h2>{{title}}</h2>
       </md-card-title>
-      
+
       <md-card-content>
         <h2>Create an account</h2>
-        
+
         <form *ngIf="!submitted" [formGroup]="form" (ngSubmit)="onSubmit()" #registerForm="ngForm">
           <md-input formControlName="name" required placeholder="Name"></md-input>
           <md-input formControlName="username" required placeholder="Username"></md-input>
-          <md-input formControlName="email" required placeholder="email@example.com"></md-input>
-          <md-input formControlName="password" required placeholder="Password" type="password"></md-input>
+          <md-input formControlName="email" required placeholder="example@email.com"></md-input>
+          <md-input formControlName="password" required type="password" placeholder="Password"></md-input>
           <button type="submit" [disabled]="!registerForm.form.valid" md-raised-button color="primary">Register</button>
         </form>
-        
+
         <md-spinner *ngIf="submitted" mode="indeterminate"></md-spinner>
-        
+
         <p class="error" *ngIf="errorDiagnostic">{{errorDiagnostic}}</p>
-        
+
         <br>
         <hr>
-        
+
         <button (click)="login()" md-raised-button color="accent">Login</button>
-        
+
         <p><i>Created by <a href="https://github.com/domfarolino">Dom Farolino</a></i></p>
         <p><i>Click below to go to repository</i></p>
         <button (click)="repository()" md-raised-button color="accent">GitHub Repository</button>
-        
+
       </md-card-content>
-      
+
     </md-card>
-  
+
 </div>
