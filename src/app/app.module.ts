@@ -11,7 +11,14 @@ import { MdList, MdListItem } from '@angular2-material/list';
 import { MdButton } from '@angular2-material/button';
 import { MdIcon, MdIconRegistry } from '@angular2-material/icon';
 
-import { HeroService } from '../shared/services/hero/hero.service';
+import { HeroesComponent } from './heroes/heroes.component';
+import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { UsersComponent } from './users/users.component';
+import { UserBadgeComponent } from './users/user-badge.component';
+import { QuickCardComponent } from './shared/components/quick-card/quick-card.component';
+
+import { UserService } from './shared/services/user/user.service';
+import { HeroService } from './shared/services/hero/hero.service';
 
 import { AppRoutingModule, routedComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +33,11 @@ import { AppComponent } from './app.component';
   declarations: [
     AppComponent,
     routedComponents,
+    HeroDetailComponent,
+    HeroesComponent,
+    UsersComponent,
+    UserBadgeComponent,
+    QuickCardComponent,
     MdCard,
     MdToolbar,
     MdToolbarRow,
@@ -36,7 +48,7 @@ import { AppComponent } from './app.component';
     MdButton,
     MdIcon
   ],
-  providers: [MdIconRegistry, HeroService],
+  providers: [MdIconRegistry, HeroService, UserService, HeroService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

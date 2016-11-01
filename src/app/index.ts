@@ -1,4 +1,3 @@
-export * from './environment';
-export * from './angular2-login-seed.component';
-export * from './angular2-login-seed.routes';
+export * from './app.component';
+export * from './app.module';
 export * from './unauthenticated.guard';

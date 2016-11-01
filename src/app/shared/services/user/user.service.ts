@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
-import { Control } from '@angular/common';
+//import { Control } from '@angular/common';
 import { Http, Response, Headers, RequestOptions, RequestOptionsArgs } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
@@ -55,16 +55,14 @@ export class UserService {
 
   getUsers() {
     return this.http.get(this._apiBase + "/api/users?limit=5&desc=true", <RequestOptionsArgs> {withCredentials: true})
-                  .toPromise()
-                  .then(res => <User[]> res.json(), this.handleError)
-                  .then(data => { console.log(data); return data; }); // eyeball results in the console
+                  .map((res: Response) => res.json())
+                  .catch(this.handleError);
   }
 
   getMe() {
     return this.http.get(this._apiBase + '/api/users/me/', <RequestOptionsArgs> {withCredentials: true})
-                  .toPromise()
-                  .then(res => <User> res.json().me, this.handleError)
-                  .then(data => { console.log(data); return data; }); // eyeball results in the console
+                  .map((res: Response) => res.json().me)
+                  .catch(this.handleError);
   }
 
   private handleError (error: Response) {
