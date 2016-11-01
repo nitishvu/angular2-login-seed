@@ -5,7 +5,7 @@
 [![devDependency Status](https://david-dm.org/domfarolino/angular2-login-seed/dev-status.svg)](https://david-dm.org/domfarolino/angular2-login-seed#info=devDependencies)
 [![Angular2 Style Guide](https://camo.githubusercontent.com/495f5e3a82030e6bd99569430828c46591cfe8bf/68747470733a2f2f6d6765636865762e6769746875622e696f2f616e67756c6172322d7374796c652d67756964652f696d616765732f62616467652e737667)](https://camo.githubusercontent.com/495f5e3a82030e6bd99569430828c46591cfe8bf/68747470733a2f2f6d6765636865762e6769746875622e696f2f616e67756c6172322d7374796c652d67756964652f696d616765732f62616467652e737667)
 
-A seed application for developers to get started building applications with Angular2. The application's backend is in Node.js featuring user login via PassportJS and OAuth.
+A seed application for developers to get started building applications with Angular 2. The application's backend is in Node.js featuring user login via PassportJS and OAuth.
 
 [![angular2-login-seed](./logo_post_polymer.png)](https://github.com/domfarolino/angular2-login-seed)
 
@@ -35,18 +35,18 @@ Some of the open source technologies used in this application are listed below
 
 ## Overview
 
-This repository contains code for *two* applications:
+This repository contains code for ***two*** applications:
 
- - The Angular app which gets served by the [angular-cli](https://github.com/angular/angular-cli) via `npm start` on `localhost:4200`
+ - The Angular app which gets served by the [angular-cli](https://github.com/angular/angular-cli) via `ng serve` on `localhost:4200`
  - The Express server on which the Angular app depends which is served via `npm run express-dev` or `npm run express-prod` on `localhost:5000`
 
 **It is only necessary to run the Angular app locally** to get up and running. This is because by default the Angular app depends on the
 remote Express server which has been deployed on Heroku. There is no need for you worry about setting up OAuth accounts, SQL Databases, or
-remote servers. This stuff is only necessary if you wish to change the API to be your own. Steps for this can be found in the [Customizing Express server](#customizing-express-server) section. 
+remote servers. This stuff is only necessary if you wish to change the API to be your own. Steps for this can be found in the [Customizing Express server](#customizing-express-server) section.
 
 ## TL;DR Get started now
 
-Make sure you have `angular-cli` installed globally `npm install -g angular-cli`.
+Make sure you have `angular-cli` installed globally `npm install -g angular-cli@latest`.
 
 ```sh
 # Fork or clone this repo
@@ -70,7 +70,7 @@ I've tried to make it easy to customize your the Express server to make it your 
  - Create OAuth appliations with Google and Twitter. You can follow my [guide here](https://chinocode.com/Registering-An-OAuth-App/)
  - Input the application credentials in the `config/default.json` configuration file
  - Create a local or production database in which the application will store the `users`.
- - Execute the contents of `angular2-login-seed.sql` on the database to create a useres table with proper fields
+ - Execute the contents of `angular2-login-seed.sql` on the database to create a users table with proper fields
  - Fill out `config/default.json`, `config/production.json`, or both with db credentials to that `Sequelize` knows how to connect when you're in development or production mode
  - Change the production OAuth callbacks found in `config/production.json`
 
@@ -81,9 +81,9 @@ npm run express-dev # runs express server in development mode with development s
 npm run express-prod # runs express server in production mode using credentials overwritten in production.json
 ```
 
-I've tried to make it as easy as possible to add more OAuth providers to this app to keep it flexible.
-If you think it can be done better please submit a PR to improve the maintainability of the app.
-To add support for another OAuth provider 4 things need to be done:
+I've also tried to make it as easy as possible to add more OAuth providers to this app to keep
+it flexible. If you think it can be done better please submit a PR to improve the maintainability
+of the app. To add support for another OAuth provider 4 things need to be done:
 
 ##### 1. Add authorization and callback routes for the provider (edit `/routes/index.js`)
 ```
@@ -94,10 +94,10 @@ router.get('/authorize/provider',
   passport.authenticate('provider'));
 
 /**
- * Define our provider callback endpoint and success/failure methods 
+ * Define our provider callback endpoint and success/failure methods
  */
-router.get('/callback/provider', 
-	passport.authenticate('provider', { 
+router.get('/callback/provider',
+	passport.authenticate('provider', {
 		successRedirect: '/',
 		failureRedirect: '/provider'
 }));
@@ -123,182 +123,146 @@ The goal is to keep as flat of a directory structure as possible for all of the 
 
 ```
 .
-├─routes
-│   ├─api
-│   │   ├─users.js
-│   │   ├─index.js
-│   ├─authenticationHelpers.js
-│   ├─index.js
-│   ├─authorize
-│   │   ├─index.js
-├─e2e
-│   ├─app.po.ts
-│   ├─typings.d.ts
-│   ├─app.po.js
-│   ├─app.e2e.ts
-│   ├─app.e2e.js.map
-│   ├─app.e2e.js
-│   ├─tsconfig.json
-│   ├─app.po.js.map
-├─144.png
-├─Procfile
-├─app.js
-├─views
-│   ├─error.ejs
 ├─login-screenshot.png
-├─controllers
-│   ├─getAllUsersPublic.js
-│   ├─truncateUserObject.js
-│   ├─userExists.js
-│   ├─registerUser.js
-│   ├─index.js
-│   ├─getUserPublic.js
-├─directoryStructure.txt
 ├─angular-cli.json
-├─tslint.json
 ├─logo.png
+├─96.png
+├─192.png
+├─Procfile
+├─144.png
 ├─.editorconfig
-├─app-component-tree.png
-├─public
-├─angular-cli-build.js
-├─logo_post_polymer.png
-├─models
-│   ├─user.js
-│   ├─index.js
-├─manifest.json
+├─package.json
+├─protractor.conf.js
+├─tslint.json
+├─e2e
+│   ├─app.e2e-spec.ts
+│   ├─e2e
+│   │   ├─app.po.ts
+│   │   ├─tsconfig.json
+│   │   ├─typings.d.ts
+│   │   ├─app.e2e.ts
+│   ├─app.po.ts
+│   ├─tsconfig.json
+├─.gitignore
+├─angular2-login-seed.sql
+├─karma.conf.js
+├─README.ng.md
 ├─src
+│   ├─favicon.ico
+│   ├─polyfills.ts
+│   ├─styles.css
 │   ├─app
-│   │   ├─angular2-login-seed.component.spec.ts
-│   │   ├─login
-│   │   │   ├─login.component.css
-│   │   │   ├─login.component.js.map
-│   │   │   ├─login.component.js
-│   │   │   ├─index.ts
-│   │   │   ├─login.component.html
-│   │   │   ├─login.component.ts
-│   │   ├─heroes
-│   │   │   ├─heroes.component.js.map
-│   │   │   ├─heroes.component.js
-│   │   │   ├─heroes.component.ts
-│   │   │   ├─heroes.component.css
-│   │   │   ├─heroes.component.html
-│   │   ├─unauthenticated.guard.ts
-│   │   ├─angular2-login-seed.component.css
+│   │   ├─app.component.css
 │   │   ├─register
-│   │   │   ├─register.component.js
-│   │   │   ├─index.ts
-│   │   │   ├─register.component.js.map
-│   │   │   ├─register.component.ts
 │   │   │   ├─register.component.css
+│   │   │   ├─register.component.ts
+│   │   │   ├─register.component.js
+│   │   │   ├─register.component.js.map
 │   │   │   ├─register.component.html
+│   │   │   ├─index.ts
+│   │   ├─shared
+│   │   │   ├─components
+│   │   │   │   ├─quick-card
+│   │   │   │   │   ├─quick-card.component.css
+│   │   │   │   │   ├─quick-card.component.html
+│   │   │   │   │   ├─quick-card.component.js
+│   │   │   │   │   ├─quick-card.component.js.map
+│   │   │   │   │   ├─quick-card.component.ts
+│   │   │   ├─services
+│   │   │   │   ├─user
+│   │   │   │   │   ├─user.service.js.map
+│   │   │   │   │   ├─user-status-codes.js.map
+│   │   │   │   │   ├─user.service.js
+│   │   │   │   │   ├─username-email-validator.ts
+│   │   │   │   │   ├─user.js.map
+│   │   │   │   │   ├─user.service.ts
+│   │   │   │   │   ├─username-email-validator.js
+│   │   │   │   │   ├─user.ts
+│   │   │   │   │   ├─user-status-codes.ts
+│   │   │   │   │   ├─user-status-codes.js
+│   │   │   │   │   ├─username-email-validator.js.map
+│   │   │   │   │   ├─user.js
+│   │   │   │   ├─hero
+│   │   │   │   │   ├─hero.js.map
+│   │   │   │   │   ├─hero.service.js
+│   │   │   │   │   ├─hero.ts
+│   │   │   │   │   ├─hero.service.js.map
+│   │   │   │   │   ├─hero.service.ts
+│   │   │   │   │   ├─hero.js
 │   │   ├─home-root
+│   │   │   ├─home-root.component.html
+│   │   │   ├─home-root.component.js
+│   │   │   ├─home-root.routes.ts
 │   │   │   ├─home-root.guard.ts
-│   │   │   ├─home-root.component.css
 │   │   │   ├─index.ts
 │   │   │   ├─home-root.component.js.map
-│   │   │   ├─home-root.routes.ts
-│   │   │   ├─home-root.component.js
-│   │   │   ├─home-root.component.html
 │   │   │   ├─home-root.component.ts
-│   │   ├─hero-detail
-│   │   │   ├─hero-detail.component.js.map
-│   │   │   ├─hero-detail.component.html
-│   │   │   ├─hero-detail.component.css
-│   │   │   ├─hero-detail.component.js
-│   │   │   ├─hero-detail.component.ts
+│   │   │   ├─home-root.component.css
 │   │   ├─users
-│   │   │   ├─user-badge.component.html
-│   │   │   ├─users.component.css
-│   │   │   ├─users.component.ts
 │   │   │   ├─user-badge.component.css
-│   │   │   ├─index.ts
-│   │   │   ├─users.component.js.map
+│   │   │   ├─users.component.ts
+│   │   │   ├─user-badge.component.js.map
 │   │   │   ├─users.component.js
-│   │   │   ├─users.component.html
 │   │   │   ├─user-badge.component.js
 │   │   │   ├─user-badge.component.ts
-│   │   │   ├─user-badge.component.js.map
-│   │   ├─environment.ts
-│   │   ├─index.ts
+│   │   │   ├─users.component.css
+│   │   │   ├─users.component.js.map
+│   │   │   ├─user-badge.component.html
+│   │   │   ├─users.component.html
+│   │   │   ├─index.ts
+│   │   ├─app.component.html
 │   │   ├─dashboard
-│   │   │   ├─dashboard.component.html
 │   │   │   ├─dashboard.component.ts
 │   │   │   ├─dashboard.component.js.map
 │   │   │   ├─dashboard.component.js
-│   │   ├─shared
-│   │   │   ├─services
-│   │   │   │   ├─hero
-│   │   │   │   │   ├─hero.service.js.map
-│   │   │   │   │   ├─hero.service.ts
-│   │   │   │   │   ├─hero.service.js
-│   │   │   │   │   ├─hero.js.map
-│   │   │   │   │   ├─hero.js
-│   │   │   │   │   ├─hero.ts
-│   │   │   │   ├─user
-│   │   │   │   │   ├─user-status-codes.js.map
-│   │   │   │   │   ├─user.js
-│   │   │   │   │   ├─user-status-codes.ts
-│   │   │   │   │   ├─user.service.ts
-│   │   │   │   │   ├─user.service.js.map
-│   │   │   │   │   ├─user.ts
-│   │   │   │   │   ├─user.js.map
-│   │   │   │   │   ├─username-email-validator.ts
-│   │   │   │   │   ├─username-email-validator.js.map
-│   │   │   │   │   ├─user.service.js
-│   │   │   │   │   ├─username-email-validator.js
-│   │   │   │   │   ├─user-status-codes.js
-│   │   │   ├─components
-│   │   │   │   ├─quick-card
-│   │   │   │   │   ├─quick-card.component.js
-│   │   │   │   │   ├─quick-card.component.html
-│   │   │   │   │   ├─quick-card.component.ts
-│   │   │   │   │   ├─quick-card.component.js.map
-│   │   │   │   │   ├─quick-card.component.css
-│   │   ├─angular2-login-seed.component.ts
-│   │   ├─angular2-login-seed.component.html
-│   │   ├─angular2-login-seed.routes.ts
-│   ├─typings.d.ts
-│   ├─system-config.ts
-│   ├─favicon.ico
-│   ├─index.html
+│   │   │   ├─dashboard.component.html
+│   │   ├─app.component.ts
+│   │   ├─app-routing.module.ts
+│   │   ├─app.module.ts
+│   │   ├─login
+│   │   │   ├─login.component.css
+│   │   │   ├─login.component.ts
+│   │   │   ├─login.component.html
+│   │   │   ├─login.component.js
+│   │   │   ├─login.component.js.map
+│   │   │   ├─index.ts
+│   │   ├─app.component.spec.ts
+│   │   ├─hero-detail
+│   │   │   ├─hero-detail.component.js
+│   │   │   ├─hero-detail.component.css
+│   │   │   ├─hero-detail.component.html
+│   │   │   ├─hero-detail.component.js.map
+│   │   │   ├─hero-detail.component.ts
+│   │   ├─heroes
+│   │   │   ├─heroes.component.html
+│   │   │   ├─heroes.component.js
+│   │   │   ├─heroes.component.js.map
+│   │   │   ├─heroes.component.css
+│   │   │   ├─heroes.component.ts
+│   │   ├─unauthenticated.guard.ts
+│   │   ├─index.ts
 │   ├─main.ts
+│   ├─index.html
 │   ├─tsconfig.json
+│   ├─typings.d.ts
+│   ├─test.ts
+│   ├─environments
+│   │   ├─environment.prod.ts
+│   │   ├─environment.ts
 │   ├─assets
 │   │   ├─favicon.ico
 │   │   ├─img
 │   │   │   ├─space_bg.jpg
-│   │   │   ├─menu_bg.jpg
+│   │   │   ├─background.jpg
 │   │   │   ├─menu_bg_small.jpg
 │   │   │   ├─bg.png
-│   │   │   ├─background.jpg
-├─config
-│   ├─default.json
-│   ├─production.json
-│   ├─karma-test-shim.js
-│   ├─environment.js
-│   ├─passport.js
-│   ├─environment.dev.js
-│   ├─environment.prod.js
-│   ├─environment.dev.ts
-│   ├─environment.dev.js.map
-│   ├─environment.prod.ts
-│   ├─karma.conf.js
-│   ├─protractor.conf.js
-│   ├─environment.prod.js.map
-├─bin
-│   ├─www
-├─index.html
-├─package.json
-├─.gitignore
-├─96.png
-├─typings.json
-├─tsconfig.json
-├─sw.js
-├─LICENSE
-├─192.png
-├─.clang-format
-├─angular2-login-seed.sql
+│   │   │   ├─menu_bg.jpg
 ├─README.md
+├─logo_post_polymer.png
+├─manifest.json
+├─users-screenshot.png
+├─directoryStructure.txt
+├─LICENSE
 ```
 
 ## Contributing

@@ -1,3 +1,4 @@
+import { Inject } from '@angular/core';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -41,7 +42,7 @@ export class LoginComponent implements OnInit, OnDestroy {
    */
   errorDiagnostic: string;
 
-  constructor(private _userService: UserService, private _router: Router, private formBuilder: FormBuilder) {
+  constructor(private _userService: UserService, private _router: Router, private formBuilder: FormBuilder, @Inject('apiBase') private _apiBase: string) {
 
   }
 
@@ -65,7 +66,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     /**
      * Total hack until new router is used (for authentication and activation logic)
      */
-    var newWindow = window.open("https://angular2-login-seed.herokuapp.com/authorize/" + provider, 'name', 'height=585, width=770');
+    var newWindow = window.open(`${this._apiBase}/authorize/${provider}`, 'name', 'height=585, width=770');
 	   if (window.focus) {
        newWindow.focus();
      }

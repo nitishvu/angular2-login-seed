@@ -1,0 +1,7 @@
+{  
+  "oauthCallbacks": {
+    "googleCallbackUrl"  : "https://angular2-login-seed.herokuapp.com/callback/google",
+    "twitterCallbackUrl": "https://angular2-login-seed.herokuapp.com/callback/twitter",
+    "facebookCallbackUrl": "https://angular2-login-seed.herokuapp.com/callback/facebook"
+  }
+}
