@@ -8,7 +8,7 @@
   background-size: cover;
   background-position: 50% 90% !important;
   background-repeat: no-repeat;
-  background-image: url(assets/img/bg.png);
+  background-image: url(assets/img/nyc.jpg);
 }
 
 md-card {
@@ -19,7 +19,7 @@ md-card {
   -webkit-animation: fadein 1s; /* Safari and Chrome */
 
   width:85%;
-  max-width:320px;
+  max-width:350px;
 }
 
 md-input {

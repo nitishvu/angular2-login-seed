@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  title = "Dom Farolino Personal Web App"
+  title = "Angular2 Login Seed"
 }
