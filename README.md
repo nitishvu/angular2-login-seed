@@ -22,7 +22,7 @@ A seed application for developers to get started building applications with Angu
   1. [Todo](#todo)
 
 ## Demo
-Check this site out live [here](https://chinocode.com/angular2-login-seed)
+Check this site out live [here](https://domfarolino.com/angular2-login-seed)
 
 ## Technologies
 Some of the open source technologies used in this application are listed below
