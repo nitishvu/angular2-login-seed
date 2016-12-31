@@ -67,7 +67,7 @@ Once you login you will see the following screen:
 
 I've tried to make it easy to customize your the Express server to make it your own. Only the following steps need completed:
 
- - Create OAuth appliations with Google and Twitter. You can follow my [guide here](https://chinocode.com/Registering-An-OAuth-App/)
+ - Create OAuth applications with Google and Twitter. You can follow my [guide here](https://chinocode.com/Registering-An-OAuth-App/)
  - Input the application credentials in the `config/default.json` configuration file
  - Create a local or production database in which the application will store the `users`.
  - Execute the contents of `angular2-login-seed.sql` on the database to create a users table with proper fields
