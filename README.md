@@ -73,6 +73,7 @@ I've tried to make it easy to customize your the Express server to make it your 
  - Execute the contents of `angular2-login-seed.sql` on the database to create a users table with proper fields
  - Fill out `config/default.json`, `config/production.json`, or both with db credentials to that `Sequelize` knows how to connect when you're in development or production mode
  - Change the production OAuth callbacks found in `config/production.json`
+ - Change the api url to your new server
 
 > To learn about how the npm package `config` works with Node environment variables click [here](https://www.npmjs.com/package/config)
 
@@ -114,6 +115,11 @@ passport.use(new ProviderStrategy({....
 This entails basically examining the JSON payload you get back from your provider and seeing
 under what keys, the information you need to insert into the database exists under. If any database/model
 changes need made modify the database appropriately and update the User model `/models.js`
+
+##### 5. Update the apiBase to use your own server
+
+The current api endpoint is listed as a provided value in the /src/app/app.module.ts file. You must change the api url (currently 'https://angular2-login-seed.herokuapp.com') to the url of your own api server.
+
 
 ## Angular Component Tree
 ![app-component-tree](./app-component-tree.png)
