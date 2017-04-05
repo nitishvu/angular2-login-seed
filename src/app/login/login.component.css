@@ -8,7 +8,7 @@
   background-size: cover;
   background-position: 50% 90% !important;
   background-repeat: no-repeat;
-  background-image: url(assets/img/nyc.jpg);
+  background-image: url(../../assets/img/nyc.jpg);
 }
 
 md-card {
